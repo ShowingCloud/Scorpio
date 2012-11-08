@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>康美会官网</title>
+</head>
+<body>
+<div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
+<!--中间部分开始-->
+<form action="" method="get">
+<div id="main">
+<div><img src="/assets/products_adv.jpg" width="928" height="248"> </div>
+  <div class="current_place">
+      <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a>产品信息</a></li>
+		<div style="clear:both"></div>
+	 </ul>  
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+   <div class="mem_des_before_left_head_img"> &nbsp; </div>
+   <div class="mem_des_before_left_head_title">产品信息</div>
+   <div class="mem_des_before_left_item"><a href="../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol" target="_self">NovaSOL</a></div>
+  </div>
+  </div>
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+        <div class="products_around">
+		     <div class="products_top">
+			       <div class="products_Q10_title">Novasol&nbsp;Q10软胶囊</div>
+			       <div class="products_top_left">
+				        <div class="products_top_left_top"><img src="../assets/products_pic_q10.jpg" width="187" height="203" /></div>
+						<div class="products_top_left_bottom">
+							<button type="button" value="" class="learnmore" onclick="location.href='/pages/35'"></button>
+							<% if session[:login] %>
+								<button type="button" value="" class="clickbuy" onclick="neworder()"></button>
+							<% else %>
+								<button type="button" value="" class="clickbuy" onclick="openpopup(true, true)"></button>
+							<% end %>
+							<input type="hidden" id="dontredirect" />
+						</div>
+				   </div>
+			       <div class="products_top_right"><img src="../assets/products_topright.jpg"  width="337" height="219"/></div>
+			 </div>
+		     <div class="products_bottom">
+			       <div class="product_bottom_left"><img src="../assets/products_bottomleft.jpg" width="278" height="194"/></div>
+				   <div class="product_bottom_right"><img src="../assets/products_bottomright.jpg" width="278" height="194"/></div>
+			 
+			 </div>		
+		
+		
+		</div>
+  </div>
+</div>
+ </form>
+</body>
+</html>

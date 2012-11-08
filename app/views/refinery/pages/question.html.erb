@@ -1,0 +1,165 @@
+<div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
+<form action="#" method="get">
+<div id="main">
+  <div class="current_place">
+     <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a href="#" target="_self">常见问题</a>&gt;&gt;</li>
+		<li><a href="#" target="_self">Q&A</a></li>
+		<div style="clear:both"></div>
+	 </ul>
+  
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+     <div class="mem_des_before_left_head_img"> &nbsp; </div>
+     <div class="mem_des_before_left_head_title">常见问题</div>
+     <ul>               
+           <li class="mem_des_before_left_item"><a href="../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%B9%B0%E5%AE%B6%E9%A1%BB%E7%9F%A5" target="_self">买家须知</a></li>
+		   <li class="mem_des_before_left_item_blue"><a href="#" target="_self">Q&A</a></li>
+     </ul>
+  </div>
+  </div>
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+    <div class="product_right_bottom">
+           <div class="common_question_1"><%=raw @page.content_for(:common_question) %></div>
+                 <div class="common_question">
+                 <div class="Q"><%=raw @page.content_for(:Q1) %></div>
+                 <div class="A"> <%=raw @page.content_for(:A1) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q2) %></div>
+               <div class="A"><%=raw @page.content_for(:A2) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q3) %></div>
+               <div class="A"> <%=raw @page.content_for(:A3) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q4) %></div>
+               <div class="A"> <%=raw @page.content_for(:A4) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q5) %></div>
+               <div class="A"><%=raw @page.content_for(:A5) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q6) %></div>
+               <div class="A"><%=raw @page.content_for(:A6) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q7) %></div>
+               <div class="A"><%=raw @page.content_for(:A7) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q8) %></div>
+               <div class="A"><%=raw @page.content_for(:A8) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q9) %></div>
+               <div class="A"><%=raw @page.content_for(:A9) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q10) %></div>
+               <div class="A"> <%=raw @page.content_for(:A10) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q11) %></div>
+               <div class="A"> <%=raw @page.content_for(:A11) %></div>
+           </div>
+           <div class="common_question">
+               <div class="Q"><%=raw @page.content_for(:Q12) %></div>
+               <div class="A"> <%=raw @page.content_for(:A12) %></div>
+           </div>
+      <div class="space">
+      	<div class="space_bar">
+      		<div class="space_text" ><%=raw @page.content_for(:space_text) %></div>  
+            </div>
+      </div>
+      <div class="middle">
+    <!--    <table width="573" height="236" border="0">
+        <tr>
+          <td width="567">--><table width="546" height="444" border="0">
+            <tr>
+              <td width="88" height="30"><div class="ask">我要提问</div></td>
+              <td width="448"><div class="necessary">*为必填内容</div></td>
+            </tr>
+            <tr>
+              <td height="26" >
+                   <ul>
+                      <li>姓名</li>
+                      <li class="xinhao">*</li>
+                      <li>：</li>
+                   </ul></td>              
+              <td width="448"><input class="textblank" type="text" name="p_name" id="username" style="width:240px" /></td>
+            </tr>
+            <tr>
+              <td height="24"><ul>
+                      <li>性别：</li>
+                   </ul></td>
+              <td><input name="sex" id="gender1" type="radio" value="男" />
+                <label for="man">男</label>
+                <input name="sex" id="gender2" type="radio" value="女" />
+                <label for="woman">女</label></td>
+            </tr>
+            <tr>
+              <td height="24"><ul>
+                      <li>年龄</li>
+                      <li class="xinhao">*</li>
+                      <li>：</li>
+                   </ul></td>
+              <td><input name="age" id="age1" type="radio" value="35" />
+              <label for="woman">25岁以下&nbsp;&nbsp;</label>
+                <input name="age" id="age2" type="radio" value="35" />
+                <label for="woman">26-35岁&nbsp;&nbsp;</label>
+                <input name="age" id="age3" type="radio" value="45" />
+                <label for="woman">36-45岁&nbsp;&nbsp;</label>
+                <input name="age" id="age4" type="radio" value="55" />
+                <label for="woman">45-55岁&nbsp;&nbsp;</label>
+                <input name="age" id="age5" type="radio" value="25" />
+                <label for="woman">55岁以上&nbsp;&nbsp;</label></td>
+            </tr>
+            <tr>
+              <td height="32"><ul>
+                      <li>邮箱地址</li>
+                      <li class="xinhao">*</li>
+                      <li>：</li>
+                   </ul></td>
+              <td><input type="text" class="textblank" name="p_email" id="email" style="width:240px"/></td>
+            </tr>
+            <tr>
+              <td height="32"><ul>
+                      <li>联系电话：</li>
+                   </ul></td>
+              <td><input type="text" class="textblank" name="p_telephone" id="phone" style="width:240px" /></td>
+            </tr>
+            <tr>
+              <td height="99"><ul>
+                      <li>我的问题</li>
+                      <li class="xinhao">*</li>
+                      <li>：</li>
+                   </ul></td>
+              <td><textarea class="textareablank"name="text" cols="60" rows="7" id="message"></textarea></td>
+            </tr>
+            <tr>
+              <td height="39">&nbsp;</td>
+              <td><input name="selected" id="selected" type="radio" value="selected" />
+               &nbsp;我已经阅读并同意隐私政策及愿意接受Q10的产品咨询及优惠</td>
+            </tr>
+            <tr>
+              <td height="99">&nbsp;</td>
+			  <td><button type="button" class="submitquestion" value="" onclick="newquery()"></button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="reset" class="questionreset" value=""></button></td>
+            </tr>
+          </table><!--</td>
+        </tr>
+        </table>-->
+      </div>
+      <div class="returntop"><a href="#">返回顶部</a>
+     </div>                   
+     </div>
+  </div>
+</div>
+</form>
+

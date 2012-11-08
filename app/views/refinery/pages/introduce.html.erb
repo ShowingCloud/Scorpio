@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>康美会官网</title>
+<style type="text/css">
+	.none
+	{	
+		display:none;
+	}
+	.show
+	{
+		display:block;
+	}
+    .showproduct
+	{
+	    color:#41347C;
+		background:#F7F7F7;
+	}
+    .noneproduct
+	{
+	    color:#A9A9A9;
+		background:#FFF
+	}
+</style>
+<script type="text/javascript">
+<!--
+	var proCate=new Array();
+     proCate[0]="pro_detail";
+     proCate[1]="pro_sale";
+     var proClass=new Array();
+     proClass[0]="detail";
+     proClass[1]="sale";
+	 function showPro(elementId)
+	 {
+		 for(var i=0;i<proCate.length;i++){
+		 if(elementId==i){
+
+			 document.getElementById(proClass[i]).className="show";
+			 document.getElementById(proCate[i]).className="showproduct";
+			 
+			 }
+		  else{
+			document.getElementById(proClass[i]).className="none";
+			 document.getElementById(proCate[i]).className="noneproduct";
+			  }
+		 }
+
+	 }	
+	 	 
+//-->
+</script>
+</head>
+<body>
+<!--中间部分开始-->
+<div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
+<div id="main">   
+  <div><img src="/assets/introduce_adv.jpg" width="928" height="101"> </div>
+  <div class="current_place">
+     <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a href="../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF" target="_self">产品系列</a>&gt;&gt;</li>
+		<li><a href="#" target="_self">NovaSOL</a></li>
+		<div style="clear:both"></div>
+	 </ul>
+  
+  
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+     
+     <div class="mem_des_before_left_head_title">产品信息</div>
+     <div class="mem_des_before_left_head_img"> &nbsp; </div>
+     <div class="mem_des_before_left_item_blue"><a>NovaSOL</a></div>
+  </div>
+  </div>
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+       <div class="line1"><%=raw @page.content_for(:productname) %></div>
+       <div class="product_right_head">
+       		<div class="product_right_head_left"><%=raw @page.content_for(:productpic) %>
+            </div>
+            <div class="product_right_head_right">
+            
+            <table height="211">
+			<tr>
+              <td width="113"><div class="line3_1">会员价格：</div></td>
+              <td width="148"><div class="line3_2">￥</div></td>
+              <td width="81"><div class="line3_3"><%=raw @page.content_for(:productprice) %></div></td>
+            </tr>
+            <tr>
+              <td width="113"><div class="line2_1">规格：</div></td>
+              <td width="148"><div class="line2_2"><%=raw @page.content_for(:productstandard) %></div></td>
+            </tr>    
+             <tr>
+              <td width="113"><div class="line4_1">数量：</div></td>
+              <td width="148"><div class="line4_2"><input type="text" name="amount" id="amount" />盒</div></td>
+            </tr>
+             <tr>
+				 <td width="113">
+					<input type="hidden" id="dontredirect" />
+					<% if session[:login] %>
+						<div class="line5_1" onclick="neworder()">
+					<% else %>
+						<div class="line5_1" onclick="openpopup(true, true)">
+					<% end %>
+						 &nbsp;&nbsp;  放入购物车
+					 </div>
+				 </td>
+              <td width="148"><div class="line5_2"><img src="../assets/introduce_add.jpg" width="21" height="21" /></div></td>
+              <td width="81"><div class="line5_3">收藏此产品</div></td>
+            </tr>
+             <tr>
+              <td width="113"><div class="line6_1">产品评分 ：</div></td>
+              <td width="148"><div class="line6_2"><img src="../assets/introduce_star.jpg" width="89" height="14" /></div></td>
+              <td width="81"><div class="line6_3"><a href="#">已有0条评论</a></div></td>
+              <td width="61"><div class="line6_4"><a href="#">发表评论</a></div></td>
+            </tr>
+             
+            </table>
+            </div>
+            </div>
+
+
+
+     <div class="pictable" style="float:left;margin-left:-6px;">
+   	   <table width="291" height="95" border="0">
+             <tr>
+                  <td width="285">
+				     <table width="280" height="90" border="0" >
+                          <tr>
+                                <td height="31"><img src="../assets/Q101_03.jpg" width="90" height="90" /></td>
+                                <td><img src="../assets/Q101_05.jpg" width="90" height="90" /></td>
+                                <td><img src="../assets/Q101_07.jpg" width="90" height="90" /></td>
+                          </tr>
+                    </table>
+               </td>
+                  
+         </tr>  
+      </table>
+    </div> 
+	<div>
+	<table width="392" height="46" border="0" style="margin-left:-2px;margin-top:4px">
+  <tr>
+    <td width="288"  style="background:#efefef;" ><div class="products_textpurple">使用方法</div><div class="products_textblack">每日一次，每次一粒，温水送服</div></td>
+    <td width="102"  style="background:#efefef;"><div class="products_textpurple">原产地</div><div class="products_textblack">德国</div></td>
+  </tr>
+   
+</table></div>
+<div >
+<table width="388" height="46" border="0" style="background:#efefef; ">
+  <tr>
+    <td><div class="products_textpurple">主要成分</div><div class="products_textblack">辅酶Q10，聚山梨酸脂80，中链脂肪酸甘油三脂</div></td>
+  </tr>
+</table>
+</div>
+
+    <div class="product" >
+           <ul>
+              <li onmouseover="showPro(0)" id="pro_detail" class="showproduct">关于Q10</li>
+              <li onmouseover="showPro(1)" id="pro_sale" class="noneproduct">NovaSOL&nbsp;Q10特有优势</li>
+                      
+           </ul>
+    </div>
+
+	<div id="" class="introduce_right_mid">
+		<div id="detail" class="">	
+             <div class="novasolQ10_pic"><img src="../assets/Q101_12.jpg" width="672" height="319"/></div>
+        
+             <div class="blue_title"><img src="../assets/Q101_15.jpg" width="672" height="59"/></div>
+             <div class="detail_text"><img src="../assets/Q101_16.jpg" width="672" height="241"/></div>
+        
+             <div class="blue_title"><img src="../assets/Q101_17.jpg" width="672" height="68"/></div>
+             <div class="detail_text"><img src="../assets/Q101_18.jpg" width="672" height="180"/></div>
+        
+             <div class="blue_title"><img src="../assets/Q101_19.jpg" width="672" height="69"/></div>
+             <div class="detail_text"><img src="../assets/Q101_20.jpg" width="672" height="225"/></div>
+        </div>
+		<div id="sale" class="none"> 
+             <div class="novasolQ10_pic"><img src="../assets/Q102_03.jpg" width="672" height="321"/></div>
+        
+             <div class="blue_title"><img src="../assets/Q102_05.jpg" width="672" height="87"/></div>
+             <div class="sale_text1"><img src="../assets/Q102_06.jpg" width="672" height="211"/></div>            
+             <div class="sale_video"><embed src="http://player.opengg.me/player.php/sid/XNDcxMTY5MjIw/v.swf" allowFullScreen="true" quality="high" width="250" height="250" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+        
+             <div class="blue_title"><img src="../assets/Q102_08.jpg" width="672" height="63"/></div>
+             <div class="sale_text2"><img src="../assets/Q102_09.jpg" width="672" height="37"/></div>
+             <div class="sale_pic2"><img src="../assets/Q102_10.jpg" width="672" height="233"/></div>
+             <div class="sale_video" style="float:left"><embed src="http://player.opengg.me/player.php/sid/XNDcxMTcwNTQ0/v.swf" allowFullScreen="true" quality="high" width="250" height="250" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+             <div class="sale_video" style="margin-left:350px"><embed src="http://player.opengg.me/player.php/sid/XNDcxMTg1Njc2/v.swf" allowFullScreen="true" quality="high" width="250" height="250" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+             <div class="blue_title"><img src="../assets/Q102_12.jpg" width="672" height="73"/></div>
+             <div class="sale_text3"><img src="../assets/Q102_13.jpg" width="672" height="100"/></div>
+             <div class="sale_pic3"><img src="../assets/Q102_14.jpg" width="672" height="291"/></div>
+         
+             <div class="blue_title"><img src="../assets/Q102_15.jpg" width="672" height="75"/></div>
+             <div class="sale_pic4"><img src="../assets/Q102_16.jpg" width="672" height="446"/></div>       
+         </div>		
+	</div>
+	
+	
+  
+  </div>
+</div>
+</body>
+</html>
+
+

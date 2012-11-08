@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+@charset "utf-8";
+/* CSS Document */
+
+#product_left_total{
+	float:left;	
+}
+#product_left{
+	width:198px;
+	height:auto;
+}
+.product_left_head_img{
+	   background:url(../images/arrow.png) 
+       no-repeat;
+	   width:11px;
+	   margin-right:4px;
+	   margin-left:15px;
+       float:left;
+	} 
+.product_left_head_title
+{
+	font-size:12px;
+	color:#22a9e0;
+    margin-top:10px;
+	padding-top:5px;
+	font-family:"Microsoft Yahei" !important;
+	font-family:"Microsoft Yahei" ;
+	font-weight:bold;	
+}
+.product_left_item
+{
+	font-size:12px;
+	color:#999;	
+	margin-left:33px;
+	margin-top:10px;
+}
+
+#product_right_total{
+  float:left;	
+  width:740px;
+  height:1000px;
+}
+
+.trolley_product_right_top{
+  min-height:1000px;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px 
+  
+}
+.trolleypic{
+	width:713px;
+	height:40px;
+	padding-top:20px;
+	margin-left:5px;
+	
+	}
+.trolleybody{
+	height:auto;
+	width:auto;
+	margin-left:5px;	
+	}
+.trolleybody table{
+	text-align:center;
+	font-size:17px;
+	color:#000;}
+.trolley_fare{
+        color:#000;
+	margin-left:10px;
+	margin-top:5px;
+	background:#eeeeee;
+	width:713px;
+	}
+.trolley_fare table{
+	text-align:center;
+	font-size:14px;
+	}
+.trolley_border{
+	border-left: solid #ffffff 3px;
+	border-right:solid #ffffff 3px;
+	}
+.emptytrolley{
+	font-size:13px;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:28px;
+	font-family:"Microsoft Yahei" !important;
+	font-family:"Microsoft Yahei" ;
+	color:#000;
+	}
+.trolley_code{
+	margin-left:10px;
+	margin-top:4px;
+	height:35px;
+	padding-top:15px;
+	font-size:16px;
+	padding-left:15px;
+	background:#eeeeee;
+	width:698px;
+	color:#000;
+	
+	}
+.trolley_code a{
+	color:#000;
+	}
+.trolley_code a:hover{
+	text-decoration:underline;
+	color:#000;	
+	}
+.trolley_total{
+        color:#000;
+	height:90px;
+	margin-left:10px;
+	padding-left:10px;
+	margin-top:15px;
+	}
+	
+.trolley_telephonepic{
+	
+	float:left;
+	width:45px; 
+	height:37px;}
+
+.trolley_telephonetext{
+	margin-top:-20px;
+	float:left;
+	width:320px;
+	font-size:18px;
+	margin-left:-32px;
+	}
+.trolley_telephonetext ul {
+	list-style:none;
+	}
+
+.totalprice{
+	width:129px;
+	height:28px;
+	margin-left:216px;
+	float:left;
+//	border:solid 1px;
+	font-size:18px;
+	padding-top:5px;
+	padding-left:15px;
+	}
+.continueshopping{
+	width:137px;
+	height:52px;
+	margin-left:597px;
+	
+	}
+.continue_shopping{
+	background:url(../assets/trolley_continue.jpg) no-repeat;
+	width:133px;
+	height:52px;
+	border:none;
+	
+	}

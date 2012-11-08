@@ -1,0 +1,163 @@
+/* CSS Document */
+
+.mem_des_after_right_top{
+  height:220px;
+  border-top:0px;
+  margin-top:-10px;
+  border-left:#666 dotted 2px; 
+
+}
+.mem_des_after_right_item{
+  margin-top:0px;
+  padding-top:0px;
+  width:705px;
+  height:240px;
+  margin-left:21px;
+  border-bottom:#666 dotted 2px ;  
+}
+.aftermeminfo{
+margin-top:0px;
+margin-left:0px;}
+
+#mem_des_after_right_item_title ul{
+  list-style:none; 
+  padding-left:0px;
+  margin-left:0px;
+  padding-top:12px;
+}
+#mem_des_after_right_item_title ul li{
+  float:left;
+}
+.mem_basic_info_text_after{
+  font-size:16px;
+  color:#666;
+  font-weight:bold;
+}
+.mem_basic_info_mark{
+  font-size:12px;
+  color:#00CCCC;
+  font-weight:bold;
+}
+.mem_basic_info_name_text_after{
+   margin-left:-2px;
+   color:#666;
+   line-height:30px;
+   font-size:15px;
+   font-weight:bold;
+}
+.mem_basic_info_select_text_after{
+   color:#999;
+   font-size:13px;
+   font-weight:bold;
+//   width:100px;
+   line-height:30px;
+}
+.mem_des_after_right_bottom{
+  height:318px;
+  width:746px;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px; 
+  margin-top:1px;
+
+}
+.mem_des_after_right_bottom_in{
+  width:724px;
+  margin-left:21px;
+  padding-top:35px;
+
+}
+.mem_des_after_right_bottom_in table{
+margin-top:0px;
+margin-left:0px;}
+.mem_info_telephone{
+background:url(../images/mem_telephone.jpg) 
+       no-repeat;
+	   width:50px;
+	   height:40px;
+	   margin-top:20px;
+	   margin-left:25px;
+	   float:left;
+}
+.mem_info_teletext ul{
+	   margin-top:20px;
+	   margin-left:-40px;
+	   float:left;
+	   font-size:16px;
+	   font-weight:bold;
+	   list-style:none;
+	   color:#666666;
+}
+
+.mem_des_after_edit_info{
+       width:121px;
+ 	   height:34px;
+	   margin-top:-10px;
+	   margin-left:321px;
+}
+.mem_des_after_update_code{
+       width:121px;
+	   height:34px;
+	   margin-top:-10px;
+	   margin-left:32px;
+}
+.mem_basic_info_add_addr{
+       width:130px;
+ 	   height:37px;
+	   margin-top:0px;
+	   margin-left:321px;
+}
+#mem_des_after_picture ul{
+	   margin-top:7px;
+	   list-style:none;
+}
+#mem_des_after_picture ul li{
+	   float:left;
+}
+.mem_des_edit{
+       width:109px;
+ 	   height:36px;
+	   margin-top:0px;
+	   margin-left:430px;
+}
+.mem_des_delete{
+       width:105px;
+ 	   height:39px;
+	   margin-top:0px;
+	   margin-left:20px;
+
+}
+.edit_info_pic{
+	background:url(../assets/mem_des_edit_info.jpg) no-repeat;
+	width:122px;
+	height:41px;
+	border:none;
+	
+	}
+.update_code_pic{
+	background:url(../assets/mem_des_update_code.jpg) no-repeat;
+	width:122px;
+	height:41px;
+	border:none;
+	
+	}
+.add_addr_pic{
+	background:url(../assets/mem_info_add_addr.jpg) no-repeat;
+	width:122px;
+	height:41px;
+	border:none;
+	margin-left:35px;
+	}
+.edit_pic{
+	background:url(../assets/mem_des_edit.jpg) no-repeat;
+	width:122px;
+	height:41px;
+	border:none;
+	margin-left:-25px;
+	}
+.delete_pic{
+	background:url(../assets/mem_des_delete.jpg) no-repeat;
+	width:122px;
+	height:41px;
+	border:none;
+	margin-left:-15px;
+	}

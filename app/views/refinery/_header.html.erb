@@ -1,0 +1,45 @@
+<div id=divMenu>
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1577526157&site=qq&menu=yes">
+	<img src="/assets/index0921_KEFU.jpg" width="26" height="110"></a></div>
+<div class="header_top">
+  <div class="header_top_right">
+    <ul>
+    <% if session[:login] %>
+      <li class="text"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self">我的帐户&nbsp;</a></li>
+     
+      <li class="textblue"><a href="/memberships/logout">注销</a></li>
+    <% else %>
+      <li class="text">请</li>
+      <li class="textblue"><a href="#" onclick="openpopup(true, true)">登录</a></li>
+      <li class="text">免费
+	  </li><li class="textblue"><a href="#" onclick="openpopup(false, true)">注册</a></li>
+    <% end %>
+    </ul>
+	<div id="popup_dialog" class="popup_dialog"></div>
+	<div id="popup_shadow" class="popup_shadow"></div>
+  </div>
+</div>
+<div class="header_middle">
+  <div class="logo">
+    <div class="logo2"><a href="/"><img src="/assets/logo.jpg" width="190" height="30"></a></div>
+  </div>
+  <div class="header_middle_right">
+    <div class="trolley">
+	     <ul>
+             <li class="item_1"><img src="/assets/index0921_trolley.jpg" width="19" height="19" /></li>
+             <li class="item_2">我的购物车</li>
+             <li class="item_3">0</li>
+             <li class="item_4">件</li>
+             <li class="item_5"> &nbsp;&nbsp;去结算</li>
+             <li class="item_6"><img src="/assets/index0921_pic2.jpg" width="16" height="28" /> </li>
+         </ul>
+    </div>
+  </div>
+</div>
+<!--<h1 id='logo'>
+  <%= link_to Refinery::Core.site_name, refinery.root_path %>
+</h1>-->
+<%= render(:partial => "/refinery/menu", :locals => {
+             :dom_id => 'menu',
+             :css => 'menu'
+           }) %>

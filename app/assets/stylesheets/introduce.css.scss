@@ -1,0 +1,282 @@
+@charset "utf-8";
+/* CSS Document */
+
+.product_right_head{
+	width:740px;
+	height:240px;	
+}
+.product_right_head_left{
+	height:234px;
+	margin-top:-12px;
+	float:left;
+	width:230px;
+	
+	margin-left:28px;
+}
+.product_right_head_right{
+	margin-top:20px;
+	width:465px;
+	height:239px;
+	margin-left:280px;
+}
+.line1{
+	font-size:24px;
+	color:#24156C;	
+//	font-family: "微软雅黑" !important;
+//	border-bottom:#516 dotted 2px;
+	margin-top:27px;
+	width:440px;
+//	padding-bottom:10px;
+}
+.line2_1{
+	margin-top:12px;
+	font-size:13px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line2_2{
+	margin-top:12px;
+	margin-left:-70px;
+	font-size:14px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line3_1{
+	font-size:13px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line3_2{
+	margin-left:-45px;
+	font-size:23px;
+	color:#6a3f9f;	
+//	font-family: "微软雅黑" !important;
+}
+.line3_3{
+	margin-left:-175px;
+	font-size:23px;
+	color:#6a3f9f;	
+//	font-family: "微软雅黑" !important;
+}
+.line4_1{
+	font-size:13px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line4_2{
+	margin-left:-68px;
+	color:#000;
+}
+.line4_1{
+	font-size:13px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line5_1{
+	margin-top:8px;
+	font-size:17px;
+	color:#ffffff;	
+//	font-family: "微软雅黑" !important;
+	margin-left:1px;
+	background-color:#6a3f9f;
+}
+.line5_2{
+	margin-top:10px;
+}
+.line5_3{
+	margin-top:8px;
+	margin-left:-130px;
+	font-size:12px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line6_1{
+	margin-top:21px;
+	font-size:11px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line6_2{
+	margin-top:20px;
+	margin-left:-60px;
+}
+.line6_3{
+	margin-top:20px;
+    margin-left:-105px;
+	font-size:11px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+.line6_4{
+	margin-top:20px;
+	margin-left:-95px;
+	font-size:11px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+}
+
+.product_left_item_2
+{
+	font-size:11px;
+	color:#009cdc;	
+	margin-left:39px;
+	margin-top:5px;
+//	font-family: "微软雅黑" !important;
+}
+.product_left_item_3
+{
+	font-size:11px;
+	color:#666666;	
+	margin-left:39px;
+	margin-top:2px;
+//	font-family: "微软雅黑" !important;
+}
+
+.product ul li{
+        float:left;	
+	height: 20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-right:1px;
+	list-style:none;
+	font-size:12px;
+	color:#A9A9A9;	
+	border-left:solid #ccc 1px;
+	border-right:solid #ccc 1px;
+	border-top:solid #ccc 1px;
+	border-bottom:none;
+	background:#fff;
+
+	}
+.product ul li:hover{
+        color:#41347C;
+	background:#F7F7F7;
+	
+	}
+
+.product
+{
+	width:auto;
+	height:32px;	
+	
+}
+.product ul{
+        padding-left:0px;
+}
+
+
+.introduce_right_mid{
+	height:auto;
+	border:solid #ccc 1px;
+	width:672px;
+	background:#F7F7F7;
+}
+#detail ul{
+	list-style:none;
+}
+.product_detail_lineone{
+	font-size:12px;
+	color:#333333;	
+//	font-family: "微软雅黑" !important;
+	margin-left:20px;
+	margin-top:15px;
+}
+#detail ul li{
+	margin-left:-20px;
+	margin-top:-10px;
+	margin-bottom:20px;
+	font-size:12px;
+	color:#777777;	
+//	font-family: "微软雅黑" !important;
+}
+.p_sale_left{
+	float:left;
+}
+.p_sale_left_title{
+	font-size:12px;
+	color:#777777;	
+//	font-family: "微软雅黑" !important;
+	margin-left:20px;
+	margin-top:15px;
+}
+.p_sale_left_text ul
+{
+	list-style:none;
+	margin-top:-5px;
+}
+.p_sale_left_text ul li
+{
+	margin-left:-10px;
+	margin-top:8px;
+}
+.p_sale_right{
+	margin-left:260px;
+	
+	}
+.introduce_right_btm{
+	margin-left:25px;
+	border-bottom:dotted #CCCCCC 1px;
+	min-height:50px;
+	font-size:12px;
+	color:#777777;	
+//	font-family: "微软雅黑" !important;
+}
+#element{
+	margin-left:20px;
+}
+#method{
+	margin-left:20px;
+}
+#origin{
+	margin-left:20px;
+}
+
+.introduce_purple{
+   background: -moz-linear-gradient(top, #B595DB 0%, #6C41A0 100%);
+    background: -webkit-linear-gradient(top, #B595DB 0%, #6C41A0 100%);
+    background: -o-linear-gradient(top, #B595DB 0%, #6C41A0 100%);
+    background: -ms-linear-gradient(top, #B595DB 0%, #6C41A0 100%);
+    background: linear-gradient(to bottom, #B595DB 0%, #6C41A0 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B595DB), color-stop(100%, #6C41A0));
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#B595DB', endColorstr='#6C41A0', GradientType=0);
+    color:#fff;
+	height:24px;
+    padding:2px 11px 2px 11px;
+//	font-family:"Microsoft YaHei";
+	font-size:14px;
+	margin-top:20px;
+}
+.introduce_black{
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:11px;
+//  font-family:"Microsoft YaHei";
+  font-size:13px;
+}
+
+.introduce_black_title{
+//  font-family:"Microsoft YaHei";
+  font-size:16px;
+   margin-top:20px;
+   color:#000;
+}
+.products_textpurple{
+  color:#41347c;
+  padding-left:20px;
+}
+
+.products_textblack{
+  color:#7C7C7C;
+  padding-left:20px;
+}
+.sale_video{
+  margin-left:75px;
+  margin-top:5px;
+}	
+
+
+	
+
+

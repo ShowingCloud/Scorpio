@@ -1,0 +1,228 @@
+/* CSS Document */
+
+.changerecord_myrecord_before_right_top{
+  height:auto;
+  border-top:0px;
+  margin-top:0px;
+  border-left:#666 dotted 2px; 
+
+}
+.changerecord_myrecord_before_right_item{
+  margin-top:0px;
+  padding-top:0px;
+  width:724px;
+  height:310px;
+  margin-left:3px;
+  /*border-bottom:#666 dotted 2px ;*/  
+}
+
+#changerecord_myrecord_right_item_title{
+  font-size:16px;
+  color:#333;  
+  padding-left:0px;
+  margin-left:30px;
+  padding-top:10px;
+  font-weight:bold;
+}
+#changerecord_change_record_right_item_title_num{
+  font-size:16px;
+  color:#FF6600;  
+  padding-left:0px;
+  margin-left:0px;
+  padding-top:10px;
+  font-weight:bold;
+}
+#changerecord_change_record_right_item_title_total{
+  font-size:16px;
+  color:#00A4E8;  
+  padding-left:0px;
+  margin-left:5px;
+  padding-top:10px;
+  font-weight:bold;
+}
+
+#changerecord_change_record_form table{
+margin-top:0px;
+margin-left:0px;}
+
+
+
+.changerecord_mem_basic_info_text{
+  font-size:16px;
+  color:#666;
+  font-weight:bold;
+}
+.changerecord_mem_basic_info_mark{
+  font-size:12px;
+  color:#00CCCC;
+  font-weight:bold;
+}
+.changerecord_mem_basic_info_name_text{
+   margin-left:0px;
+   color:#666;
+   line-height:30px;
+   font-size:15px;
+   font-weight:bold;
+   text-align:left;
+  
+}
+.changerecord_mem_basic_info_select_text{
+   color:#999;
+   font-size:13px;
+   font-weight:bold;
+   width:100px;
+   line-height:30px;
+}
+
+#changerecord_record_condition_select_back{
+   background:#ebebeb;
+   text-align:center;
+   width:702px;
+   margin-top:4px;
+   height:33px;
+   padding-top:7px;
+   margin-left:15px;
+}
+#changerecord_record_list{
+   margin-top:10px;
+   width:723px;
+   height:75px;
+   background:url(../assets/record_list.jpg)#ebebeb;
+   color:#666;
+   line-height:36px;
+   font-size:15px;
+   font-weight:bold;
+}
+
+#changerecord_change_record_form_1{
+  background:#ebebeb;
+  margin-top:10px;
+  width:702px;
+  margin-left:15px;
+}
+#changerecord_change_record_select_condiction{
+	margin-left: 15px;
+	color: #00A4E8;
+	float: left;
+//	width: 697px;
+	margin-top: 20px;
+	border: solid #DFCFF2 2px;
+	
+}
+#changerecord_change_record_select_condiction table {
+margin-top:0px;
+margin-left:0px;}
+#changerecord_change_record_select_condiction  a{
+	color:#00A4E8;
+	font-weight:bold;
+    text-decoration: none;
+	} 
+#changerecord_change_record_select_condiction  a:visited{	
+	font-weight:bold;
+    text-decoration: none;
+	}    
+#changerecord_change_record_select_condiction  a:hover{
+	color:#00CCFF;
+	text-decoration:underline;
+	} 
+
+.changerecord_record_room_pic{
+	margin-left:15px;
+	margin-top: 20px;
+	padding-top: 5px;
+	padding-left: 5px;
+	width: 695px;
+	height: 100px;
+	border: solid #DFCFF2 2px;
+}
+.changerecord_room_pic{
+  margin-left:10px;
+  padding-left:8px;
+  width:91px;
+  height:95px;
+  float:left;
+  border-left:solid #DFCFF2 1px;
+}
+.changerecord_record_room{
+  width:580px;
+  height:95px;
+  background:#dfcff2;
+  float:left;
+}
+.changerecord_record_change_intr{
+  padding-left:40px;
+  margin-top:5px;
+  width:97px;
+  height:28px;
+
+}
+.changerecord_record_change_enter{
+  width:58px;
+  height:28px;
+
+}
+.changerecord_mem_des_before_right_bottom{
+  margin-top:2px;
+  height:388px;
+  width:746px;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px; 
+
+}
+.changerecord_mem_des_before_right_bottom_in{
+  width:724px;
+  //margin-left:36px;
+  padding-top:35px;
+}
+.changerecord_mem_info_telephone{
+background:url(../assets/mem_telephone.jpg) 
+       no-repeat;
+	   width:50px;
+	   height:40px;
+	   margin-top:20px;
+	   margin-left:46px;
+	   float:left;
+}
+
+.changerecord_mem_info_teletext ul{
+	   margin-top:20px;
+	   margin-left:-40px;
+	   float:left;
+	   font-size:16px;
+	   font-weight:bold;
+	   list-style:none;
+	   color:#666666;
+}
+.changerecord_selectedchange{
+	padding-top: 20px;
+	margin-left: 621px;
+	}
+.changerecord_record_change{
+background:url(../assets/record_change.jpg) no-repeat;
+width:122px;
+height:44px;
+border:none;
+}
+.changerecord_record_change_intr_pic{
+background:url(../assets/record_change_intr.jpg) no-repeat;
+width:122px;
+height:44px;
+border:none;
+margin-left:10px;
+}
+.changerecord_record_change_enter_pic{
+background:url(../assets/record_change_enter.jpg) no-repeat;
+width:122px;
+height:44px;
+border:none;
+}
+.changerecord_select_buttom{
+	width:160px;
+	height:25px;
+	//font-family:"微软雅黑";
+	background-color:#e1e0e0;
+}
+
+.changerecord_mem_basic_info_name_text table{
+margin-top:0px;
+margin-left:0px;}

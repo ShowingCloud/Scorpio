@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+
+#loginmain{
+	width:310px;
+	height:259px;
+	-webkit-box-shadow:3px 3px 7px black;
+        -moz-box-shadow:3px 3px 7px black;
+	box-shadow:3px 3px 7px black ;
+//	border:solid 0px\9\0;
+	border:solid #0095d9 1px\0 ;
+//	border:solid 0px\9\0;
+         
+//	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000)";
+//	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+
+
+	}
+#logintop{
+	width:310px;
+	height:48px;
+	background:#0095D9;
+	}
+#loginbottom{
+	width:310px;
+	height:auto;
+	}
+#logintop table{
+margin-left:0px;}
+.login{
+	margin-top:16px;
+	margin-left:38px;
+	}
+.sign{
+	margin-top:16px;
+	margin-left:25px;
+	}
+.close{	
+    margin-top:-24px;
+	margin-left:14px;
+	}
+.logintable{
+	text-align:justify;
+	font-size:14px;
+	margin-top:35px;
+	margin-left:38px;
+	font-family:"微软雅黑" !important;
+	color:#959595;
+	
+	}
+.logintable table{
+margin-left:0px;}
+.loginblack{
+	color:#606060;
+	}
+.imlogin{
+	background:#0095D9;
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	height:20px;
+	border:none;
+	font-family:"微软雅黑" !important;
+	margin-left:-3px;
+	}
+.loginunderline{
+	text-decoration:underline;
+	color:#000;
+	text-align:right;}
+.registertable{
+	text-align:justify;
+	font-size:14px;
+	margin-top:12px;
+	margin-left:33px;
+	font-family:"微软雅黑" !important;
+	color:#959595;
+	}
+.registertable table{
+
+margin-top:0px;
+}
+.logintextblank{
+	margin:0px;
+	padding:0px;
+	height:14px;
+	}
+.send{
+	margin-left:-3px;}
+.description{
+	font-size:10px;
+	}

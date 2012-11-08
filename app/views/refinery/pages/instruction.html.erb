@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>康美会官网</title>
+</head>
+<body>
+<!--中间部分开始-->
+<div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
+<div id="main">
+  <div class="current_place">
+       <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a href="../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_self">常见问题</a>&gt;&gt;</li>
+		<li><a href="#" target="_self">买家须知</a></li>		
+		<div style="clear:both"></div>
+	 </ul>
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+     <div class="mem_des_before_left_head_img"> &nbsp; </div>
+     <div class="mem_des_before_left_head_title">常见问题</div>
+	    <ul> 
+          <li class="mem_des_before_left_item_blue"><a href="#" target="_self">买家须知</a></li>
+		  <li class="mem_des_before_left_item"><a href="../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_self">Q&A</a></li>
+		</ul>
+  </div>
+  </div>
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+    <div class="product_right_bottom_aboutq10">
+    <div class="memsystemlineone">买家须知</div>
+    <div class="memsystemtextblue">购物流程</div>  
+	<div class="instructionpic"><%=raw @page.content_for(:purchaseprocess) %></div>
+    <div class="memsystemtextblue">关于物流</div>
+    <div class="textulli"><ul><%=raw @page.content_for(:wuliu) %></ul></div>    
+    <div class="memsystemtextblue">关于订单</div>
+    <div class="textulli">
+    <ul>
+            <%=raw @page.content_for(:order) %>
+    </ul>  
+    </div>   
+    <div class="textorange"><%=raw @page.content_for(:remarks) %></div>
+    <div class="memsystemtextblue">关于收货</div>
+    <div class="textulli">
+    <ul>
+        <%=raw @page.content_for(:receive ) %>     
+    </ul>  
+    </div>
+    <div class="memsystemtextblue">关于退货单</div>
+    <div class="textulli">
+    <ul>
+          <%=raw @page.content_for(:exchange) %>       
+    </ul>  
+    </div>
+    <div class="memsystemtextblue">关于步骤说明</div>
+    <div class="instructionpic"><%=raw @page.content_for(:exchangepic) %>  </div>
+    <div class="textulli">
+    <ul>
+        <%=raw @page.content_for(:returned) %>                       
+    </ul>  
+    </div>
+	<div class="textorange"><%=raw @page.content_for(:remarksret) %></div>
+	<div class="textorange"><%=raw @page.content_for(:remarksret2) %></div>
+    <div class="textulli">
+    <ul>
+        <%=raw @page.content_for(:returned2) %>                       
+    </ul>  
+    </div>
+    <div class="memsystemtextblue">关于退款</div>
+     <div class="memsystemtextblack"><%=raw @page.content_for(:refundment) %></div>
+     <div class="memsystemtextblue">关于积分</div>
+     <div class="textulli">
+     <ul>
+        <%=raw @page.content_for(:score) %>    
+     </ul>  
+    </div>
+     <div class="memsystemtextblue">关于客服</div>
+     <div class="textulli">
+    <ul>
+           <%=raw @page.content_for(:customerservice) %>
+        </ul>  
+    </div>
+    <div class="returntop"><a href="#">返回顶部</a></div>                   
+   </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+

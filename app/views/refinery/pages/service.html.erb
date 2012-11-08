@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>康美会官网</title>
+
+</head>
+<body>
+<form action="" method="get">
+
+<!--中间部分开始-->
+<div id="main">
+  <div class="current_place">      
+     <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a href="#" target="_self">联系我们</a></li>
+		<div style="clear:both"></div>
+    </ul>
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+  <div class="mem_des_before_left_head_img"> &nbsp; </div>
+  <div class="mem_des_before_left_head_title">联系我们</div>
+   <ul >
+   <li class="mem_des_before_left_item"><a href="#" target="_self">客服</a></li>
+ 
+   </ul>
+  </div>
+  </div>
+
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+  <div class="service_right_total">
+  	<div class="service_pic"><%=raw @page.content_for(:servicepic) %></div>
+    <div class="service_text">若您需要对我们的产品了解更多，或有关于产品购买的问题，请随时同我们联络。 </div>
+    	<div class="service_phone_left">电话：</div>
+    	<div class="service_phone_right"><%=raw @page.content_for(:phonenumber) %></div>
+   	 	<div class="service_mail_left">邮箱：</div>
+   	 	<div class="service_mail_right"><%=raw @page.content_for(:Emailadd) %></div>
+    	
+  </div>
+</div> 
+</body>
+</html>

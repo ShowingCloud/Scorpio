@@ -1,0 +1,370 @@
+@charset "utf-8";
+/* CSS Document */
+
+#product_right_total_question{
+  float:left;	
+  width:740px;
+  height:auto;
+  background-color:#ffffff;
+}
+.pic{
+	margin-left:22px;
+	padding-top:15px;
+	//margin-top:25px;
+}
+
+.product_right_top{
+  height:auto;
+  border-left:#666 dotted 2px; 
+  background:#ededed; 
+}
+.product_right_item{
+  width:724px;
+  height:326px;
+  margin-left:21px;
+  border-bottom:#666 dotted 2px ;  
+}
+.product_right_item_title{
+  padding-top:22px;
+  margin-left:35px;
+  font-size:24px;
+  color:#000000; 
+//  font-family: "微软雅黑" !important;
+  
+}
+.product_right_item_image{
+  float:left;
+  width:214px;
+  height:268px;	
+  margin-left:16px;
+  background:url(../images/allproduct_productpic.jpg) no-repeat;
+}
+.product_right_item_intr{
+  float:left;
+  padding-top:12px;
+  margin-left:33px; 
+}
+.product_right_item_intr_title{
+//  font-size:14px;
+  padding-left:5px;
+  color:#888;
+  font-weight:bold;
+}
+.product_right_item_intr ul{
+  margin-top:5px;
+  padding-left:19px;
+  font-size:12px;
+  color:#999;
+}
+.product_right_item_intr li{
+  margin-top:3px;
+}
+.product_right_item_size ul{
+	list-style:none;
+	padding-top:20px;
+	padding-left:0px;
+	margin-left:0px;
+	line-eight:41px;
+}
+.product_right_item_size ul li{
+	float:left;
+	margin-top:5px;
+	color:#000;
+}
+.text1{
+	font-size:20px;
+}
+.num1{
+    font-family:"Times New Roman";
+	font-size:20px;
+}
+.product_right_item_price{
+	width:460px;}
+.product_right_item_price ul{
+	list-style:none;
+	padding-top:0px;
+	padding-left:0px;
+	margin-left:0px;
+	line-eight:41px;
+    color:#CC00FF;
+}
+.product_right_item_price ul li{
+	float:left;
+	margin-top:5px;
+
+}
+.text2{
+	font-size:20px;
+	color:#000;
+}
+.num2{
+    font-family:"Times New Roman";
+	font-size:20px;
+	color:#000;
+}
+.num3{
+    font-family:"Times New Roman";
+	font-size:20px;
+}
+.picture1{
+	padding-top:0px;
+	padding-left:20px;
+}
+.picture2{
+	padding-top:0px;
+	padding-left:30px;
+}
+.product_right_bottom_aboutq10{
+  height:auto;
+  width:720px;
+  background:#F2F2F2;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px; 	
+	}
+.product_right_bottom{
+  height:auto;
+  width:720px;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px; 
+}
+.common_question{
+	height:auto;
+	width:700px;
+	margin-left:15px;
+	border-bottom:#666 dotted 2px;
+	}
+.common_question_1{
+	margin-left:29px;
+	padding-top:12px;
+	margin-bottom:10px;
+	color:#6a3f9f;
+//	font-family: "微软雅黑" !important;
+	font-size:16px;
+	
+	}
+.Q{ 
+	margin-left:15px;
+	margin-bottom:15px;
+	margin-top:10px;
+//	font-family: "微软雅黑" !important;
+	color:#6a3f9f;
+	font-size:13px;
+	}
+.A{    
+	margin-left:53px;
+	margin-bottom:17px;
+        text-indent:-2em;
+//	font-family: "微软雅黑" !important;
+	font-size:12px;
+	color:#000;
+	}
+.space{
+	height:720px;
+	height:69px;
+	margin-left:20px;
+	margin-top:20px;
+	margin-bottom:40px;
+	border-bottom:solid #000 1px;
+	}
+
+.space_bar{
+	width:680px;
+	margin-bottom:40px;
+	margin-top:33px;
+	background-color:#6a3f9f;
+	height:35px;
+}
+.space_text{
+	padding-top:10px;	
+//	font-family: "微软雅黑" !important;
+	font-size:12px;
+	color:#ffffff;
+	padding-left:8px;
+}
+.middle{
+	height:auto;
+	width:680px;
+	margin-bottom:20px;
+	margin-left:20px;
+	margin-top:-20px;
+	background-color:#f2e8ff;
+	
+	}
+	
+.middle table{
+	margin-top:20px;
+	margin-left:73px;
+//	font-family: "微软雅黑" !important;
+	font-size:13px;
+	color:#333333;
+	}
+	
+
+.textareablank{
+	margin-top:14px;
+	border:solid #D8D1FF 1px;}
+.ask{
+//	font-family: "微软雅黑" !important;
+	font-size:15px;
+	width:88px;
+	color:#6a3f9f;
+}
+.necessary{
+//	font-family: "微软雅黑" !important;
+	font-size:13px;
+	color:#6a3f9f;
+}
+.middle table ul {
+	list-style:none;
+	margin-left:-40px;
+	}
+.middle table ul li{
+	float:left;
+//	font-family: "微软雅黑" !important;
+	font-size:13px;
+	color:#403f41;
+	
+	}
+.xinhao{
+	color:#0F0;
+	margin-top:-1px;
+	color:#6a3f9f;
+	}
+#product_right_total_question{
+  float:left;	
+  width:740px;
+  height:auto;
+  background-color:#f2f2f2;
+}
+
+.returntop{
+	margin-left:638px;
+	margin-top:20px;
+	
+}
+.q10left{
+	float:left;
+	margin-right:-30px;
+	}
+.qic5{
+	float:left;
+	}
+.pic2{
+	padding-left:100px;
+	margin-top:-35px;
+	padding-top:1px;
+}
+.pict{
+	margin-left:300px;
+	margin-bottom:-40px;
+    margin-top:-10px;
+}
+.pic5{
+	margin-left:25px;
+}
+.pic6{
+	margin-left:25px;
+}
+.q10orange{
+	margin-left:25px;
+//	font-family: "微软雅黑" !important;
+	font-size:15px;
+	color:#f2831d;
+	margin-bottom:15px;
+	margin-top:20px;
+}
+.q10orange_7{
+	margin-left:25px;
+//	font-family: "微软雅黑" !important;
+	font-size:15px;
+	color:#f5a551;
+	margin-bottom:-10px;
+}
+.q10darkblue{
+	margin-left:25px;
+//	font-family: "微软雅黑" !important;
+	font-size:18px;
+	color:#365f91;
+}
+	
+.q10balck{
+//	font-family: "微软雅黑" !important;
+	font-size:12px;
+	color:#000;
+	text-align:justify;
+	width:682px;
+
+}
+.q10balck ul {
+	list-style:none;
+	margin-left:-15px;
+
+	}
+.q10balck ul li{
+	margin-bottom:17px;
+	}
+.q10balck_7{
+//	font-family: "微软雅黑" !important;
+	font-size:12px;
+	color:#000;
+
+}
+.q10balck_7 ul {
+	list-style:none;
+	margin-top:50px;
+	margin-bottom:-30px;
+	margin-left:-15px;
+	float:left;
+	}
+.q10balck_7 ul li{
+	margin-bottom:2px;
+	}
+.q10blue{
+	margin-left:25px;
+//	font-family: "微软雅黑" !important;
+	font-size:18px;
+	color:#009cdc;
+	background-color:#ceeeff;
+	width:666px;	
+	padding:5px 0px;
+	
+}
+.q10blue_6{
+	margin-left:25px;
+//	font-family: "微软雅黑" !important;
+	font-size:18px;
+	color:#74caf0;
+	background-color:#ceeeff;
+	
+}
+.q10blue_bar_6{
+	margin-bottom:20px;
+	margin-top:20px;
+	margin-right:-65px;
+	background-color:#ceeeff;
+	height:35px;
+}
+.q10blue_text_6{
+	padding-top:6px;
+	padding-bottom:40px;	
+//	font-family: "微软雅黑" !important;
+	font-size:18px;
+	color:#74caf0;
+}
+
+.textblank{
+	
+	border:solid #D8D1FF 1px;
+	}
+.submitquestion{
+      background:url(../assets/common_question.jpg) no-repeat;
+      width:128px;
+      height:43px;
+      border:none;
+}
+.questionreset{
+     background:url(../assets/common_re.jpg) no-repeat;
+     width:128px;
+     height:43px;
+     border: none;
+}

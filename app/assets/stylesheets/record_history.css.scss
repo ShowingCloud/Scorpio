@@ -1,0 +1,197 @@
+/* CSS Document */
+/* CSS Document */
+
+.record_history_myrecord_before_right_top{
+  height:auto;
+  border-top:0px;
+  margin-top:0px;
+  border-left:#666 dotted 2px; 
+
+}
+.record_history_myrecord_before_right_item{
+  margin-top:0px;
+  padding-top:0px;
+  width:707px;
+  height:290px;
+  margin-left:4px;
+  /*border-bottom:#666 dotted ;*/
+}
+#record_history_myrecord_right_item_title_history{
+	font-size: 16px;
+	color: #333;
+	padding-left: 20px;
+	margin-left: 10px;
+	padding-top: 10px;
+	font-weight: bold;
+	width: 690px;
+	}
+
+#record_history_myrecord_right_item_title{
+	font-size: 16px;
+	color: #333;
+	padding-left: 10px;
+	margin-left: 15px;
+	margin-top:15px;
+	padding-top: -4px;
+	font-weight: bold;
+	width: 688px;
+	height:44px;
+	border:solid #E3D5F4 2px;
+}
+#record_history_myrecord_right_item_title table{
+    margin-left:0px;
+	margin-top:0px;
+}
+#record_history_change_record_right_item_title_num{
+  font-size:16px;
+  color:#FF6600;  
+  padding-left:0px;
+  margin-left:0px;
+  padding-top:10px;
+  padding-bottom:20px;
+  font-weight:bold;
+}
+#record_history_change_record_right_item_title_total{
+  font-size:16px;
+  color:#26aeec;   
+  padding-left:0px;
+  margin-left:-2px;
+  padding-top:10px;
+  padding-bottom:20px;
+  font-weight:bold;
+}
+
+.record_history_mem_basic_info_text{
+  font-size:16px;
+  color:#666;
+  font-weight:bold;
+}
+.record_history_mem_basic_info_mark{
+  font-size:12px;
+  color:#00CCCC;
+  font-weight:bold;
+}
+.record_history_mem_basic_info_name_text{
+   margin-left:12px;
+   color:#666;
+   line-height:30px;
+   font-size:15px;
+   font-weight:bold;
+   text-align:left;
+}
+.record_history_mem_basic_info_select_text{
+   color:#999;
+   font-size:13px;
+   font-weight:bold;
+   width:353px;
+   line-height:30px;
+}
+
+#record_history_record_condition_select_back{
+	background: #ebebeb;
+	text-align: center;
+	width: 702px;
+	margin-top: 5px;
+	margin-left:15px;
+    height:33px;
+   padding-top:7px;
+}
+#record_history_record_list{
+   margin-top:10px;
+   width:723px;
+   height:75px;
+   background:url(../assets/record_list.jpg)#ebebeb;
+   color:#666;
+   line-height:36px;
+   font-size:15px;
+   font-weight:bold;
+}
+
+#record_history_change_record_form{
+	background: #ebebeb;
+	margin-top: 10px;
+	width: 702px;
+	margin-left:15px;
+}
+#record_history_change_record_form table{
+margin-top:0px;
+margin-left:0px;}
+#record_history_change_record_select_condiction{
+    margin-left:20px;
+}
+#record_history_change_record_select_condiction  a{
+	color:#00FFCC;
+	font-weight:bold;
+    text-decoration: none;
+	} 
+#record_history_change_record_select_condiction  a:visited{	
+	font-weight:bold;
+    text-decoration: none;
+	}    
+#record_history_change_record_select_condiction  a:hover{
+	color:#00CCFF;
+	text-decoration:underline;
+	} 
+
+.record_history_record_history_list{
+	background: #ebebeb;
+	margin-top: 10px;
+	width: 702px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left:15px;
+}
+
+.record_history_record_change_intr{
+  padding-left:40px;
+  margin-top:5px;
+  width:97px;
+  height:28px;
+
+}
+.record_history_record_change_enter{
+  width:58px;
+  height:28px;
+
+}
+.record_history_mem_des_before_right_bottom{
+  height:588px;
+  width:746px;
+  border-left:#666 dotted 2px;
+  border-bottom:#666 dotted 2px; 
+
+}
+.record_history_mem_des_before_right_bottom_in{
+  width:724px;
+  margin-left:21px;
+  padding-top:35px;
+}
+.record_history_mem_info_telephone{
+background:url(../assets/mem_telephone.jpg) 
+       no-repeat;
+	   width:50px;
+	   height:40px;
+	   margin-top:0px;
+	   margin-left:25px;
+	   float:left;
+}
+
+.record_history_mem_info_teletext ul{
+	   margin-top:0px;
+	   margin-left:-40px;
+	   float:left;
+	   font-size:16px;
+	   font-weight:bold;
+	   list-style:none;
+	   color:#666666;
+}
+.record_history_select_button{
+	width:160px;
+	height:25px;
+	
+	background-color:#e1e0e0;
+}

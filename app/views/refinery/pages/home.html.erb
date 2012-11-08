@@ -1,0 +1,58 @@
+<div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
+<div id="top">
+	<div class="top_left">
+		<% if session[:login] %>
+			<div class="left_top" onclick="alert('您已经登录了')">
+		<% else %>
+			<div class="left_top" onclick="openpopup(false, true)">
+		<% end %>
+			<%=raw @page.content_for(:lefttop) %>
+		</div>
+		<div class="left_bottom">
+			<embed src="http://player.opengg.me/player.php/sid/XNDYyNjM1MTY0/v.swf" allowFullScreen="true" quality="high" width="250" height="190" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+		</div>
+	</div>
+	<div class="top_center">
+		<div class="flexslider">
+			<ul class="slides">
+				<%=raw @page.content_for(:topcenter) %>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="bottom_home">
+	<div class="bottom_left">
+		<div class="lineone">
+				<%=raw @page.content_for(:bottomleft_lineone) %>
+		</div>
+		<div class="linetwo">
+			<%=raw @page.content_for(:bottomleft_linetwo) %>
+		</div>
+		<div class="button">
+			<a href="http://www.aquanova.de"><img src="assets/index0921_testblue.jpg" width="78" height="20"></a>
+		
+		</div>        
+	</div>
+	<div class="bottom_middle">
+		<div class="lineone">
+			<%=raw @page.content_for(:bottommiddle_lineone) %>
+		</div>
+		<div class="linetwo">
+			<%=raw @page.content_for(:bottommiddle_linetwo) %>
+		</div>
+		<div class="button">
+			<a href="../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF"><img src="assets/index0921_morepurple.jpg" width="78" height="20">	</a>
+		</div>
+	</div>
+	<div class="bottom_right">
+		<div class="lineone">
+			<%=raw @page.content_for(:bottomright_lineone) %>
+		</div>
+		<div class="linetwo">
+			<%=raw @page.content_for(:bottomright_linetwo) %>
+		</div>
+		<div class="button">
+			<a href="../%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E7%BE%8E%E7%A0%94%E6%B2%99%E9%BE%99"><img src="assets/index0921_moregrey.jpg" width="78" height="20"></a>	
+		</div>
+	</div>
+</div>

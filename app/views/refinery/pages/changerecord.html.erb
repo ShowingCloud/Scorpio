@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>康美会官网</title>
+<script type="text/javascript" language="javascript">
+function selectAll()
+{
+
+    var allCheckBoxs = document.getElementsByName("record_room_select");
+        for(var i = 0; i < allCheckBoxs.length; i ++ )
+        {
+            allCheckBoxs[i].checked = true;
+        }
+   
+}
+function selectNone()
+{
+
+    var allCheckBoxs = document.getElementsByName("record_room_select");
+        for(var i = 0; i < allCheckBoxs.length; i ++ )
+        {
+        allCheckBoxs[i].checked = false;
+        }
+}
+</script>
+</head>
+
+<body>
+<form action="" method="get">
+<!--中间部分开始-->
+<div id="main">
+  <div class="current_place">      
+     <ul>
+	    <li><a href=".." target="_self">首页</a>&gt;&gt;</li>
+        <li><a href="#" target="_self">会员中心</a>&gt;&gt;</li>
+		<li><a href="#" target="_self">兑换积分</a></li>
+		<div style="clear:both"></div>
+	 </ul>
+  </div>
+  <!--左侧菜单开始-->
+  <div id="mem_des_before_left_total">
+  <div id="mem_des_before_left">
+   <div class="mem_des_before_left_head_img"> &nbsp; </div>
+   <div class="mem_des_before_left_head_title">会员中心</div>
+   <ul >
+   <li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self">个人信息</a></li>
+   <li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E7%A7%AF%E5%88%86" target="_self">我的积分</a></li>
+   <li class="mem_des_before_left_item_blue"><a href="#" target="_self">兑换积分</a></li>
+   <li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E5%85%91%E6%8D%A2%E5%8E%86%E5%8F%B2" target="_self">查看兑换历史</a></li>
+   <li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95" target="_self">我的订单</a></li>
+   <li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E8%B4%AD%E7%89%A9%E8%BD%A6" target="_self">购物车</a></li>
+   <li class="mem_des_before_left_item"><a href="../%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC/%E5%AE%A2-%E6%9C%8D" target="_self">退货</a></li>
+   </ul>
+  </div>
+  </div>
+  <!--右侧内容开始-->
+  <div id="mem_des_before_right_total">
+   <div class="changerecord_myrecord_before_right_top">
+     <div class="changerecord_myrecord_before_right_item">
+      <div id="changerecord_myrecord_right_item_title"> 兑换积分
+      </div>
+	  <div id="changerecord_change_record_form_1">
+	    <div>
+	     <table>
+		  <tr>
+		   <td>
+	         <div class="changerecord_mem_basic_info_name_text" style="margin-left:5px;">可兑换项目类型：&nbsp;&nbsp;&nbsp;&nbsp;
+			    <select>
+                    <option value ="recordchangeb1">商品</option>
+                    <option value ="recordchangeb2">商品1</option>
+                 </select>&nbsp;&nbsp;&nbsp;&nbsp;
+             </div>
+		   </td>
+		   <td>
+		     <div class="changerecord_mem_basic_info_name_text"> &nbsp;兑换物品范围：&nbsp;&nbsp;
+			    <select>
+                    <option value ="recordb1">全部</option>
+                    <option value ="recordb2">商品1</option>
+                 </select>
+             </div>
+		   </td>
+		   </tr>
+		   </table>		    
+	  </div>
+	  <div>
+	    <table>
+		  <tr>
+		   <td>
+         <div class="changerecord_mem_basic_info_name_text" style="margin-left:5px;">
+          需要积分量:&nbsp;&nbsp;<input type="text" name="changeneedrecordmin" size="20"/>
+         </div>
+		   </td>
+		    <td>
+		 <div>
+         —— <input type="text" name="changeneedrecordmax" size="20"/>
+         </div>
+		   </td>
+		  </tr>
+        </table>
+	  </div>   
+	  <div class="changerecord_mem_basic_info_name_text" style="margin-left:7px;"> 
+	  排序方式:&nbsp;&nbsp;
+		   <select>
+                    <option value ="recordb1">升序</option>
+                    <option value ="recordb2">降序</option>
+           </select>
+      </div>
+		     	    
+	  </div>
+	 <div id="changerecord_record_condition_select_back">
+	      <div>
+		    <input type="submit" class="changerecord_select_buttom"    value="条件筛选"/>
+		  </div>
+	 </div>
+	 <div id="changerecord_change_record_select_condiction"> 
+	      <table style="margin-bottom:2px;" width="589">
+		  <tr>
+		   <td width="57" height="37">
+	         <div id="changerecord_change_record_right_item_title_total" value="都喜欢" onClick="selectAll()"> <a>全选</a>/
+             </div>
+		   </td>
+		   <td width="264">
+		     <div id="changerecord_change_record_right_item_title_total" value="都不喜欢" onClick="selectNone()"><a>全不选</a>
+             </div>
+		   </td>
+		   <td width="189">
+		     <div id="changerecord_change_record_right_item_title_total" >     
+			 
+			 您目前可使用的积分：
+             </div>
+		   </td>
+		   <td width="60">
+		     <div id="changerecord_change_record_right_item_title_num">
+             </div>
+		   </td>
+		   
+		   </tr>
+		   </table>		
+     </div> 
+     <div class="changerecord_selectedchange">
+     <input type="submit" class="changerecord_record_change" value="">
+		   
+		</div>
+	 <div class="changerecord_record_room_pic">
+	      <div class="changerecord_record_room">
+		    
+			<div class="changerecord_mem_basic_info_name_text">
+			    <table>
+				  <tr>
+				     <td>
+					     <input type="checkbox" name="record_room_select" checked="checked"/> 积分:
+					 </td>
+					 <td class="changerecord_mem_basic_info_select_text">
+					 </td>
+					 <td>
+					     &nbsp;&nbsp; 库存:
+					 </td>
+					  <td class="changerecord_mem_basic_info_select_text">
+					 </td>
+				  </tr>
+				  <tr>
+				     <td colspan="2" class="record_change_intr">
+					<input type="submit" class="changerecord_record_change_intr_pic" value=""> 
+					 </td>
+					 
+					 <td colspan="2" class"record_change_enter">
+                     <input type="submit" class="changerecord_record_change_enter_pic" value=""> 
+					    
+					 </td>					  
+				  </tr>
+				</table>
+			</div>
+		  </div>
+		  <div class="changerecord_room_pic">
+		     <img src="../assets/room_pic.jpg"/>
+		  </div>
+	 </div>  						   	   
+     </div>
+	 </div>
+	 <!-- 下面是右下角框里的东西-->
+     <div class="changerecord_mem_des_before_right_bottom">
+	    <div class="changerecord_mem_des_before_right_bottom_in">
+		
+	 <div class="changerecord_mem_info_telephone">
+	  </div>
+	 <div class="changerecord_mem_info_teletext">
+	  <ul>
+	  <li>
+	     NEED ASSISTANCE？
+	  </li>
+	  <li>
+	   订购咨询热线：400-920-1398
+	  </li>
+	  </ul>
+	  </div>
+		
+          <div id="changerecord_mem_des_after_picture">
+	
+           </div>
+		
+	     </div>
+	 </div>
+	 
+	 
+  </div>
+<div style="clear:both"></div>
+</div>
+
+ </form>
+</body>
+</html>
