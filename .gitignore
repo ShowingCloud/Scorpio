@@ -32,6 +32,9 @@ coverage
 #public/system/*
 #public/themes/*
 
+# Don't upload precompiled assets
+public/assets/*
+
 # Public Cache
 public/javascripts/cache
 public/stylesheets/cache
