@@ -277,6 +277,25 @@
 }	
 
 
+.buyonlinetitle{
+    height: 20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:4px;
+	width:50px;
+	list-style:none;
+	font-size:12px;
+	margin-left:14px;
+	margin-top:40px;
+	color:#fff;
+	background: -moz-linear-gradient(top, #797979 0%, #414141 100%);
+    background: -webkit-linear-gradient(top, #797979 0%, #414141 100%);
+    background: -o-linear-gradient(top, #797979 0%, #414141 100%);
+    background: -ms-linear-gradient(top, #797979 0%, #414141 100%);
+    background: linear-gradient(to bottom, #797979 0%, #414141 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #797979), color-stop(100%, #414141));
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#797979', endColorstr='#414141', GradientType=0);
+}
 	
 
 

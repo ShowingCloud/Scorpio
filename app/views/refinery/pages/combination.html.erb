@@ -27,16 +27,66 @@
   </div>
   </div>
   <!--右侧内容开始-->
-  <div id="mem_des_before_right_total">
-    <div class="product_right_bottom_aboutq10">
-    <div class="memsystemlineone" style="font-size:30px;text-align:center;">敬请期待。</div>
-	<div class="comming" style="font-size:25px;text-align:center;color:#6A4F9F;margin-top:25px;">Coming&nbsp;Soon!</div>
-   
+   <div id="mem_des_before_right_total">
+       <div class="line1"><%=raw @page.content_for(:productname) %></div>
+       <div class="product_right_head">
+       		<div class="product_right_head_left"><%=raw @page.content_for(:productpic) %></div>
+                <div class="product_right_head_right">
+            
+                        <table height="211">
+			    <tr>
+                                <td width="113"><div class="line3_1">会员价格：</div></td>
+                                <td width="148"><div class="line3_2">￥</div></td>
+                                <td width="81"><div class="line3_3"><%=raw @page.content_for(:productprice) %></div></td>
+                            </tr>
+                            <tr>
+                                <td width="113"><div class="line2_1">规格：</div></td>
+                                <td width="148"><div class="line2_2"><%=raw @page.content_for(:productstandard) %></div></td>
+                            </tr>    
+                            <tr>
+                                <td width="113"><div class="line4_1">数量：</div></td>
+                                <td width="148"><div class="line4_2"><input type="text" name="amount" id="amount" />组</div></td>
+                             </tr>
+                             <tr>
+				 <td width="113">
+					<input type="hidden" id="dontredirect" />
+					<% if session[:login] %>
+						<div class="line5_1" onclick="neworder()">
+					<% else %>
+						<div class="line5_1" onclick="openpopup(true, true)">
+					<% end %>
+						 &nbsp;&nbsp;  放入购物车
+					 </div>
+				 </td>
+                                 <td width="148"><div class="line5_2"><img src="../assets/introduce_add.jpg" width="21" height="21" /></div></td>
+                                 <td width="81"><div class="line5_3">收藏此产品</div></td>
+                              </tr>
+                              <tr>
+                                 <td width="113"><div class="line6_1">产品评分 ：</div></td>
+                                 <td width="148"><div class="line6_2"><img src="../assets/introduce_star.jpg" width="89" height="14" /></div></td>
+                                 <td width="81"><div class="line6_3"><a href="#">已有0条评论</a></div></td>
+                                 <td width="61"><div class="line6_4"><a href="#">发表评论</a></div></td>
+                              </tr>
+                            
+                           </table>
+                 </div>
+        </div>
+        <div class="combine1"><img src="../assets/combine1.jpg" width="715" height="198"/>    
+	</div>
+	<div class="combineintro">
+	     <div class="magicmaskpic"><img src="../assets/magicmaskpic.jpg" width="715" height="88" /></div>		 	
+	</div>
+
+  
+
+	
+   </div>
+	
+	
+  
   </div>
 </div>
-
- 
-
 </body>
 </html>
+
 
