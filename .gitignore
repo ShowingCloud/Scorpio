@@ -103,4 +103,5 @@ db/data.yml
 db/datadump/refinery_inquiries_inquiries.yml
 db/datadump/refinery_resources.yml
 db/datadump/refinery_users.yml
+db/datadump/refinery_user_plugins.yml
 db/datadump/sessions.yml
