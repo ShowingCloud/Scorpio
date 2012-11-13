@@ -1,0 +1,600 @@
+
+---
+refinery_pages:
+  columns:
+  - id
+  - parent_id
+  - path
+  - slug
+  - show_in_menu
+  - link_url
+  - menu_match
+  - deletable
+  - draft
+  - skip_to_first_child
+  - lft
+  - rgt
+  - depth
+  - view_template
+  - layout_template
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 
+    - 
+    - 首页
+    - true
+    - /
+    - ^/$
+    - false
+    - false
+    - false
+    - 1
+    - 4
+    - 0
+    - home
+    - application
+    - 2012-10-17 08:22:15.000000000 Z
+    - 2012-11-03 13:56:54.000000000 Z
+  - - 2
+    - 1
+    - 
+    - page-not-found
+    - false
+    - ''
+    - ^/404$
+    - false
+    - false
+    - false
+    - 2
+    - 3
+    - 1
+    - waitandsee
+    - application
+    - 2012-10-17 08:22:15.000000000 Z
+    - 2012-11-03 08:11:02.000000000 Z
+  - - 4
+    - 
+    - 
+    - 会员专区
+    - true
+    - https://jay.novasol-slv.wgq.me/%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E4%BC%9A%E5%91%98%E5%88%B6%E5%BA%A6
+    - 
+    - true
+    - false
+    - false
+    - 9
+    - 20
+    - 0
+    - home
+    - application
+    - 2012-10-17 12:50:04.000000000 Z
+    - 2012-11-02 06:04:11.000000000 Z
+  - - 9
+    - 
+    - 
+    - 常见问题
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 21
+    - 28
+    - 0
+    - question
+    - application
+    - 2012-10-19 15:57:59.000000000 Z
+    - 2012-11-02 06:04:11.000000000 Z
+  - - 10
+    - 
+    - 
+    - 联系我们
+    - true
+    - ../%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC/%E5%AE%A2-%E6%9C%8D
+    - 
+    - true
+    - false
+    - false
+    - 29
+    - 32
+    - 0
+    - home
+    - application
+    - 2012-10-19 15:58:18.000000000 Z
+    - 2012-11-09 17:05:42.000000000 Z
+  - - 12
+    - 
+    - 
+    - 在线购买
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 33
+    - 60
+    - 0
+    - buyonline
+    - application
+    - 2012-10-20 10:05:23.000000000 Z
+    - 2012-11-12 00:04:22.000000000 Z
+  - - 15
+    - 
+    - 
+    - 产品信息
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 5
+    - 8
+    - 0
+    - products
+    - application
+    - 2012-10-23 22:52:24.000000000 Z
+    - 2012-11-02 06:04:11.000000000 Z
+  - - 20
+    - 9
+    - 
+    - 关于q10
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 22
+    - 23
+    - 1
+    - aboutq10
+    - application
+    - 2012-10-24 02:37:30.000000000 Z
+    - 2012-11-02 06:04:12.000000000 Z
+  - - 21
+    - 12
+    - 
+    - 会员制度
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 42
+    - 43
+    - 1
+    - menusystem
+    - application
+    - 2012-10-24 02:40:22.000000000 Z
+    - 2012-11-02 06:04:12.000000000 Z
+  - - 22
+    - 12
+    - 
+    - login-page
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 34
+    - 35
+    - 1
+    - login
+    - application
+    - 2012-10-25 14:50:28.000000000 Z
+    - 2012-11-02 06:04:12.000000000 Z
+  - - 23
+    - 12
+    - 
+    - register-page
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 36
+    - 37
+    - 1
+    - register
+    - application
+    - 2012-10-25 15:04:12.000000000 Z
+    - 2012-11-02 06:04:12.000000000 Z
+  - - 24
+    - 12
+    - 
+    - 会员登录1
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 38
+    - 39
+    - 1
+    - mem_des_before
+    - application
+    - 2012-10-25 17:24:25.000000000 Z
+    - 2012-11-02 06:04:13.000000000 Z
+  - - 26
+    - 12
+    - 
+    - 会员登录2
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 40
+    - 41
+    - 1
+    - mem_des_after
+    - application
+    - 2012-10-25 19:07:39.000000000 Z
+    - 2012-11-02 06:04:13.000000000 Z
+  - - 27
+    - 4
+    - 
+    - 会员制度
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 10
+    - 11
+    - 1
+    - mensystem
+    - application
+    - 2012-10-26 10:06:47.000000000 Z
+    - 2012-11-02 06:04:13.000000000 Z
+  - - 28
+    - 9
+    - 
+    - 买家须知
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 24
+    - 25
+    - 1
+    - instruction
+    - application
+    - 2012-10-26 16:01:43.000000000 Z
+    - 2012-11-02 06:04:13.000000000 Z
+  - - 29
+    - 12
+    - 
+    - 兑换积分
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 44
+    - 45
+    - 1
+    - changerecord
+    - application
+    - 2012-10-27 06:58:29.000000000 Z
+    - 2012-11-09 17:03:43.000000000 Z
+  - - 30
+    - 12
+    - 
+    - 兑换历史
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 46
+    - 47
+    - 1
+    - record_history
+    - application
+    - 2012-10-27 07:58:20.000000000 Z
+    - 2012-11-09 17:03:52.000000000 Z
+  - - 31
+    - 12
+    - 
+    - 我的积分
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 48
+    - 49
+    - 1
+    - myrecord
+    - application
+    - 2012-10-27 09:38:24.000000000 Z
+    - 2012-11-09 17:04:00.000000000 Z
+  - - 32
+    - 10
+    - 
+    - 客-服
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 30
+    - 31
+    - 1
+    - service
+    - application
+    - 2012-10-27 12:01:30.000000000 Z
+    - 2012-11-02 06:04:14.000000000 Z
+  - - 33
+    - 12
+    - 
+    - 我的积分（后）
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 50
+    - 51
+    - 1
+    - myrecord2
+    - application
+    - 2012-10-28 09:36:31.000000000 Z
+    - 2012-11-09 17:05:27.000000000 Z
+  - - 34
+    - 12
+    - 
+    - 我的订单
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 52
+    - 53
+    - 1
+    - myorder
+    - application
+    - 2012-10-28 09:37:16.000000000 Z
+    - 2012-11-02 06:04:15.000000000 Z
+  - - 35
+    - 15
+    - 
+    - novasol
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 6
+    - 7
+    - 1
+    - introduce
+    - application
+    - 2012-10-28 13:27:09.000000000 Z
+    - 2012-11-09 17:19:49.000000000 Z
+  - - 36
+    - 9
+    - 
+    - q-a
+    - true
+    - ../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
+    - 
+    - true
+    - false
+    - false
+    - 26
+    - 27
+    - 1
+    - question
+    - application
+    - 2012-10-29 06:40:25.000000000 Z
+    - 2012-11-09 17:06:20.000000000 Z
+  - - 37
+    - 
+    - 
+    - about
+    - false
+    - 
+    - 
+    - true
+    - false
+    - false
+    - 61
+    - 62
+    - 0
+    - 
+    - 
+    - 2012-10-31 20:12:53.000000000 Z
+    - 2012-11-02 06:04:16.000000000 Z
+  - - 38
+    - 4
+    - 
+    - 美研沙龙
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 18
+    - 19
+    - 1
+    - meiyanshalong
+    - application
+    - 2012-11-01 08:19:56.000000000 Z
+    - 2012-11-02 16:37:06.000000000 Z
+  - - 39
+    - 4
+    - 
+    - 新品体验
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 12
+    - 13
+    - 1
+    - new_experience
+    - application
+    - 2012-11-01 08:20:41.000000000 Z
+    - 2012-11-02 06:04:16.000000000 Z
+  - - 40
+    - 4
+    - 
+    - 积分换礼
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 14
+    - 15
+    - 1
+    - exchange
+    - application
+    - 2012-11-01 08:21:52.000000000 Z
+    - 2012-11-02 06:04:16.000000000 Z
+  - - 41
+    - 4
+    - 
+    - 最新活动
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 16
+    - 17
+    - 1
+    - new_activity
+    - application
+    - 2012-11-01 08:22:28.000000000 Z
+    - 2012-11-02 06:04:16.000000000 Z
+  - - 42
+    - 12
+    - 
+    - 购物车
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 54
+    - 55
+    - 1
+    - shoppingtrolley
+    - application
+    - 2012-11-01 15:49:32.000000000 Z
+    - 2012-11-02 06:04:16.000000000 Z
+  - - 43
+    - 
+    - 
+    - contact
+    - false
+    - /contact
+    - ^/(inquiries|contact).*$
+    - false
+    - false
+    - false
+    - 63
+    - 68
+    - 0
+    - home
+    - application
+    - 2012-11-02 06:04:17.000000000 Z
+    - 2012-11-02 06:06:15.000000000 Z
+  - - 44
+    - 43
+    - 
+    - thank-you
+    - false
+    - /contact/thank_you
+    - ^/(inquiries|contact)/thank_you$
+    - false
+    - false
+    - false
+    - 64
+    - 65
+    - 1
+    - 
+    - 
+    - 2012-11-02 06:04:17.000000000 Z
+    - 2012-11-02 06:04:17.000000000 Z
+  - - 45
+    - 43
+    - 
+    - privacy-policy
+    - false
+    - 
+    - 
+    - true
+    - false
+    - false
+    - 66
+    - 67
+    - 1
+    - 
+    - 
+    - 2012-11-02 06:04:17.000000000 Z
+    - 2012-11-02 06:04:17.000000000 Z
+  - - 46
+    - 12
+    - 
+    - novasol-q10
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 56
+    - 57
+    - 1
+    - combination
+    - application
+    - 2012-11-09 17:05:10.000000000 Z
+    - 2012-11-13 07:23:58.000000000 Z
+  - - 47
+    - 12
+    - 
+    - 安全和隐私条款
+    - false
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 58
+    - 59
+    - 1
+    - privacypolicy
+    - application
+    - 2012-11-12 00:34:40.000000000 Z
+    - 2012-11-12 00:42:31.000000000 Z

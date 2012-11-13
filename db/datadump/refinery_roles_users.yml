@@ -1,0 +1,11 @@
+
+---
+refinery_roles_users:
+  columns:
+  - user_id
+  - role_id
+  records: 
+  - - 1
+    - 1
+  - - 1
+    - 2

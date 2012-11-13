@@ -1,0 +1,83 @@
+
+---
+refinery_settings:
+  columns:
+  - id
+  - name
+  - value
+  - destroyable
+  - scoping
+  - restricted
+  - form_value_type
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - inquiry_confirmation_body
+    - ! "--- ! 'Thank you for your inquiry %name%,\n\n  This email is a receipt to
+      confirm we have received your inquiry and we''ll be in\n  touch shortly.\n\n
+      \ Thanks.'\n"
+    - true
+    - 
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z
+  - - 2
+    - inquiry_confirmation_message_en
+    - ! "--- Thank you for your inquiry %name%, This email is a receipt to confirm
+      we have\n  received your inquiry and we'll be in touch shortly. Thanks.\n...\n"
+    - true
+    - inquiries
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z
+  - - 3
+    - inquiry_confirmation_subject_en
+    - ! '--- Thank you for your inquiry
+
+      ...
+
+'
+    - true
+    - inquiries
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z
+  - - 4
+    - inquiry_notification_recipients
+    - ! '--- ''''
+
+'
+    - true
+    - inquiries
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z
+  - - 5
+    - inquiry_notification_subject
+    - ! '--- New inquiry from your website
+
+      ...
+
+'
+    - true
+    - inquiries
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z
+  - - 6
+    - inquiry_send_confirmation
+    - ! '--- ''true''
+
+'
+    - true
+    - inquiries
+    - false
+    - text_area
+    - 2012-11-02 06:04:18.000000000 Z
+    - 2012-11-02 06:04:18.000000000 Z

@@ -98,3 +98,9 @@ vendor/extensions/**/spec/dummy
 # sensitive data
 config/database.yml
 db/data.yml
+
+# test data
+db/datadump/refinery_inquiries_inquiries.yml
+db/datadump/refinery_resources.yml
+db/datadump/refinery_users.yml
+db/datadump/sessions.yml
