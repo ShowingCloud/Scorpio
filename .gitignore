@@ -102,6 +102,11 @@ db/data.yml
 # test data
 db/datadump/refinery_inquiries_inquiries.yml
 db/datadump/refinery_resources.yml
+db/datadump/refinery_roles.yml
+db/datadump/refinery_roles_users.yml
+db/datadump/refinery_settings.yml
 db/datadump/refinery_users.yml
 db/datadump/refinery_user_plugins.yml
+db/datadump/schema_migrations.yml
+db/datadump/seo_meta.yml
 db/datadump/sessions.yml
