@@ -5,7 +5,7 @@
   <div class="header_top_right">
     <ul>
     <% if session[:login] %>
-      <li class="text"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self">我的帐户&nbsp;</a></li>
+		<li class="text"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self"><%= session[:username] %>&nbsp;我的帐户&nbsp;</a></li>
      
       <li class="textblue"><a href="/memberships/logout">注销</a></li>
     <% else %>
