@@ -458,7 +458,6 @@ function openpopup (islogin, canhide) {
 	var popup = document.getElementById ("popup_dialog");
 	var newdiv = document.getElementById ("popup_shadow");
 
-	popup.style.display = "block";
 	newdiv.style.display = "block";
 	document.body.style.overflow = "hidden";
 
@@ -473,14 +472,23 @@ function openpopup (islogin, canhide) {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			popup.innerHTML = xmlhttp.responseText;
+			popup.style.display = "block";
 
-			if (canhide)
+			if (canhide) {
 				document.getElementById ("popup_close").onclick = function() {
 					popup.style.display = "none";
 					newdiv.style.display = "none";
 					document.body.style.overflow = "auto";
 				}
-			else
+				document.body.onkeydown = function() {
+					if (event.keyCode == 27) {
+						popup.style.display = "none";
+						newdiv.style.display = "none";
+						document.body.style.overflow = "auto";
+						document.body.onkeydown = "";
+					}
+				}
+			} else
 				document.getElementById ("popup_close").onclick = function() {
 					location.href = "/";
 				}
