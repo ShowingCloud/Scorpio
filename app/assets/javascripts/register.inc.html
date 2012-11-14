@@ -17,18 +17,18 @@
         </tr>
         <tr>
            <td>用&nbsp;&nbsp;&nbsp;&nbsp;户&nbsp;&nbsp;&nbsp;名：</td>
-           <td> <input id="username" class="logintextblank" type="text" name="username" size="14"></td>
+           <td> <input id="username" class="logintextblank" type="text" name="username" size="14" onkeydown="if (event.keyCode == 13) document.getElementById('btnreg').click()"></td>
         </tr>
         <tr>
            <td>手&nbsp;机&nbsp;号&nbsp;码：</td>
-           <td> <input id="mobilenumber" class="logintextblank" type="text" name="mobilenumber" size="14"></td>
+           <td> <input id="mobilenumber" class="logintextblank" type="text" name="mobilenumber" size="14" onkeydown="if (event.keyCode == 13) document.getElementById('btnverify').click()"></td>
         </tr>
         <tr>
            <td>手机验证码：</td>
            <td> <table width="151"  height="21" border="0" class="send">
                   <tr>
-                      <td width="89"><input id="verification" class="logintextblank" type="text" name="verification" size="7"></td>
-					  <td id="sendto" class="imlogin" width="45"><button type="button" class="imlogin" onclick="sendmobileno()">发送</button></td>
+                      <td width="89"><input id="verification" class="logintextblank" type="text" name="verification" size="7" onkeydown="if (event.keyCode == 13) document.getElementById('btnreg').click()"></td>
+					  <td id="sendto" class="imlogin" width="45"><button type="button" class="imlogin" id="btnverify" onclick="sendmobileno()">发送</button></td>
                   </tr>
                 </table>
            </td>
@@ -38,7 +38,7 @@
                     <td>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
                     <td> <table width="167"  height="21" border="0" class="send">
                                   <tr>
-                                           <td width="72"><input id="password" class="logintextblank" type="password" name="password" size="7"></td>
+                                           <td width="72"><input id="password" class="logintextblank" type="password" name="password" size="7" onkeydown="if (event.keyCode == 13) document.getElementById('btnreg').click()"></td>
                                            <td class="description" width="80">*密码需为6-12</td>
                                   </tr>
                           </table>
@@ -48,7 +48,7 @@
                    <td>重&nbsp;复&nbsp;密&nbsp;码：</td>
                    <td><table width="168"  height="21" border="0" class="send">
                             <tr>
-                                <td width="72"><input id="password_confirmation" class="logintextblank" type="password" name="password_confirmation" size="7"></td>
+                                <td width="72"><input id="password_confirmation" class="logintextblank" type="password" name="password_confirmation" size="7" onkeydown="if (event.keyCode == 13) document.getElementById('btnreg').click()"></td>
                                 <td class="description" width="71">位数字或字母</td>
                              </tr>
                         </table></td>
@@ -57,7 +57,7 @@
                 <td>&nbsp;</td>
                 <td><table style="margin-left:0px;" border="0">
                         <tr>
-							<td  width="80"><button type="button" class="imlogin" onclick="sendregister()">马上注册</button></td>
+							<td  width="80"><button type="button" class="imlogin" id="btnreg" onclick="sendregister()">马上注册</button></td>
                            <td class="underline" width="87"></td>
                         </tr>
                     </table>
