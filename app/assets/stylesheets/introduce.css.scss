@@ -295,6 +295,44 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #797979), color-stop(100%, #414141));
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='#797979', endColorstr='#414141', GradientType=0);
 }
+.box{
+	position:relative;
+}
+
+.box .small{
+	position:relative;
+	background:#FFF;}
+
+.box .small .mark{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	width:60px;
+	height:60px;
+	background:#FFFFFF;
+	filter:alpha(opacity:50); 
+	opacity:0.5;
+	border:1px solid #333;
+	display:none;
+	}
+
+.box .big{
+	position:absolute;
+	left:225px;
+	top:0;
+	display:none;
+	}
+	
+.boxbig{
+	position:absolute;
+	left:255px;
+	top:0;
+	width:150px;
+	height:150px;
+	overflow:hidden;
+	}
+
 	
 
 

@@ -1,9 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>康美会官网</title>
-</head>
 <body>
 <!--中间部分开始-->
 <div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
@@ -29,21 +24,28 @@
   </div>
   <!--右侧内容开始-->
   <div id="mem_des_before_right_total">
-       <div class="line1"><%=raw @page.content_for(:productname) %></div>
+       <div class="line1">NovaSOL Q10软胶囊<img src="../assets/combinationpresent.jpg" width="44" height="38" />JUST&nbsp;BB弹力滋养面膜</div>
        <div class="product_right_head">
-       		<div class="product_right_head_left"><%=raw @page.content_for(:productpic) %></div>
+       		<div class="product_right_head_left">
+		         <div class="box">
+			        <div class="small"><span class="mark"></span><img src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="230" height="222" class="selected_by_wym" /></div>
+				<div class="boxbig">
+        	                        <div class="big"><img src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="575" height="555" class="selected_by_wym" /></div>
+				</div>
+			 </div>		
+		 </div>
                 <div class="product_right_head_right">
             
                         <table height="211">
 			    <tr>
                                 <td width="113"><div class="line3_1">会员价格：</div></td>
                                 <td width="148"><div class="line3_2">￥</div></td>
-                                <td width="81"><div class="line3_3"><%=raw @page.content_for(:productprice) %></div></td>
-								<td ><div style="margin-left:-200px"><%=raw @page.content_for(:productpricepic) %></div></td>
+                                <td width="81"><div class="line3_3">368</div></td>
+				<td ><div style="margin-left:-200px"><img src="../assets/combinationsave.jpg" width="87" height="37" /></div></td>
                             </tr>
                             <tr>
                                 <td width="113"><div class="line2_1">规格：</div></td>
-                                <td width="148"><div class="line2_2"><%=raw @page.content_for(:productstandard) %></div></td>
+                                <td width="148"><div class="line2_2">NovasolQ10*1盒+JUST BB*3片</div></td>
                             </tr>    
                             <tr>
                                 <td width="113"><div class="line4_1">数量：</div></td>
@@ -88,7 +90,83 @@
   
   </div>
 </div>
+<% content_for :javascripts do %>
+	<script type="text/javascript">
+$(function(){
+	var mouseX = 0;		//鼠标移动的位置X
+	var mouseY = 0;		//鼠标移动的位置Y
+	var maxLeft = 0;	//最右边
+	var maxTop = 0;		//最下边
+	var markLeft = 0;	//放大镜移动的左部距离
+	var markTop = 0;	//放大镜移动的顶部距离
+	var perX = 0;	//移动的X百分比
+	var perY = 0;	//移动的Y百分比
+	var bigLeft = 0;	//大图要移动left的距离
+	var bigTop = 0;		//大图要移动top的距离
+
+	//改变放大镜的位置
+	function updataMark($mark){
+		//通过判断，让小框只能在小图区域中移动		
+		if(markLeft<0){
+			markLeft = 0;
+		}else if(markLeft>maxLeft){
+			markLeft = maxLeft;
+		}
+		
+		
+		if(markTop<0){
+			markTop = 0;
+		}else if(markTop>maxTop){
+			markTop = maxTop;
+		}
+		
+		//获取放大镜的移动比例，即这个小框在区域中移动的比例
+		perX = markLeft/$(".small").outerWidth();
+		perY = markTop/$(".small").outerHeight();
+		
+		bigLeft = -perX*$(".big").outerWidth();
+		bigTop = -perY*$(".big").outerHeight();
+		
+		//设定小框的位置
+		$mark.css({"left":markLeft,"top":markTop,"display":"block"});
+	}
+	
+	//改变大图的位置
+	function updataBig(){
+		$(".big").css({"display":"block","left":bigLeft,"top":bigTop});
+	}
+	
+	//鼠标移出时
+	function cancle(){
+		$(".big").css({"display":"none"});	
+		$(".mark").css({"display":"none"});
+	}
+	
+	//鼠标小图上移动时
+	function imgMouseMove(event){
+		
+		var $this = $(this);
+		var $mark = $(this).children(".mark");
+  		
+		//鼠标在小图的位置
+		mouseX = event.pageX-$this.offset().left - $mark.outerWidth()/2;
+		mouseY = event.pageY-$this.offset().top - $mark.outerHeight()/2;
+		
+		//最大值
+		maxLeft =$this.width()- $mark.outerWidth();
+		maxTop =$this.height()- $mark.outerHeight();
+		markLeft = mouseX;
+		markTop = mouseY;
+		
+		updataMark($mark);
+		updataBig();
+	}
+	
+	
+	$(".small").bind("mousemove",imgMouseMove).bind("mouseleave",cancle);
+})
+</script>
+<% end %>
 </body>
 </html>
-
 
