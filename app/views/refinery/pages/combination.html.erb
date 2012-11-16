@@ -1,4 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<style type="text/css">
+.box{
+	position:relative;
+}
+
+.box .small{
+	position:relative;
+	background:#FFF;}
+
+.box .small .mark{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	width:60px;
+	height:60px;
+	background:#FFFFFF;
+	filter:alpha(opacity:50); 
+	opacity:0.5;
+	border:1px solid #333;
+	display:none;
+	}
+
+.box .big{
+	position:absolute;
+	left:225px;
+	top:0;
+	display:none;
+	}
+	
+.boxbig{
+	position:absolute;
+	left:255px;
+	top:0;
+	width:150px;
+	height:150px;
+	overflow:hidden;
+	}
+
+
+</style>
 <body>
 <!--中间部分开始-->
 <div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>

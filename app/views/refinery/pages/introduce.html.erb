@@ -1,8 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>康美会官网</title>
 <style type="text/css">
 	.none
 	{	
@@ -22,6 +17,44 @@
 	    color:#A9A9A9;
 		background:#FFF
 	}
+	.box{
+	position:relative;
+}
+
+.box .small{
+	position:relative;
+	background:#FFF;}
+
+.box .small .mark{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	width:60px;
+	height:60px;
+	background:#FFFFFF;
+	filter:alpha(opacity:50); 
+	opacity:0.5;
+	border:1px solid #333;
+	display:none;
+	}
+
+.box .big{
+	position:absolute;
+	left:225px;
+	top:0;
+	display:none;
+	}
+	
+.boxbig{
+	position:absolute;
+	left:275px;
+	top:0;
+	width:180px;
+	height:180px;
+	overflow:hidden;
+	}
+
 </style>
 <script type="text/javascript">
 <!--
@@ -31,6 +64,7 @@
      var proClass=new Array();
      proClass[0]="detail";
      proClass[1]="sale";
+	 
 	 function showPro(elementId)
 	 {
 		 for(var i=0;i<proCate.length;i++){
@@ -47,10 +81,33 @@
 		 }
 
 	 }	
+	 
+	  function changePic(elementId)
+	{
+		if(elementId == 0)
+		{
+			
+			document.getElementById("pic1").src="../assets/Q101_03.jpg";
+			document.getElementById("pic2").src="../assets//Q101_03.jpg";
+			
+		}else if(elementId == 1)
+		{
+		
+			document.getElementById("pic1").src="../assets//Q101_05.jpg";
+			document.getElementById("pic2").src="../assets//Q101_05.jpg";
+		}
+		else if(elementId == 2)
+		{
+		
+			document.getElementById("pic1").src="../assets//Q101_07.jpg"
+			document.getElementById("pic2").src="../assets//Q101_07.jpg";;
+		}
+	}
+	 
+	
 	 	 
 //-->
 </script>
-</head>
 <body>
 <!--中间部分开始-->
 <div id="NovaSOLtelephone"><img src="/assets/SOLtelephone.jpg" width="158" height="62"> </div>
@@ -79,8 +136,13 @@
   <div id="mem_des_before_right_total">
        <div class="line1"><%=raw @page.content_for(:productname) %></div>
        <div class="product_right_head">
-       		<div class="product_right_head_left"><%=raw @page.content_for(:productpic) %>
-            </div>
+       		<div class="product_right_head_left"><div class="box" >
+    	    <div class="small">
+        	<span class="mark"></span><img id="pic1" src="../assets/introduce2_03.jpg" width="230" height="230" /></div>
+        <div class="boxbig">
+        	<div class="big"><img id="pic2" src="../assets/introduce2_03.jpg"  width="690" height="690" /></div>
+        </div>
+    </div></div>
             <div class="product_right_head_right">
             
             <table height="211">
@@ -130,9 +192,9 @@
                   <td width="285">
 				     <table width="280" height="90" border="0" >
                           <tr>
-                                <td height="31"><img src="../assets/Q101_03.jpg" width="90" height="90" /></td>
-                                <td><img src="../assets/Q101_05.jpg" width="90" height="90" /></td>
-                                <td><img src="../assets/Q101_07.jpg" width="90" height="90" /></td>
+                                <td height="31"><img onmouseover="changePic(0)" src="../assets/Q101_03.jpg" width="90" height="90"  /></td>
+                                <td><img onmouseover="changePic(1)" src="../assets/Q101_05.jpg" width="90" height="90"  /></td>
+                                <td><img onmouseover="changePic(2)" src="../assets/Q101_07.jpg" width="90" height="90"  /></td>
                           </tr>
                     </table>
                </td>
@@ -202,6 +264,83 @@
   
   </div>
 </div>
+<% content_for :javascripts do %>
+	<script type="text/javascript">
+$(function(){
+	var mouseX = 0;		//鼠标移动的位置X
+	var mouseY = 0;		//鼠标移动的位置Y
+	var maxLeft = 0;	//最右边
+	var maxTop = 0;		//最下边
+	var markLeft = 0;	//放大镜移动的左部距离
+	var markTop = 0;	//放大镜移动的顶部距离
+	var perX = 0;	//移动的X百分比
+	var perY = 0;	//移动的Y百分比
+	var bigLeft = 0;	//大图要移动left的距离
+	var bigTop = 0;		//大图要移动top的距离
+
+	//改变放大镜的位置
+	function updataMark($mark){
+		//通过判断，让小框只能在小图区域中移动		
+		if(markLeft<0){
+			markLeft = 0;
+		}else if(markLeft>maxLeft){
+			markLeft = maxLeft;
+		}
+		
+		
+		if(markTop<0){
+			markTop = 0;
+		}else if(markTop>maxTop){
+			markTop = maxTop;
+		}
+		
+		//获取放大镜的移动比例，即这个小框在区域中移动的比例
+		perX = markLeft/$(".small").outerWidth();
+		perY = markTop/$(".small").outerHeight();
+		
+		bigLeft = -perX*$(".big").outerWidth();
+		bigTop = -perY*$(".big").outerHeight();
+		
+		//设定小框的位置
+		$mark.css({"left":markLeft,"top":markTop,"display":"block"});
+	}
+	
+	//改变大图的位置
+	function updataBig(){
+		$(".big").css({"display":"block","left":bigLeft,"top":bigTop});
+	}
+	
+	//鼠标移出时
+	function cancle(){
+		$(".big").css({"display":"none"});	
+		$(".mark").css({"display":"none"});
+	}
+	
+	//鼠标小图上移动时
+	function imgMouseMove(event){
+		
+		var $this = $(this);
+		var $mark = $(this).children(".mark");
+  		
+		//鼠标在小图的位置
+		mouseX = event.pageX-$this.offset().left - $mark.outerWidth()/2;
+		mouseY = event.pageY-$this.offset().top - $mark.outerHeight()/2;
+		
+		//最大值
+		maxLeft =$this.width()- $mark.outerWidth();
+		maxTop =$this.height()- $mark.outerHeight();
+		markLeft = mouseX;
+		markTop = mouseY;
+		
+		updataMark($mark);
+		updataBig();
+	}
+	
+	
+	$(".small").bind("mousemove",imgMouseMove).bind("mouseleave",cancle);
+})
+</script>
+<% end %>
 </body>
 </html>
 
