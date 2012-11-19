@@ -7,16 +7,15 @@ function getproductnovasol() {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
-				if (len(resp) > 0) {
+				if (resp.length > 0) {
 					var ret = resp[0];
 
 					if (ret.product_name)
-						document.getElementById ("fullname").innerHTML = ret.product_name;
+						document.getElementById ("product_name").innerHTML = ret.product_name;
 					if (ret.product_pic) {
 						document.getElementById ("pic1").src = ret.product_pic;
 						document.getElementById ("pic2").src = ret.product_pic;
 					}
-						
 					if (ret.gallery)
 						document.getElementById ("gallery").innerHTML = ret.gallery;
 					if (ret.price_desc)
