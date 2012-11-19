@@ -11,7 +11,7 @@
 	height:auto;
 }
 .product_left_head_img{
-	   background:url(../images/arrow.png) 
+	   background:url(../assets/arrow.png)
        no-repeat;
 	   width:11px;
 	   margin-right:4px;
@@ -143,15 +143,21 @@
 	padding-left:15px;
 	}
 .continueshopping{
-	width:137px;
-	height:52px;
-	margin-left:597px;
-	
+//	width:117px;
+	height:34px;
+	margin-left:450px;	
 	}
 .continue_shopping{
 	background:url(../assets/trolley_continue.jpg) no-repeat;
-	width:133px;
-	height:52px;
+	width:132px;
+	height:42px;
+	border:none;	
+	}
+	
+.continue_pay{
+	background:url(../assets/trolley_pay.jpg) no-repeat;
+	width:123px;
+	height:42px;
 	border:none;
 	
 	}
