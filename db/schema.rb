@@ -78,10 +78,13 @@ ActiveRecord::Schema.define(:version => 20121118103956) do
   add_index "orders", ["product_id"], :name => "index_orders_on_product_id"
 
   create_table "products", :force => true do |t|
-    t.string   "product_name", :null => false
-    t.string   "product_id",   :null => false
-    t.text     "pic"
-    t.string   "price"
+    t.string   "product_name",                               :null => false
+    t.string   "product_id",                                 :null => false
+    t.string   "product_pic",                                :null => false
+    t.text     "gallery"
+    t.decimal  "price",        :precision => 4, :scale => 2, :null => false
+    t.decimal  "retail",       :precision => 4, :scale => 2, :null => false
+    t.string   "price_desc",                                 :null => false
     t.string   "spec"
     t.text     "cert"
     t.text     "desc"
@@ -89,8 +92,8 @@ ActiveRecord::Schema.define(:version => 20121118103956) do
     t.string   "comp"
     t.string   "usage"
     t.string   "orig"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   add_index "products", ["product_id"], :name => "index_products_on_product_id"
