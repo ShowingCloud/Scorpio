@@ -5,8 +5,8 @@ class CreateProducts < ActiveRecord::Migration
 	  t.string :product_id, :null => false
 	  t.string :product_pic, :null => false
 	  t.text :gallery
-	  t.decimal :price, :precision => 4, :scale => 2, :null => false
-	  t.decimal :retail, :precision => 4, :scale => 2, :null => false
+	  t.decimal :price, :precision => 6, :scale => 2, :null => false
+	  t.decimal :retail, :precision => 6, :scale => 2, :null => false
 	  t.string :price_desc, :null => false
 	  t.string :spec
 	  t.text :cert

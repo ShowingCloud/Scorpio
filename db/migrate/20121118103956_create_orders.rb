@@ -47,12 +47,12 @@ class CreateOrders < ActiveRecord::Migration
 	  t.string :detail_id, :null => false
 	  t.string :product_id, :null => false
 	  t.string :product_name, :null => false
-	  t.decimal :price, :precision => 4, :scale => 2, :null => false
-	  t.decimal :retail, :precision => 4, :scale => 2, :null => false
+	  t.decimal :price, :precision => 6, :scale => 2, :null => false
+	  t.decimal :retail, :precision => 6, :scale => 2, :null => false
 	  t.integer :amount, :null => false
 	  t.integer :payment, :null => false
-	  t.decimal :ship, :precision => 3, :scale => 2
-	  t.decimal :coupon, :precision => 4, :scale => 2
+	  t.decimal :ship, :precision => 5, :scale => 2
+	  t.decimal :coupon, :precision => 6, :scale => 2
 	  t.integer :pay_status, :null => false
 	  t.date :pay_date
 	  t.integer :ship_status

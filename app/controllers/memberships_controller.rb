@@ -8,12 +8,12 @@ class MembershipsController < ApplicationController
 
 
 	def index
-		redirect_to("/")
+		redirect_to "/"
 	end
 
 
 	def show
-		redirect_to("/")
+		redirect_to "/"
 	end
 
 
@@ -23,7 +23,7 @@ class MembershipsController < ApplicationController
 		})
 
 		resp = resp[:verfied_mobile_by_sms_response][:verfied_mobile_by_sms_result]
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -44,7 +44,7 @@ class MembershipsController < ApplicationController
 			session[:login] = true
 		end
 
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -52,7 +52,7 @@ class MembershipsController < ApplicationController
 		session[:username] = nil
 		session[:login] = nil
 
-		redirect_to('/')
+		redirect_to '/'
 	end
 
 
@@ -76,7 +76,7 @@ class MembershipsController < ApplicationController
 			session[:login] = true
 		end
 
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -121,7 +121,7 @@ class MembershipsController < ApplicationController
 			addpoint = addpoint[:calculate_points_response][:calculate_points_result]
 		end
 
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -133,7 +133,7 @@ class MembershipsController < ApplicationController
 		})
 
 		resp = resp[:get_user_info_response][:get_user_info_result]
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -146,7 +146,7 @@ class MembershipsController < ApplicationController
 		})
 
 		resp = resp[:get_points_response][:get_points_result]
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -166,7 +166,7 @@ class MembershipsController < ApplicationController
 		})
 
 		resp = resp[:get_point_list_data_response][:get_point_list_data_result]
-		render(:text => resp.to_json)
+		render :json => resp.to_json
 	end
 
 
@@ -186,7 +186,7 @@ class MembershipsController < ApplicationController
 		if params[:username] == nil and params[:phone] == nil and params[:email] == nil
 
 			if session[:username] == nil
-				render(:text => {:status => "0"}.to_json)
+				render :json => {:status => "0"}.to_json
 				return
 			end
 
@@ -219,7 +219,7 @@ class MembershipsController < ApplicationController
 		@inquiry = ::Refinery::Inquiries::Inquiry.new(inq)
 		@inquiry[:status] = @inquiry.save ? "1" : "0"
 
-		render(:text => @inquiry.to_json)
+		render :json => @inquiry.to_json
 	end
 
 

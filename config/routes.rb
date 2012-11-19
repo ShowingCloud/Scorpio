@@ -14,6 +14,26 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
+  resources :product do
+	  collection do
+		  post :newproduct
+		  get :getproduct
+		  get :fetchallproduct
+		  post :updateproduct
+	  end
+  end
+
+  resources :order do
+	  collection do
+		  post :neworder
+		  get :getorder
+		  get :fetchallorder
+		  post :updateorder
+		  post :returnorder
+		  post :statusorder
+	  end
+  end
+
   get '/robots.txt' => 'application#robots'
 
   # This line mounts Refinery's routes at the root of your application.
