@@ -11,7 +11,7 @@
 	height:auto;
 }
 .product_left_head_img{
-	   background:url(../images/arrow.png) 
+	   background:url(../assets/arrow.png)
        no-repeat;
 	   width:11px;
 	   margin-right:4px;
@@ -133,25 +133,60 @@
 	}
 
 .totalprice{
-	width:129px;
+//	width:129px;
 	height:28px;
-	margin-left:216px;
+	margin-left:208px;
 	float:left;
 //	border:solid 1px;
 	font-size:18px;
 	padding-top:5px;
-	padding-left:15px;
+	padding-left:10px;
+	padding-right:10px;
+	border:solid #000 1px;
 	}
 .continueshopping{
-	width:137px;
-	height:52px;
-	margin-left:597px;
+//	width:117px;
+	height:34px;
+	margin-left:450px;
 	
 	}
 .continue_shopping{
 	background:url(../assets/trolley_continue.jpg) no-repeat;
-	width:133px;
-	height:52px;
+	width:132px;
+	height:42px;
 	border:none;
 	
 	}
+	
+.continue_pay{
+	background:url(../assets/trolley_pay.jpg) no-repeat;
+	width:123px;
+	height:42px;
+	border:none;
+	
+	}
+.laststop{
+	background:url(../assets/laststop.jpg) no-repeat;
+	width:132px;
+	height:42px;
+	border:none;
+	
+	}
+	
+.confirmpay{
+	background:url(../assets/confirmpay.jpg) no-repeat;
+	width:123px;
+	height:42px;
+	border:none;
+	
+	}
+.producttotalprice{
+        margin-left:568px;
+	font-size:16px;
+	color:#000;
+}
+
+.finishtext{
+   text-align:center;
+   color:#000;
+}

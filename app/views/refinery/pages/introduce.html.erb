@@ -48,7 +48,7 @@
 	
 .boxbig{
 	position:absolute;
-	left:275px;
+	left:255px;
 	top:0;
 	width:180px;
 	height:180px;
@@ -87,20 +87,20 @@
 		if(elementId == 0)
 		{
 			
-			document.getElementById("pic1").src="../assets/Q101_03.jpg";
-			document.getElementById("pic2").src="../assets//Q101_03.jpg";
+			document.getElementById("pic1").src=document.getElementById("pic1s").value;
+			document.getElementById("pic2").src=document.getElementById("pic1l").value;
 			
 		}else if(elementId == 1)
 		{
 		
-			document.getElementById("pic1").src="../assets//Q101_05.jpg";
-			document.getElementById("pic2").src="../assets//Q101_05.jpg";
+			document.getElementById("pic1").src=document.getElementById("pic2s").value;
+			document.getElementById("pic2").src=document.getElementById("pic2l").value;
 		}
 		else if(elementId == 2)
 		{
 		
-			document.getElementById("pic1").src="../assets//Q101_07.jpg"
-			document.getElementById("pic2").src="../assets//Q101_07.jpg";;
+			document.getElementById("pic1").src=document.getElementById("pic3s").value;
+			document.getElementById("pic2").src=document.getElementById("pic3l").value;
 		}
 	}
 	 
@@ -134,7 +134,7 @@
   </div>
   <!--右侧内容开始-->
   <div id="mem_des_before_right_total">
-       <div class="line1"><%=raw @page.content_for(:productname) %></div>
+       <div class="line1">NovaSOL&nbsp;Q10软胶囊</div>
        <div class="product_right_head">
        		<div class="product_right_head_left"><div class="box" >
     	    <div class="small">
@@ -149,11 +149,11 @@
 			<tr>
               <td width="113"><div class="line3_1">会员价格：</div></td>
               <td width="148"><div class="line3_2">￥</div></td>
-              <td width="81"><div class="line3_3"><%=raw @page.content_for(:productprice) %></div></td>
+              <td width="81"><div class="line3_3">368</div></td>
             </tr>
             <tr>
               <td width="113"><div class="line2_1">规格：</div></td>
-              <td width="148"><div class="line2_2"><%=raw @page.content_for(:productstandard) %></div></td>
+              <td width="148"><div class="line2_2">50mg&nbsp;CoQ10*60粒</div></td>
             </tr>    
              <tr>
               <td width="113"><div class="line4_1">数量：</div></td>
@@ -192,9 +192,9 @@
                   <td width="285">
 				     <table width="280" height="90" border="0" >
                           <tr>
-                                <td height="31"><img onmouseover="changePic(0)" src="../assets/Q101_03.jpg" width="90" height="90"  /></td>
-                                <td><img onmouseover="changePic(1)" src="../assets/Q101_05.jpg" width="90" height="90"  /></td>
-                                <td><img onmouseover="changePic(2)" src="../assets/Q101_07.jpg" width="90" height="90"  /></td>
+                                <td height="31"><img onmouseover="changePic(0)" src="../assets/Q101_03.jpg" width="90" height="90" /><input type="hidden" id="pic1s" value="../assets/Q101_03.jpg" /><input type="hidden" id="pic1l" value="../assets/Q101_03_large.jpg" /></td>
+                                <td><img onmouseover="changePic(1)" src="../assets/Q101_05.jpg" width="90" height="90"  /><input type="hidden" id="pic2s" value="../assets/Q101_05.jpg" /><input type="hidden" id="pic2l" value="../assets/Q101_05_large.jpg" /></td>
+                                <td><img onmouseover="changePic(2)" src="../assets/Q101_07.jpg" width="90" height="90"  /><input type="hidden" id="pic3s" value="../assets/Q101_07.jpg" /><input type="hidden" id="pic3l" value="../assets/Q101_07_large.jpg" /></td>
                           </tr>
                     </table>
                </td>
