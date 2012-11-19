@@ -36,6 +36,7 @@
 	width:150px;
 	height:150px;
 	overflow:hidden;
+	display:none;
 	}
 
 
@@ -65,13 +66,13 @@
   </div>
   <!--右侧内容开始-->
   <div id="mem_des_before_right_total">
-       <div class="line1">NovaSOL Q10软胶囊<img src="../assets/combinationpresent.jpg" width="44" height="38" />JUST&nbsp;BB弹力滋养面膜</div>
+       <div class="line1" id="product_name"></div>
        <div class="product_right_head">
        		<div class="product_right_head_left">
 		         <div class="box">
-			        <div class="small"><span class="mark"></span><img src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="230" height="222" class="selected_by_wym" /></div>
+			        <div class="small"><span class="mark"></span><img id="pic1"src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="230" height="222" class="selected_by_wym" /></div>
 				<div class="boxbig">
-        	                        <div class="big"><img src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="575" height="555" class="selected_by_wym" /></div>
+        	                        <div class="big"><img id="pic2" src="../assets/introduce2_03.jpg" alt="Introduce2 03" width="575" height="555" class="selected_by_wym" /></div>
 				</div>
 			 </div>		
 		 </div>
@@ -80,13 +81,12 @@
                         <table height="211">
 			    <tr>
                                 <td width="113"><div class="line3_1">会员价格：</div></td>
-                                <td width="148"><div class="line3_2">￥</div></td>
-                                <td width="81"><div class="line3_3">368</div></td>
-				<td ><div style="margin-left:-200px"><img src="../assets/combinationsave.jpg" width="87" height="37" /></div></td>
+				<td width="148"><div class="line3_2">￥</div></td>
+				<td><div class="line3_3" id="price_desc" style="margin-top:-10px"></div></td>
                             </tr>
                             <tr>
                                 <td width="113"><div class="line2_1">规格：</div></td>
-                                <td width="148"><div class="line2_2">NovasolQ10*1盒+JUST BB*3片</div></td>
+                                <td width="148"><div class="line2_2" id="spec">NovasolQ10*1盒+JUST BB*3片</div></td>
                             </tr>    
                             <tr>
                                 <td width="113"><div class="line4_1">数量：</div></td>
@@ -116,11 +116,8 @@
                            </table>
                  </div>
         </div>
-        <div class="combine1"><img src="../assets/combine1.jpg" width="715" height="198"/>    
-	</div>
-	<div class="combineintro">
-	     <div class="magicmaskpic"><img src="../assets/magicmaskpic.jpg" width="715" height="88" /></div>		 	
-	</div>
+        <div id="desc">
+	   </div>
 
   
 
@@ -175,11 +172,13 @@ $(function(){
 	//改变大图的位置
 	function updataBig(){
 		$(".big").css({"display":"block","left":bigLeft,"top":bigTop});
+		$(".boxbig").css({"display":"block"});
 	}
 	
 	//鼠标移出时
 	function cancle(){
 		$(".big").css({"display":"none"});	
+		$(".boxbig").css({"display":"none"});
 		$(".mark").css({"display":"none"});
 	}
 	
@@ -206,6 +205,8 @@ $(function(){
 	
 	$(".small").bind("mousemove",imgMouseMove).bind("mouseleave",cancle);
 })
+
+    $(document).ready (function() {getproductcombination();});
 </script>
 <% end %>
 </body>
