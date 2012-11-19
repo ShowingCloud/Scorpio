@@ -87,20 +87,20 @@
 		if(elementId == 0)
 		{
 			
-			document.getElementById("pic1").src="../assets/Q101_03.jpg";
-			document.getElementById("pic2").src="../assets/Q101_03_large.jpg";
+			document.getElementById("pic1").src=document.getElementById("pic1s").value;
+			document.getElementById("pic2").src=document.getElementById("pic1l").value;
 			
 		}else if(elementId == 1)
 		{
 		
-			document.getElementById("pic1").src="../assets/Q101_05.jpg";
-			document.getElementById("pic2").src="../assets/Q101_05_large.jpg";
+			document.getElementById("pic1").src=document.getElementById("pic2s").value;
+			document.getElementById("pic2").src=document.getElementById("pic2l").value;
 		}
 		else if(elementId == 2)
 		{
 		
-			document.getElementById("pic1").src="../assets/Q101_07.jpg";
-			document.getElementById("pic2").src="../assets/Q101_07_large.jpg";
+			document.getElementById("pic1").src=document.getElementById("pic3s").value;
+			document.getElementById("pic2").src=document.getElementById("pic3l").value;
 		}
 	}
 	 
@@ -192,9 +192,9 @@
                   <td width="285">
 				     <table width="280" height="90" border="0" >
                           <tr>
-                                <td height="31"><img onmouseover="changePic(0)" src="../assets/Q101_03.jpg" width="90" height="90"  /></td>
-                                <td><img onmouseover="changePic(1)" src="../assets/Q101_05.jpg" width="90" height="90"  /></td>
-                                <td><img onmouseover="changePic(2)" src="../assets/Q101_07.jpg" width="90" height="90"  /></td>
+                                <td height="31"><img onmouseover="changePic(0)" src="../assets/Q101_03.jpg" width="90" height="90" /><input type="hidden" id="pic1s" value="../assets/Q101_03.jpg" /><input type="hidden" id="pic1l" value="../assets/Q101_03_large.jpg" /></td>
+                                <td><img onmouseover="changePic(1)" src="../assets/Q101_05.jpg" width="90" height="90"  /><input type="hidden" id="pic2s" value="../assets/Q101_05.jpg" /><input type="hidden" id="pic2l" value="../assets/Q101_05_large.jpg" /></td>
+                                <td><img onmouseover="changePic(2)" src="../assets/Q101_07.jpg" width="90" height="90"  /><input type="hidden" id="pic3s" value="../assets/Q101_07.jpg" /><input type="hidden" id="pic3l" value="../assets/Q101_07_large.jpg" /></td>
                           </tr>
                     </table>
                </td>
