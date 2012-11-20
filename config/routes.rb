@@ -38,6 +38,14 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
+  resources :alipay do
+	  collection do
+		  post :send
+		  get :callback
+		  post :notify
+	  end
+  end
+
   get '/robots.txt' => 'application#robots'
 
   # This line mounts Refinery's routes at the root of your application.
