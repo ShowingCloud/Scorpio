@@ -34,8 +34,9 @@
 				        <div class="products_top_left_top"><img src="../assets/products_pic_q10.jpg" width="187" height="203" /></div>
 						<div class="products_top_left_bottom">
 							<button type="button" value="" class="learnmore" onclick="location.href='/pages/35'"></button>
+							<input type="hidden" id="productid" value="1" />
 							<% if session[:login] %>
-								<button type="button" value="" class="clickbuy" onclick="neworder()"></button>
+								<button type="button" value="" class="clickbuy" onclick="addcart()"></button>
 							<% else %>
 								<button type="button" value="" class="clickbuy" onclick="openpopup(true, true)"></button>
 							<% end %>

@@ -31,6 +31,10 @@ Refinerycms::Application.routes.draw do
 		  post :updateorder
 		  post :returnorder
 		  post :statusorder
+		  post :addcart
+		  post :checkout
+		  post :payment
+		  post :callback
 	  end
   end
 

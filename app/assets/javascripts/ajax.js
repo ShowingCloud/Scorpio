@@ -44,6 +44,7 @@ function sendlogin() {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
 				if (parseInt (resp.status) == 1) {
+					location.reload();
 
 //					if (document.getElementById ("dontredirect")) {
 //						var popup = document.getElementById ("popup_dialog");
@@ -51,10 +52,9 @@ function sendlogin() {
 //						popup.style.display = "none";
 //						newdiv.style.display = "none";
 //						document.body.style.overflow = "auto";
-
-					location.reload();
 //					} else
 //						location.href = "/pages/26";
+
 				} else {
 					if (resp.description != null)
 						alert (resp.description);
@@ -368,31 +368,33 @@ function getpointlist() {
 	xmlhttp.send();
 }
 
-function neworder() {
+function addcart() {
 	var xmlhttp = new XMLHttpRequest();
 	var resp = {};
 
+	var product = document.getElementById ("productid").value
+
 	if (document.getElementById ("amount") == null || document.getElementById ("amount").value.length == 0)
-		var ordernum = ""
+		var ordernum = "1"
 	else
-		var ordernum = "num=" + document.getElementById ("amount").value
+		var ordernum = document.getElementById ("amount").value
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
 				if (parseInt (resp.status) == 1)
-					alert ("订单已提交，谢谢您的惠顾");
+					location.href = "/pages/42";
 				else
 					alert ("订单提交失败，请稍候再试");
 			} else
 				alert ("请求发送失败，请稍候再试");
 		}
 	}
-	xmlhttp.open ("POST", "/memberships/neworder", true);
+	xmlhttp.open ("POST", "/order/addcart.json", true);
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-	xmlhttp.send(ordernum);
+	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
 function newquery() {

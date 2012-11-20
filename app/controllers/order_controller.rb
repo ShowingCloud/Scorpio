@@ -108,12 +108,53 @@ class OrderController < ApplicationController
 		respond_to do |format|
 			if @order.update_attributes params
 				format.html { redirect_to @order }
-				format.json { render :json => {:return => "1"} }
+				format.json { render :json => {:status => "1"} }
 			else
 				format.html { render :html => @order.errors, :status => :unprocessable_entity }
 				format.json { render :json => @order.errors, :status => :unprocessable_entity }
 			end
 		end
+	end
+
+
+	# POST /order/addcart
+	# POST /order/addcart.json
+	def addcart
+		product = params[:product]
+		amount = params[:amount].to_i
+
+		if not session[:cart]
+			session[:cart] = {}
+		end
+
+		if session[:cart][product]
+			session[:cart][product] += amount
+		else
+			session[:cart][product] = amount
+		end
+
+		respond_to do |format|
+			format.html { redirect_to "/pages/42" }
+			format.json { render :json => {:status => "1"} }
+		end
+	end
+
+
+	# POST /order/checkout
+	# POST /order/checkout.json
+	def checkout
+	end
+
+
+	# POST /order/payment
+	# POST /order/payment.json
+	def payment
+	end
+
+
+	# POST /order/callback
+	# POST /order/callback.json
+	def callback
 	end
 
 

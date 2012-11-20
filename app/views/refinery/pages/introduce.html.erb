@@ -155,6 +155,7 @@
             <tr>
               <td width="113"><div class="line2_1">规格：</div></td>
               <td width="148"><div class="line2_2" id="spec"></div></td>
+			  <input type="hidden" name="productid" value="2" />
             </tr>    
              <tr>
               <td width="113"><div class="line4_1">数量：</div></td>
@@ -164,7 +165,7 @@
 				 <td width="113">
 					<input type="hidden" id="dontredirect" />
 					<% if session[:login] %>
-						<div class="line5_1" onclick="neworder()">
+						<div class="line5_1" onclick="addcart()">
 					<% else %>
 						<div class="line5_1" onclick="openpopup(true, true)">
 					<% end %>
