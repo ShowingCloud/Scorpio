@@ -1,9 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>康美会官网</title>
-</head>
 <body>
 <form action="" method="get">
 <!--中间部分开始-->
@@ -46,20 +42,15 @@
                   <td width="80">小计</td>
                   <td width="166">操作</td>
                 </tr>
+	      </table>
+	      <table width="713" height="107" border="0" id="myTableProduct">
                 <tr>
-                  <td><img src="../assets/introduce_pic.jpg" width="120" height="111" /></td>
-                  <td>￥368.0</td>
-                  <td>1</td>
-                  <td>￥368.0</td>
-                  <td>删除</td>
-                </tr>
-				<tr>
-                  <td>Q10辅酶素组合装</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
+                  <td width="135"><img src="../assets/introduce_pic.jpg" width="120" height="111" /><div>Q10辅酶素组合装<div></td>
+                  <td width="135">￥<label>368.0</label></td>
+                  <td width="163"><input type="text" value="1" onblur="productCount()" size="1" style="text-align:center"></td>
+                  <td width="80">￥<label">368.0</label></td>
+                  <td width="166">删除</td>
+                </tr>		
               </table>
            </div>
            <div class="trolley_fare">
@@ -92,7 +83,7 @@
                        <li>订购咨询热 400-920-1398</li>
                    </ul>
                    </div>               
-              <div class="totalprice">总价：￥375.00</div> 
+              <div class="totalprice" >总价：￥<label id="product_total">375.00</label></div> 
             </div>  
             <div class="continue">
                        <div class="continueshopping">
@@ -104,5 +95,30 @@
    </div>
 </div>
 </form>
+<% content_for :javascripts do %>
+<script type="text/javascript">
+
+function productCount(){
+	var total=0;     		
+	
+	var price;     
+	var number;    
+
+     
+	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
+	for(var i=0;i<myTableTr.length;i++){		
+		price=myTableTr[i].getElementsByTagName("td")[1].getElementsByTagName("label")[0].innerHTML;		
+		number=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;		
+		total+=price*number;
+		myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("label")[0].innerHTML=price*number
+		}
+	document.getElementById("product_total").innerHTML=total;
+	
+	}
+window.onload=productCount;
+
+
+</script>
+<% end %>
 </body>
 </html>
