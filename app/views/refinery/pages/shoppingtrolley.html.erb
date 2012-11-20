@@ -48,7 +48,7 @@
                   <td width="135"><img src="../assets/introduce_pic.jpg" width="120" height="111" /><div>Q10辅酶素组合装<div></td>
                   <td width="135">￥<label>368.0</label></td>
                   <td width="163"><input type="text" value="1" onblur="productCount()" size="1" style="text-align:center"></td>
-                  <td width="80">￥<label">368.0</label></td>
+                  <td width="80">￥<label>368.0</label></td>
                   <td width="166">删除</td>
                 </tr>		
               </table>
@@ -80,10 +80,10 @@
               <div class="trolley_telephonetext">
                    <ul>
                        <li>NEED ASSISTANCE?</li>
-                       <li>订购咨询热 400-920-1398</li>
+                       <li>订购咨询热线 400-920-1398</li>
                    </ul>
                    </div>               
-              <div class="totalprice" >总价：￥<label id="product_total">375.00</label></div> 
+              <div class="totalprice" >总价：￥<label id="product_total">378.00</label></div> 
             </div>  
             <div class="continue">
                        <div class="continueshopping">
@@ -110,7 +110,7 @@ function productCount(){
 		price=myTableTr[i].getElementsByTagName("td")[1].getElementsByTagName("label")[0].innerHTML;		
 		number=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;		
 		total+=price*number;
-		myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("label")[0].innerHTML=price*number
+		myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("label")[0].innerHTML=price*number;
 		}
 	document.getElementById("product_total").innerHTML=total;
 	
