@@ -173,7 +173,7 @@
 <% content_for :javascripts do %>
 	<script>
 		<% if session[:login] %>
-			$(document).ready (function() {getpoint();});
+			$(document).ready (getpoint);
 		<% else %>
 			$(document).ready (function() {openpopup(true, false);});
 		<% end %>

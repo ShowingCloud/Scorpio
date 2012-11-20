@@ -50,7 +50,7 @@
 									<td width="135">￥<label id="price"></label></td>
 									<td width="163"><input type="text" value=<%= "#{amount}" %> onblur="productCount()" size="1" style="text-align:center"></td>
 									<td width="80">￥<label></label></td>
-									<td width="166"><a id="del">删除<a></td>
+									<td width="166"><a id="del">删除</a></td>
 								</tr>
 							<% end %>
 						</table>
@@ -99,102 +99,79 @@
 		</div>
 	</div>
 </form>
-<% content_for :javascripts do %>
 
-<script type="text/javascript">
+<% content_for :javascripts do %>
+	<script type="text/javascript">
+
 $("#myTableProduct #del").click(function (){
-      $(this).parent().parent().remove(); 
-      
+		$(this).parent().parent().remove(); 
 });
 
 function getproductcart() 
 {
+	var myTableTr = document.getElementById("myTableProduct").getElementsByTagName("tr");
+	var xmlhttps = [];
 	var resp = {};
+
+	for (var i = 0; i < myTableTr.length; i++) {
+		var productid = myTableTr[i].getElementsByTagName("td")[0].getElementsByTagName("input")[0].value;
+
+		xmlhttps[i] = new XMLHttpRequest();
+		(function (num, xmlhttp) {
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						resp = JSON.parse (xmlhttp.responseText);
+						if (resp.length > 0) {
+							var ret = resp[0];
 	
-	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
+							if (ret.product_name)
+								$('#myTableProduct tr').eq(num).find('div').prop('innerHTML', ret.product_name);
 
-	for(var i=0;i<myTableTr.length;i++)
-	{
-		var productid=myTableTr[i].getElementsByTagName("td")[0].getElementsByTagName("input")[0].value;
-               
-		var xmlhttp = new XMLHttpRequest();	
-		xmlhttp.onreadystatechange = function()
-		{
-			if (xmlhttp.readyState == 4) {
-				if (xmlhttp.status == 200) {
-					resp = JSON.parse (xmlhttp.responseText);
-					if (resp.length > 0) {
-						var ret = resp[0];
-									
-						if (ret.product_name)
-						{
-						        $('#myTableProduct tr').each(function() {
-                                                           $(this).find('div').prop('innerHTML', ret.product_name);
-                                                             });
-                                                //        document.getElementById("product_name").innerHTML = ret.product_name
-						//	myTableTr[i].getElementsByTagName("td")[1].getElementsByTagName("div")[0].innerHTML = ret.product_name;
+							if (ret.product_pic)
+								$('#myTableProduct tr').eq(num).find('#pic').prop('src', ret.product_pic);
 
+							if (ret.price)
+								$('#myTableProduct tr').eq(num).find('label').prop('innerHTML',ret.price);
+
+							productCount();
+
+						} else {
+							if (resp.description != null)
+								alert (resp.description);
+							else
+								alert("请求失败，请再检查一遍您的输入并稍候再试");
 						}
-
-						if (ret.product_pic) {
-						       
-						         $('#myTableProduct tr').each(function() {
-                                                           $(this).find('#pic').prop('src', ret.product_pic);
-                                                             });
-						
-						//	document.getElementById("pic").src = ret.product_pic;
-							
-						}
-								
-						if (ret.price)
-						{       
-						         $('#myTableProduct tr').each(function() {
-                                                           $(this).find('label').prop('innerHTML',ret.price);
-                                                             });
-						//      document.getElementById("price").innerHTML = ret.price;
-						//	myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML = ret.price;	
-						
-						}
-
-					} else {
-						if (resp.description != null)
-							alert (resp.description);
-						else
-							alert("请求失败，请再检查一遍您的输入并稍候再试");
-					}
-				} else
-					alert("请求发送失败，请稍候再试");
+					} else
+						alert("请求发送失败，请稍候再试");
+				}
 			}
-		}
-		xmlhttp.open ("GET", "/product/" + productid + ".json", true);
-		xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-		xmlhttp.send();
+		}) (i, xmlhttps[i]);
+		xmlhttps[i].open ("GET", "/product/" + productid + ".json", true);
+		xmlhttps[i].setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+		xmlhttps[i].setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
+		xmlhttps[i].send();
 	}
 }
-</script>
 
-<script type="text/javascript">
+function productCount(){
+	var total=0;     		
 
-	function productCount(){
-		var total=0;     		
+	var price;     
+	var number;    
 
-		var price;     
-		var number;    
-
-
-		var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
-		for(var i=0;i<myTableTr.length;i++){		
-			price=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;		
-			number=myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;		
-			total+=price*number;
-			myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].innerHTML=price*number;
-		}
-		document.getElementById("product_total").innerHTML=total;
-
+	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
+	for(var i=0;i<myTableTr.length;i++){		
+		price=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;		
+		number=myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;		
+		total+=price*number;
+		myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].innerHTML=price*number;
 	}
-	window.onload=function() {getproductcart(); productCount();};
+	document.getElementById("product_total").innerHTML=total;
 
+}
+
+$(document).ready (getproductcart);
 
 </script>
 <% end %>

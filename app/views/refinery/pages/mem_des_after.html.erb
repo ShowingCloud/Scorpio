@@ -294,7 +294,7 @@
 <% content_for :javascripts do %>
 	<script>
 		<% if session[:login] %>
-			$(document).ready (function() {getfillinfo();});
+			$(document).ready (getfillinfo);
 		<% else %>
 			$(document).ready (function() {openpopup(true, false);});
 		<% end %>
