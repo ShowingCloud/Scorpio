@@ -10,8 +10,8 @@ function getproductcombination() {
 				if (resp.length > 0) {
 					var ret = resp[0];
 
-					if (ret.product_name)
-						document.getElementById ("product_name").innerHTML = ret.product_name;
+					if (ret.name_desc)
+						document.getElementById ("product_name").innerHTML = ret.name_desc;
 					if (ret.product_pic) {
 						document.getElementById ("pic1").src = ret.product_pic;
 						document.getElementById ("pic2").src = ret.product_pic;
