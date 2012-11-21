@@ -458,7 +458,7 @@ function payment() {
 			+ "&del_dist=" + document.getElementById ("district").value
 			+ "&del_addr=" + document.getElementById ("contactaddr").value
 			+ "&del_mobile=" + document.getElementById ("telephone").value
-			+ invoice + detail + payment + ship + comment
+			+ invoice /*+ detail + payment + ship*/ + comment
 			+ "&ship_sched=" + document.getElementById ("expect").value);
 }
 

@@ -104,7 +104,9 @@
 	<script type="text/javascript">
 
 $("#myTableProduct #del").click(function (){
+                getproductcart();
 		$(this).parent().parent().remove(); 
+                
 });
 
 function GetRadioValue(paytype){
