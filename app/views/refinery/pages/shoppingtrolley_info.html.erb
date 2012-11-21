@@ -190,22 +190,21 @@
 								<td width="163">数量</td>
 								<td width="80">小计</td>                 
 							</tr>
+						</table>
+						<table id="myTableProduct" width="713" height="107" border="0">
+							<% session[:cart].each do |productid, amount| %>
 							<tr>
-								<td><img src="../assets/introduce_pic.jpg" width="120" height="111" /></td>
-								<td>￥368.0</td>
-								<td>1</td>
-								<td>368.0</td>               
-							</tr>
-							<tr>
-								<td>Q10辅酶素组合装</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>                  
-							</tr>
+								<td  width="1"><input type="hidden" id="productid" value=<%= "#{productid}" %> /></td>
+								<td  width="135"><img id="pic" src="../assets/introduce_pic.jpg" width="120" height="111" /><div id="product_name"></div></td>
+								<td  width="135">￥<label id="price"></label></td>
+								<td  width="163"><%= "#{amount}" %></td>
+								<td  width="80">￥<label></label></td>               
+							</tr>	
+							<% end %>
 						</table>
 					</div>
-					<div class="producttotalprice">产品总价：￥368.00</div> 	   
-					<div class="producttotalprice">包装运费：￥10.00</div> 	    
+					<div class="producttotalprice">产品总价：￥<label id="producttotalprice">368.00</label></div> 	   
+					<div class="producttotalprice">包装运费：￥<label id="fare">10.00</label></div> 	    
 					<div class="trolley_total">  
 						<div class="trolley_telephonepic"><img src="../assets/trolley_telephone.jpg" width="45" height="37" /></div>
 						<div class="trolley_telephonetext">
@@ -214,9 +213,9 @@
 								<li>订购咨询热线 400-920-1398</li>
 							</ul>
 						</div>               
-						<div class="totalprice">总价：￥378.00</div> 
+						<div class="totalprice">总价：￥<label id="totalprice">378.00</label></div> 
 					</div>  
-					<div class="continue">
+					<div class="continue" style="margin-bottom:20px;">
 						<div class="continueshopping">
 							<button type="button" class="laststop" value="" onclick="history.go(-1)" ></button>
 							<button type="button" class="confirmpay" value="" onclick="payment()" ></button>                       
@@ -227,3 +226,80 @@
 		</div>
 	</div>
 </form>
+<% content_for :javascripts do %>
+<script type="text/javascript">
+function getproductcart() 
+{       
+        
+	var myTableTr = document.getElementById("myTableProduct").getElementsByTagName("tr");
+	var xmlhttps = [];
+	var resp = {};
+	
+
+	for (var i = 0; i < myTableTr.length; i++) {
+		var productid = myTableTr[i].getElementsByTagName("td")[0].getElementsByTagName("input")[0].value;
+
+		xmlhttps[i] = new XMLHttpRequest();
+		(function (num, xmlhttp) {
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						resp = JSON.parse (xmlhttp.responseText);
+						if (resp.length > 0) {
+							var ret = resp[0];
+	                                                
+							if (ret.product_name)
+								$('#myTableProduct tr').eq(num).find('div').prop('innerHTML', ret.product_name);
+
+							if (ret.product_pic)
+								$('#myTableProduct tr').eq(num).find('#pic').prop('src', ret.product_pic);
+
+							if (ret.price)
+								$('#myTableProduct tr').eq(num).find('label').prop('innerHTML',ret.price);
+
+							productCount();
+
+						} else {
+							if (resp.description != null)
+								alert (resp.description);
+							else
+								alert("请求失败，请再检查一遍您的输入并稍候再试");
+						}
+					} else
+						alert("请求发送失败，请稍候再试");
+				}
+			}
+		}) (i, xmlhttps[i]);
+		xmlhttps[i].open ("GET", "/product/" + productid + ".json", true);
+		xmlhttps[i].setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+		xmlhttps[i].setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
+		xmlhttps[i].send();
+	}
+}
+
+function productCount(){
+	var total=0;     		
+
+	var price;     
+	var number;   	
+	var fare;
+     
+	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
+	for(var i=0;i<myTableTr.length;i++){		
+		price=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;		
+		number=myTableTr[i].getElementsByTagName("td")[3].innerHTML;			
+		myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].innerHTML=price*number;
+		total+=price*number;
+	}    
+        
+	document.getElementById("producttotalprice").innerHTML=total;
+	fare=document.getElementById("fare").innerHTML;
+        total+=parseInt(fare);
+        document.getElementById("totalprice").innerHTML=total;
+
+}
+
+$(document).ready (getproductcart);
+
+</script>
+<% end %>
