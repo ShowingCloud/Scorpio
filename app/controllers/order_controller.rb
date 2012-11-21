@@ -33,10 +33,10 @@ class OrderController < ApplicationController
 		respond_to do |format|
 			if @order.save
 				format.html { render :html => @order }
-				format.json { render :json => { :return => "1" } }
+				format.json { render "alipay/pay.json" }
 			else
 				format.html { render :html => @order.errors, :status => :unprocessable_entity }
-				format.json { render :json => @order.errors, :status => :unprocessable_entity }
+				format.json { render :json => { :status => "0" } }
 			end
 		end
 	end

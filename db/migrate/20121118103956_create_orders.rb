@@ -44,19 +44,14 @@ class CreateOrders < ActiveRecord::Migration
 	  t.string :inv_mobile
 	  t.string :inv_phone
 
-	  t.string :detail_id, :null => false
-	  t.string :product_id, :null => false
-	  t.string :product_name, :null => false
-	  t.decimal :price, :precision => 6, :scale => 2, :null => false
-	  t.decimal :retail, :precision => 6, :scale => 2, :null => false
-	  t.integer :amount, :null => false
+	  t.text :detail, :null => false
 	  t.integer :payment, :null => false
 	  t.decimal :ship, :precision => 5, :scale => 2
 	  t.decimal :coupon, :precision => 6, :scale => 2
 	  t.integer :pay_status, :null => false
 	  t.date :pay_date
 	  t.integer :ship_status
-	  t.date :ship_sched
+	  t.string :ship_sched
 	  t.date :ship_date
 	  t.string :del_company
 	  t.string :del_ship_id
@@ -67,7 +62,5 @@ class CreateOrders < ActiveRecord::Migration
 
 	add_index :orders, :order_id
 	add_index :orders, :mem_id
-	add_index :orders, :detail_id
-	add_index :orders, :product_id
   end
 end
