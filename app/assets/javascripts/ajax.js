@@ -398,6 +398,41 @@ function addcart() {
 }
 
 function payment() {
+	if (document.getElementById ("fullname").value.length < 2) {
+		alert ("Please input the name of the receiver");
+		return;
+	} else if (document.getElementById ("province").value.length < 2) {
+		alert ("Please input your living province");
+		return;
+	} else if (document.getElementById ("city").value.length < 2) {
+		alert ("Please input your living city");
+		return;
+	} else if (document.getElementById ("district").value.length < 2) {
+		alert ("Please input your living district");
+		return;
+	} else if (document.getElementById ("contactaddr").value.length < 10) {
+		alert ("Please input your living address");
+		return;
+	} else if (document.getElementById ("postcode").value.length != 6) {
+		alert ("Please input your postal code");
+		return;
+	} else if (document.getElementById ("telephone").value.length < 8) {
+		alert ("Please input your mobile number");
+		return;
+	}
+
+	var invoice = "";
+	if (document.getElementById ("needinvoice").checked) {
+		invoice += "&inv_flag=1";
+
+		if (document.getElementById ("title").value.length > 0)
+			invoice += "&inv_title=" + document.getElementById ("title").value;
+	}
+
+	var comment = "";
+	if (document.getElementById ("comment").value.length > 0)
+		comment += "&del_msg=" + document.getElementById ("comment").value;
+
 	var xmlhttp = new XMLHttpRequest();
 	var resp = {};
 
@@ -413,10 +448,18 @@ function payment() {
 				alert ("请求发送失败，请稍候再试");
 		}
 	}
-	xmlhttp.open ("POST", "/alipay/pay.json", true);
+	xmlhttp.open ("POST", "/order/neworder.json", true);
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-	xmlhttp.send();
+	xmlhttp.send("del_name=" + document.getElementById ("fullname").value
+			+ "&del_post=" + document.getElementById ("postcode").value
+			+ "&del_prov=" + document.getElementById ("province").value
+			+ "&del_city=" + document.getElementById ("city").value
+			+ "&del_dist=" + document.getElementById ("district").value
+			+ "&del_addr=" + document.getElementById ("contactaddr").value
+			+ "&del_mobile=" + document.getElementById ("telephone").value
+			+ invoice + detail + payment + ship + comment
+			+ "&ship_sched=" + document.getElementById ("expect").value);
 }
 
 function newquery() {
