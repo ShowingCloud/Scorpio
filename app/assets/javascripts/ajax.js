@@ -397,6 +397,28 @@ function addcart() {
 	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
+function payment() {
+	var xmlhttp = new XMLHttpRequest();
+	var resp = {};
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4) {
+			if (xmlhttp.status == 200) {
+				resp = JSON.parse (xmlhttp.responseText);
+				if (parseInt (resp.status) == 1)
+					location.href = resp.url;
+				else
+					alert ("订单提交失败，请稍候再试");
+			} else
+				alert ("请求发送失败，请稍候再试");
+		}
+	}
+	xmlhttp.open ("POST", "/alipay/pay.json", true);
+	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
+	xmlhttp.send();
+}
+
 function newquery() {
 	if (document.getElementById ("username").value.length < 2) {
 		alert ("请输入您的姓名");
