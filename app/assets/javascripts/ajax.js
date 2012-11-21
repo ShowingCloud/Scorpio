@@ -369,15 +369,15 @@ function getpointlist() {
 }
 
 function addcart() {
-	var xmlhttp = new XMLHttpRequest();
-	var resp = {};
-
 	var product = document.getElementById ("productid").value
 
 	if (document.getElementById ("amount") == null || document.getElementById ("amount").value.length == 0)
 		var ordernum = "1"
 	else
 		var ordernum = document.getElementById ("amount").value
+
+	var xmlhttp = new XMLHttpRequest();
+	var resp = {};
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4) {
@@ -397,7 +397,43 @@ function addcart() {
 	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
-function payment() {
+var payment_price = {"1": 10, "2": 20};
+
+function checkout() {
+	var detail = {};
+	$('#myTableProduct tr').each (function() {
+		productid = $(this).find ('#productid').val();
+		amount = $(this).find ('#amount').val();
+		detail[productid] = amount;
+	});
+
+	if (detail == {})
+		location.href = "/";
+
+	var payment = $('input[name="paytype"]:checked').val();
+
+	var xmlhttp = new XMLHttpRequest();
+	var resp = {};
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4) {
+			if (xmlhttp.status == 200) {
+				resp = JSON.parse (xmlhttp.responseText);
+				if (parseInt (resp.status) == 1)
+					location.href = "/pages/49";
+				else
+					alert ("订单提交失败，请稍候再试");
+			} else
+				alert ("请求发送失败，请稍候再试");
+		}
+	}
+	xmlhttp.open ("POST", "/order/checkout.json", true);
+	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
+	xmlhttp.send("detail=" + JSON.stringify (detail) + "&payment=" + payment);
+}
+
+function createorder() {
 	if (document.getElementById ("fullname").value.length < 2) {
 		alert ("Please input the name of the receiver");
 		return;
@@ -433,6 +469,19 @@ function payment() {
 	if (document.getElementById ("comment").value.length > 0)
 		comment += "&del_msg=" + document.getElementById ("comment").value;
 
+	var detail = {};
+	$('#myTableProduct tr').each (function() {
+		productid = $(this).find ('#productid').val();
+		amount = $(this).find ('#amount').html();
+		detail[productid] = amount;
+	});
+
+	if (detail == {})
+		location.href = "/";
+
+	var payment = $('#payment').val();
+	var expect = $('#expect option:selected').html();
+
 	var xmlhttp = new XMLHttpRequest();
 	var resp = {};
 
@@ -441,7 +490,8 @@ function payment() {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
 				if (parseInt (resp.status) == 1)
-					location.href = resp.url;
+					return;
+//					location.href = resp.url;
 				else
 					alert ("订单提交失败，请稍候再试");
 			} else
@@ -458,8 +508,9 @@ function payment() {
 			+ "&del_dist=" + document.getElementById ("district").value
 			+ "&del_addr=" + document.getElementById ("contactaddr").value
 			+ "&del_mobile=" + document.getElementById ("telephone").value
-			+ invoice /*+ detail + payment + ship*/ + comment
-			+ "&ship_sched=" + document.getElementById ("expect").value);
+			+ invoice + comment
+			+ "&detail=" + JSON.stringify (detail)
+			+ "&payment=" + payment + "&ship_sched=" + expect);
 }
 
 function newquery() {
