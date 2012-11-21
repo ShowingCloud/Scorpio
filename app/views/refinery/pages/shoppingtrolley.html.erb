@@ -59,7 +59,7 @@
 						<table width="713" height="75" border="0">
 							<tr>
 								<td width="49">运费</td>
-								<td width="90"><input name="paytype" id="payonline" type="radio" value="在线支付">在线支付</td>
+								<td width="90"><input name="paytype" id="payonline" type="radio" value="10" checked onclick=" productCount()"></input>在线支付</td>
 								<td width="133">￥10.00</td>
 								<td width="165">&nbsp;</td>
 								<td class="border" width="91">￥10.00</td>
@@ -67,7 +67,7 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td><input name="paytype" id="COD" type="radio" value="货到付款">货到付款</td>
+								<td><input name="paytype" id="COD" type="radio" value="20" onclick="productCount()"></input>货到付款</td>
 								<td>￥20.00</td>
 								<td width="165">&nbsp;</td>
 								<td class="border">￥20.00</td>
@@ -106,6 +106,20 @@
 $("#myTableProduct #del").click(function (){
 		$(this).parent().parent().remove(); 
 });
+
+function GetRadioValue(paytype){
+    var obj;    
+    obj=document.getElementsByName(paytype);
+    if(obj!=null){
+        var i;
+        for(i=0;i<obj.length;i++){
+            if(obj[i].checked){
+                return obj[i].value;            
+            }
+        }
+    }
+    return obj[i].value;
+}
 
 function getproductcart() 
 {
@@ -158,18 +172,33 @@ function productCount(){
 	var total=0;     		
 
 	var price;     
-	var number;    
+	var number;   
+	//alert($("input[name='paytype'][checked]"));
+       // var item=$("input[name='paytype'][checked]").val();
+       //   var item=function GetRadioValue(paytype);
 
+       var obj;    
+       obj=document.getElementsByName("paytype");
+         
+                var i;
+                for(i=0;i<obj.length;i++){
+                                 if(obj[i].checked)
+                                      var item=obj[i].value;
+		}
 	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
 	for(var i=0;i<myTableTr.length;i++){		
 		price=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;		
-		number=myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;		
-		total+=price*number;
+		number=myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;			
 		myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].innerHTML=price*number;
+		total+=price*number;
 	}
+	total+=parseInt(item);    
 	document.getElementById("product_total").innerHTML=total;
 
+
 }
+
+
 
 $(document).ready (getproductcart);
 
