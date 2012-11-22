@@ -28,64 +28,6 @@ class OrderController < ApplicationController
 	# POST /order/neworder
 	# POST /order/neworder.json
 	def neworder
-		data = {
-			:order_id => rand(1e11),
-			:order_time => DateTime.now(),
-			:order_channel => "Novasol",
-			:order_status => 0
-		}
-
-		if params[:comment]
-			data.update ({ :del_msg => params[:comment] })
-		end
-
-		data.update ({
-			:mem_id => "",
-			:mem_name => "",
-			:mem_email => "",
-			:mem_mobile => ""
-		})
-
-		data.update ({
-			:del_name => params[:del_name],
-			:del_post => params[:del_post].to_i,
-			:del_prov => params[:del_prov],
-			:del_city => params[:del_city],
-			:del_dist => params[:del_dist],
-			:del_addr => params[:del_addr],
-			:del_mobile => params[:del_mobile]
-		})
-
-		if params[:inv_flag]
-			data.update ({ :inv_flag => params[:inv_flag] })
-
-			if params[:inv_title]
-				data.update ({ :inv_title => params[:inv_title] })
-			end
-		end
-
-		payment_code = { 1 => 11, 2 => 2 };
-		payment_price = { 1 => 10, 2 => 20 };
-
-		data.update ({
-			:detail => params[:detail],
-			:payment => payment_code[params[:payment].to_i],
-			:ship => payment_price[params[:payment].to_i],
-			:pay_status => 0,
-			:ship_sched => params[:ship_sched],
-		})
-
-		@order = Order.new data
-
-		respond_to do |format|
-			if @order.save
-				format.html { render :html => @order }
-				format.json { render "alipay/pay.json" }
-			else
-				format.html { render :html => @order.errors, :status => :unprocessable_entity }
-				format.json { render :json => { :status => "0" } }
-			end
-		end
 	end
 
 
@@ -207,6 +149,77 @@ class OrderController < ApplicationController
 	# POST /order/payment
 	# POST /order/payment.json
 	def payment
+		data = {
+			:order_id => rand(1e11),
+			:order_time => DateTime.now(),
+		}
+
+		if params[:comment]
+			data.update ({ :del_msg => params[:comment] })
+		end
+
+		data.update ({
+			:mem_id => "memid",
+			:mem_name => "name",
+			:mem_email => "wangguoqin1001@gmail.com",
+			:mem_mobile => "13636363636"
+		})
+
+		data.update ({
+			:del_name => params[:del_name],
+			:del_post => params[:del_post].to_i,
+			:del_prov => params[:del_prov],
+			:del_city => params[:del_city],
+			:del_dist => params[:del_dist],
+			:del_addr => params[:del_addr],
+			:del_mobile => params[:del_mobile]
+		})
+
+		detail = []
+		ActiveSupport::JSON.decode(params[:detail]).each_with_index do |(productid, amount), index|
+			item = {}
+
+			item[:product_id] = productid
+			item[:amount] = amount
+			item[:detail_id] = index
+
+			@product = Product.find :all, :conditions => { :product_id => productid }
+			item[:product_name] = @product.product_name
+			item[:price] = @product.price
+			item[:retail] = @product.retail
+
+			detail.push item
+		end
+
+		if params[:inv_flag]
+			data.update ({ :inv_flag => params[:inv_flag] })
+
+			if params[:inv_title]
+				data.update ({ :inv_title => params[:inv_title] })
+			end
+		end
+
+		payment_code = { 1 => 11, 2 => 2 };
+		payment_price = { 1 => 10, 2 => 20 };
+
+		data.update ({
+			:detail => detail,
+			:payment => payment_code[params[:payment].to_i],
+			:ship => payment_price[params[:payment].to_i],
+			:ship_sched => params[:ship_sched],
+		})
+
+		@order = Order.new data
+
+		respond_to do |format|
+			if @order.save
+				format.html { render :html => @order }
+				format.json { render :json => { :status => "1" } }
+			else
+				format.html { render :html => @order.errors, :status => :unprocessable_entity }
+				format.json { render :json => { :status => "0" } }
+			end
+		end
 	end
 
 

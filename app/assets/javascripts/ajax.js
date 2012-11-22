@@ -498,7 +498,7 @@ function createorder() {
 				alert ("请求发送失败，请稍候再试");
 		}
 	}
-	xmlhttp.open ("POST", "/order/neworder.json", true);
+	xmlhttp.open ("POST", "/order/payment.json", true);
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
 	xmlhttp.send("del_name=" + document.getElementById ("fullname").value

@@ -40,7 +40,7 @@ Refinerycms::Application.routes.draw do
 
   resources :alipay do
 	  collection do
-		  post :pay
+		  get :pay
 		  get :callback
 		  post :notify
 	  end

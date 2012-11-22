@@ -3,8 +3,8 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
 	  t.string :order_id, :null => false
 	  t.datetime :order_time
-	  t.string :order_channel
-	  t.integer :order_status
+	  t.string :order_channel, :default => "Novasol"
+	  t.integer :order_status, :default => 0
 
 	  t.integer :gift_flag
 	  t.string :gift_price
@@ -47,10 +47,10 @@ class CreateOrders < ActiveRecord::Migration
 	  t.text :detail, :null => false
 	  t.integer :payment, :null => false
 	  t.decimal :ship, :precision => 5, :scale => 2
-	  t.decimal :coupon, :precision => 6, :scale => 2
-	  t.integer :pay_status, :null => false
+	  t.decimal :coupon, :precision => 6, :scale => 2, :default => 0.00
+	  t.integer :pay_status, :null => false, :default => 0
 	  t.date :pay_date
-	  t.integer :ship_status
+	  t.integer :ship_status, :default => 0
 	  t.string :ship_sched
 	  t.date :ship_date
 	  t.string :del_company

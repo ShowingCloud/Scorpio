@@ -1,8 +1,8 @@
 class AlipayController < ApplicationController
 
 
-	# POST alipay/pay
-	# POST alipay/pay.json
+	# GET alipay/pay
+	# GET alipay/pay.json
 	def pay
 
 		parameters = {

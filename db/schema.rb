@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20121118103956) do
 
   create_table "orders", :force => true do |t|
-    t.string   "order_id",                                    :null => false
+    t.string   "order_id",                                                           :null => false
     t.datetime "order_time"
-    t.string   "order_channel"
-    t.integer  "order_status"
+    t.string   "order_channel",                               :default => "Novasol"
+    t.integer  "order_status",                                :default => 0
     t.integer  "gift_flag"
     t.string   "gift_price"
     t.string   "gift_msg"
     t.string   "del_msg"
-    t.string   "mem_id",                                      :null => false
-    t.string   "mem_name",                                    :null => false
-    t.string   "mem_email",                                   :null => false
+    t.string   "mem_id",                                                             :null => false
+    t.string   "mem_name",                                                           :null => false
+    t.string   "mem_email",                                                          :null => false
     t.integer  "mem_post"
     t.string   "mem_prov"
     t.string   "mem_city"
@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20121118103956) do
     t.string   "inv_addr"
     t.string   "inv_mobile"
     t.string   "inv_phone"
-    t.text     "detail",                                      :null => false
-    t.integer  "payment",                                     :null => false
+    t.text     "detail",                                                             :null => false
+    t.integer  "payment",                                                            :null => false
     t.decimal  "ship",          :precision => 5, :scale => 2
     t.decimal  "coupon",        :precision => 6, :scale => 2
-    t.integer  "pay_status",                                  :null => false
+    t.integer  "pay_status",                                                         :null => false
     t.date     "pay_date"
     t.integer  "ship_status"
     t.string   "ship_sched"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20121118103956) do
     t.string   "del_company"
     t.string   "del_ship_id"
     t.date     "arrival"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
   end
 
   add_index "orders", ["mem_id"], :name => "index_orders_on_mem_id"

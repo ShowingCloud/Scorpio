@@ -182,30 +182,32 @@
 							</tr> 
 						</table>
 					</div>
-					<div class="trolleybody" style="margin-top:15px;">
-						<table width="713" height="107" border="0">
-							<tr>
-								<td width="135">产品</td>
-								<td width="135">单价</td>
-								<td width="163">数量</td>
-								<td width="80">小计</td>                 
-							</tr>
-						</table>
-						<table id="myTableProduct" width="713" height="107" border="0">
-							<% session[:cart].each do |productid, amount| %>
+					<% if session[:cart] %>
+						<div class="trolleybody" style="margin-top:15px;">
+							<table width="713" height="107" border="0">
 								<tr>
-									<td  width="1"><input type="hidden" id="productid" value=<%= "#{productid}" %> /></td>
-									<td  width="135"><img id="pic" width="120" height="111" /><div id="product_name"></div></td>
-									<td  width="135">￥<label id="price"></label></td>
-									<td  width="163"><label id="amount"><%= "#{amount}" %></label></td>
-									<td  width="80">￥<label id="sum"></label></td>               
-								</tr>	
-							<% end %>
-						</table>
-					</div>
-					<div class="producttotalprice">产品总价：￥<label id="producttotalprice"></label></div> 	   
-					<input type="hidden" id="payment" value=<%= session[:payment] %> />
-					<div class="producttotalprice">包装运费：￥<label id="fare"></label></div> 	    
+									<td width="135">产品</td>
+									<td width="135">单价</td>
+									<td width="163">数量</td>
+									<td width="80">小计</td>                 
+								</tr>
+							</table>
+							<table id="myTableProduct" width="713" height="107" border="0">
+								<% session[:cart].each do |productid, amount| %>
+									<tr>
+										<td  width="1"><input type="hidden" id="productid" value=<%= "#{productid}" %> /></td>
+										<td  width="135"><img id="pic" width="120" height="111" /><div id="product_name"></div></td>
+										<td  width="135">￥<label id="price"></label></td>
+										<td  width="163"><label id="amount"><%= "#{amount}" %></label></td>
+										<td  width="80">￥<label id="sum"></label></td>               
+									</tr>	
+								<% end %>
+							</table>
+						</div>
+						<div class="producttotalprice">产品总价：￥<label id="producttotalprice"></label></div> 	   
+						<input type="hidden" id="payment" value=<%= session[:payment] %> />
+						<div class="producttotalprice">包装运费：￥<label id="fare"></label></div> 	    
+					<% end %>
 					<div class="trolley_total">  
 						<div class="trolley_telephonepic"><img src="../assets/trolley_telephone.jpg" width="45" height="37" /></div>
 						<div class="trolley_telephonetext">
