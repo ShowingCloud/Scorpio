@@ -216,7 +216,7 @@
 								<li>订购咨询热线 400-920-1398</li>
 							</ul>
 						</div>               
-						<div class="totalprice">总价：￥<label id="totalprice"></label></div> 
+						<div class="totalprice">总价：￥<label id="totalprice">0</label></div> 
 					</div>  
 					<div class="continue" style="margin-bottom:20px;">
 						<div class="continueshopping">
@@ -230,7 +230,10 @@
 	</div>
 </form>
 <% content_for :javascripts do %>
-	<script type="text/javascript">
+<script type="text/javascript">
+<% if not session[:login] %>					
+	$(document).ready (function() {openpopup(true, false);});
+<% end %>
 function getproductcart() 
 {       
 
@@ -305,4 +308,5 @@ function productCount(){
 $(document).ready (getproductcart);
 
 </script>
+	
 <% end %>
