@@ -28,6 +28,17 @@ class OrderController < ApplicationController
 	# POST /order/neworder
 	# POST /order/neworder.json
 	def neworder
+		@order = Order.new params
+
+		respond_to do |format|
+			if @order.save
+				format.html { render :html => @order }
+				format.json { render :json => { :return => "1" } }
+			else
+				format.html { render :html => @product.errors, :status => :unprocessable_entity }
+				format.json { render :json => @product.errors, :status => :unprocessable_entity }
+			end
+		end
 	end
 
 
@@ -158,11 +169,23 @@ class OrderController < ApplicationController
 			data.update ({ :del_msg => params[:comment] })
 		end
 
+		mokard = Savon.client "http://www.mokard.com/WSV26/PointRequest.asmx?WSDL"
+		response = mokard.request "GetUserInfo" do
+			http.headers["SOAPAction"] = "http://tempuri.org/GetUserInfo"
+			soap.body = {
+				"MerchantNo" => "1590",
+				"UserName" => session[:username].to_s,
+				"Channel" => "Novasol"
+			}
+		end
+
+		mem = response.body[:get_user_info_response][:get_user_info_result][:return_value]
+
 		data.update ({
-			:mem_id => "memid",
-			:mem_name => "name",
-			:mem_email => "wangguoqin1001@gmail.com",
-			:mem_mobile => "13636363636"
+			:mem_id => mem[:mobile],
+			:mem_name => mem[:nick_name],
+			:mem_email => mem[:email],
+			:mem_mobile => mem[:mobile]
 		})
 
 		data.update ({
@@ -176,6 +199,8 @@ class OrderController < ApplicationController
 		})
 
 		detail = []
+		detail_name = ""
+		total_fee = 0
 		ActiveSupport::JSON.decode(params[:detail]).each_with_index do |(productid, amount), index|
 			item = {}
 
@@ -183,13 +208,16 @@ class OrderController < ApplicationController
 			item[:amount] = amount
 			item[:detail_id] = index
 
-			@product = Product.find :all, :conditions => { :product_id => productid }
-			item[:product_name] = @product.product_name
-			item[:price] = @product.price
-			item[:retail] = @product.retail
+			product = Product.find :first, :conditions => { :product_id => productid }
+			item[:product_name] = product.product_name
+			item[:price] = product.price
+			item[:retail] = product.retail
 
 			detail.push item
+			detail_name += product.product_name + " * " + amount.to_s + ", "
+			total_fee += product.retail.to_f * amount.to_f
 		end
+		detail_name = detail_name.slice 0..-3
 
 		if params[:inv_flag]
 			data.update ({ :inv_flag => params[:inv_flag] })
@@ -203,10 +231,11 @@ class OrderController < ApplicationController
 		payment_price = { 1 => 10, 2 => 20 };
 
 		data.update ({
-			:detail => detail,
+			:detail => detail.to_json,
 			:payment => payment_code[params[:payment].to_i],
 			:ship => payment_price[params[:payment].to_i],
 			:ship_sched => params[:ship_sched],
+			:expected_total_fee => total_fee + payment_code[params[:payment].to_i]
 		})
 
 		@order = Order.new data
@@ -214,10 +243,10 @@ class OrderController < ApplicationController
 		respond_to do |format|
 			if @order.save
 				format.html { render :html => @order }
-				format.json { render :json => { :status => "1" } }
+				format.json { render :json => { :status => "1", :orderid => data[:order_id], :detailname => detail_name } }
 			else
 				format.html { render :html => @order.errors, :status => :unprocessable_entity }
-				format.json { render :json => { :status => "0" } }
+				format.json { render :json => @order.errors, :status => :unprocessable_eneity }
 			end
 		end
 	end

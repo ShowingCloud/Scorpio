@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class AlipayController < ApplicationController
 
 
@@ -5,17 +7,24 @@ class AlipayController < ApplicationController
 	# GET alipay/pay.json
 	def pay
 
+		order = Order.find :first, :conditions => { :order_id => params[:orderid] }
+		total_fee = order.ship
+
+		ActiveSupport::JSON.decode(order.detail).each do |item|
+			total_fee += item["retail"].to_f * item["amount"].to_f
+		end
+
 		parameters = {
 			:service => Refinerycms::Application.config.alipay_service,
 			:partner => Refinerycms::Application.config.alipay_pid,
 			:_input_charset => Refinerycms::Application.config.alipay_input_charset,
 			:notify_url => "http://novasol.com.cn" + Refinerycms::Application.config.alipay_notify_uri,
-			:callback_url => "http://novasol.com.cn" + Refinerycms::Application.config.alipay_return_uri,
-			:out_trade_no => "12345678",
-			:subject => "nothing",
+			:return_url => "https://list.novasol-slv.wgq.me" + Refinerycms::Application.config.alipay_return_uri,
+			:out_trade_no => params[:orderid],
+			:subject => params[:name],
 			:payment_type => "1",
 			:seller_id => Refinerycms::Application.config.alipay_pid,
-			:total_fee => "0.01"
+			:total_fee => "0.01" #total_fee.to_s
 		}
 
 		cleartxt = parameters.map { |k, v| "#{k}=#{v}" }.sort().join ('&')
@@ -28,7 +37,7 @@ class AlipayController < ApplicationController
 		url = Refinerycms::Application.config.alipay_gateway + "?" + parameters.to_param
 
 		respond_to do |format|
-			format.html { redirect_to "/" }
+			format.html { redirect_to url }
 			format.json { render :json => { :status => 1, :url => url } }
 		end
 
@@ -38,6 +47,52 @@ class AlipayController < ApplicationController
 	# GET alipay/callback
 	# GET alipay/callback.json
 	def callback
+
+		if not params[:is_success] == 'T'
+			redirect_to "/" and return
+		end
+
+		params.delete "action"
+		params.delete "controller"
+		params.delete "sign_type"
+		sign = params.delete "sign"
+
+		cleartxt = params.map { |k, v| "#{k}=#{v}" }.sort().join ('&')
+		cipher = Digest::MD5.hexdigest(cleartxt + Refinerycms::Application.config.alipay_key)
+
+		if not sign == cipher
+			redirect_to "/" and return
+		end
+
+		server_verification = {
+			:service => "notify_verify",
+			:partner => Refinerycms::Application.config.alipay_pid,
+			:notify_id => params[:notify_id]
+		}
+		if not open(Refinerycms::Application.config.alipay_gateway + "?" + server_verification.to_param).read == "true"
+			redirect_to "/" and return
+		end
+
+		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
+		order.alipay_cb_buyer_email = params[:buyer_email]
+		order.alipay_cb_buyer_id = params[:buyer_id]
+		order.alipay_cb_notify_time = params[:notify_time].to_datetime
+		order.alipay_cb_total_fee = params[:total_fee].to_f
+		order.alipay_cb_trade_no = params[:trade_no]
+		order.alipay_cb_trade_status = params[:trade_status]
+
+		if params[:trade_status] == "TRADE_FINISHED" or params[:trade_status] == "TRADE_SUCCESS"
+			if params[:total_fee].to_f >= order.expected_total_fee
+				order.order_status = 1
+				order.pay_status = 1
+				order.pay_date = Date.today()
+			end
+		end
+
+		order.save
+
+		redirect_to "/pages/50"
+
 	end
 
 

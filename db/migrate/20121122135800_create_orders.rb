@@ -48,7 +48,7 @@ class CreateOrders < ActiveRecord::Migration
 	  t.integer :payment, :null => false
 	  t.decimal :ship, :precision => 5, :scale => 2
 	  t.decimal :coupon, :precision => 6, :scale => 2, :default => 0.00
-	  t.integer :pay_status, :null => false, :default => 0
+	  t.integer :pay_status, :default => 0
 	  t.date :pay_date
 	  t.integer :ship_status, :default => 0
 	  t.string :ship_sched

@@ -28,7 +28,7 @@
 	     <ul>	     
              <li class="item_1"><img src="/assets/index0921_trolley.jpg" width="19" height="19" /></li>
              <li class="item_2">我的购物车</li>
-             <li class="item_3">0</li>
+			 <li class="item_3"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></li>
              <li class="item_4">件</li>
              <li class="item_5">&nbsp;&nbsp;去结算</li>
              <li class="item_6"><img src="/assets/index0921_pic2.jpg" width="16" height="28" /></li>
