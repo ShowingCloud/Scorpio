@@ -397,13 +397,13 @@ function addcart() {
 	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
-var payment_price = {"1": 10, "2": 20};
+var payment_price = {"1": 0, "2": 0};
 
 function checkout() {
 	var detail = {};
 	$('#myTableProduct tr').each (function() {
 		productid = $(this).find ('#productid').val();
-		amount = $(this).find ('#amount').val();
+		amount = parseInt ($(this).find ('#amount').val());
 		detail[productid] = amount;
 	});
 
@@ -472,7 +472,7 @@ function createorder() {
 	var detail = {};
 	$('#myTableProduct tr').each (function() {
 		productid = $(this).find ('#productid').val();
-		amount = $(this).find ('#amount').html();
+		amount = parseInt ($(this).find ('#amount').html());
 		detail[productid] = amount;
 	});
 

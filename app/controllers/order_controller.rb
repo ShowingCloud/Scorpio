@@ -128,7 +128,7 @@ class OrderController < ApplicationController
 		end
 
 		if session[:cart][product]
-			session[:cart][product] += amount
+			session[:cart][product] = session[:cart][product].to_i + amount
 		else
 			session[:cart][product] = amount
 		end
@@ -228,7 +228,7 @@ class OrderController < ApplicationController
 		end
 
 		payment_code = { 1 => 11, 2 => 2 };
-		payment_price = { 1 => 10, 2 => 20 };
+		payment_price = { 1 => 0, 2 => 0 };
 
 		data.update ({
 			:detail => detail.to_json,
