@@ -79,7 +79,7 @@ class AlipayController < ApplicationController
 		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
 		order.alipay_cb_buyer_email = params[:buyer_email]
 		order.alipay_cb_buyer_id = params[:buyer_id]
-		order.alipay_cb_notify_time = params[:notify_time].to_datetime
+		order.alipay_cb_notify_time = params[:notify_time] && params[:notify_time].to_datetime
 		order.alipay_cb_total_fee = params[:total_fee].to_f
 		order.alipay_cb_trade_no = params[:trade_no]
 		order.alipay_cb_trade_status = params[:trade_status]
@@ -131,14 +131,14 @@ class AlipayController < ApplicationController
 		end
 
 		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
-		order.alipay_nt_notify_time = params[:notify_time].to_datetime
+		order.alipay_nt_notify_time = params[:notify_time] && params[:notify_time].to_datetime
 		order.alipay_nt_trade_no = params[:trade_no]
 		order.alipay_nt_trade_status = params[:trade_status]
-		order.alipay_nt_create_time = params[:gmt_create].to_datetime
-		order.alipay_nt_pay_time = params[:gmt_payment].to_datetime
-		order.alipay_nt_close_time = params[:gmt_close].to_datetime
+		order.alipay_nt_create_time = params[:gmt_create] && params[:gmt_create].to_datetime
+		order.alipay_nt_pay_time = params[:gmt_payment] && params[:gmt_payment].to_datetime
+		order.alipay_nt_close_time = params[:gmt_close] && params[:gmt_close].to_datetime
 		order.alipay_nt_refund_status = params[:refund_status]
-		order.alipay_nt_refund_time = params[:gmt_refund].to_datetime
+		order.alipay_nt_refund_time = params[:gmt_refund] && params[:gmt_refund].to_datetime
 		order.alipay_nt_buyer_email = params[:buyer_email]
 		order.alipay_nt_buyer_id = params[:buyer_id]
 		order.alipay_nt_total_fee = params[:total_fee].to_f
