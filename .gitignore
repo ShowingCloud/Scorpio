@@ -101,6 +101,9 @@ config/initializers/secret_token.rb
 config/initializers/alipay.rb
 db/data.yml
 
+# needed for migration
+db/schema.rb
+
 # test data
 db/datadump/orders.yml
 db/datadump/refinery_inquiries_inquiries.yml
