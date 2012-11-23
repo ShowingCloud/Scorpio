@@ -36,7 +36,7 @@ refinery_pages:
     - home
     - application
     - 2012-10-17 08:22:15.000000000 Z
-    - 2012-11-03 13:56:54.000000000 Z
+    - 2012-11-16 16:41:16.000000000 Z
   - - 2
     - 1
     - 
@@ -59,7 +59,7 @@ refinery_pages:
     - 
     - 会员专区
     - true
-    - https://jay.novasol-slv.wgq.me/%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E4%BC%9A%E5%91%98%E5%88%B6%E5%BA%A6
+    - ../%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E4%BC%9A%E5%91%98%E5%88%B6%E5%BA%A6
     - 
     - true
     - false
@@ -70,7 +70,7 @@ refinery_pages:
     - home
     - application
     - 2012-10-17 12:50:04.000000000 Z
-    - 2012-11-02 06:04:11.000000000 Z
+    - 2012-11-19 03:39:01.000000000 Z
   - - 9
     - 
     - 
@@ -87,7 +87,7 @@ refinery_pages:
     - question
     - application
     - 2012-10-19 15:57:59.000000000 Z
-    - 2012-11-02 06:04:11.000000000 Z
+    - 2012-11-16 16:35:33.000000000 Z
   - - 10
     - 
     - 
@@ -116,7 +116,7 @@ refinery_pages:
     - false
     - false
     - 33
-    - 60
+    - 64
     - 0
     - buyonline
     - application
@@ -274,7 +274,7 @@ refinery_pages:
     - instruction
     - application
     - 2012-10-26 16:01:43.000000000 Z
-    - 2012-11-02 06:04:13.000000000 Z
+    - 2012-11-22 07:15:15.000000000 Z
   - - 29
     - 12
     - 
@@ -421,8 +421,8 @@ refinery_pages:
     - true
     - false
     - false
-    - 61
-    - 62
+    - 65
+    - 66
     - 0
     - 
     - 
@@ -523,8 +523,8 @@ refinery_pages:
     - false
     - false
     - false
-    - 63
-    - 68
+    - 67
+    - 72
     - 0
     - home
     - application
@@ -540,8 +540,8 @@ refinery_pages:
     - false
     - false
     - false
-    - 64
-    - 65
+    - 68
+    - 69
     - 1
     - 
     - 
@@ -557,8 +557,8 @@ refinery_pages:
     - true
     - false
     - false
-    - 66
-    - 67
+    - 70
+    - 71
     - 1
     - 
     - 
@@ -598,3 +598,37 @@ refinery_pages:
     - application
     - 2012-11-12 00:34:40.000000000 Z
     - 2012-11-12 00:42:31.000000000 Z
+  - - 49
+    - 12
+    - 
+    - 送货信息
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 60
+    - 61
+    - 1
+    - shoppingtrolley_info
+    - application
+    - 2012-11-19 09:27:44.000000000 Z
+    - 2012-11-19 09:27:44.000000000 Z
+  - - 50
+    - 12
+    - 
+    - 购物成功
+    - true
+    - ''
+    - 
+    - true
+    - false
+    - false
+    - 62
+    - 63
+    - 1
+    - shoppingtrolley_finish
+    - application
+    - 2012-11-19 12:07:00.000000000 Z
+    - 2012-11-19 12:07:00.000000000 Z

@@ -14,12 +14,14 @@ class AlipayController < ApplicationController
 			total_fee += item["retail"].to_f * item["amount"].to_f
 		end
 
+		url_base = request.protocol + request.host
+
 		parameters = {
 			:service => Refinerycms::Application.config.alipay_service,
 			:partner => Refinerycms::Application.config.alipay_pid,
 			:_input_charset => Refinerycms::Application.config.alipay_input_charset,
-			:notify_url => "http://novasol.com.cn" + Refinerycms::Application.config.alipay_notify_uri,
-			:return_url => "https://list.novasol-slv.wgq.me" + Refinerycms::Application.config.alipay_return_uri,
+			:notify_url => url_base + Refinerycms::Application.config.alipay_notify_uri,
+			:return_url => url_base + Refinerycms::Application.config.alipay_return_uri,
 			:out_trade_no => params[:orderid],
 			:subject => params[:name],
 			:payment_type => "1",
@@ -91,6 +93,8 @@ class AlipayController < ApplicationController
 
 		order.save
 
+		session[:cart] = nil
+
 		redirect_to "/pages/50"
 
 	end
@@ -99,11 +103,57 @@ class AlipayController < ApplicationController
 	# POST alipay/notify
 	# POST alipay/notify.json
 	def notify
+
+		logger.info params.to_json
+
+		params.delete "action"
+		params.delete "controller"
+		params.delete "sign_type"
+		sign = params.delete "sign"
+
+		cleartxt = params.map { |k, v| "#{k}=#{v}" }.sort().join ('&')
+		cipher = Digest::MD5.hexdigest(cleartxt + Refinerycms::Application.config.alipay_key)
+
+		if not sign == cipher
+			redirect_to "/" and return
+		end
+
+		server_verification = {
+			:service => "notify_verify",
+			:partner => Refinerycms::Application.config.alipay_pid,
+			:notify_id => params[:notify_id]
+		}
+		if not open(Refinerycms::Application.config.alipay_gateway + "?" + server_verification.to_param).read == "true"
+			redirect_to "/" and return
+		end
+
+		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
+		order.alipay_nt_notify_time = params[:notify_time].to_datetime
+		order.alipay_nt_trade_no = params[:trade_no]
+		order.alipay_nt_trade_status = params[:trade_status]
+		order.alipay_nt_create_time = params[:gmt_create].to_datetime
+		order.alipay_nt_pay_time = params[:gmt_payment].to_datetime
+		order.alipay_nt_close_time = params[:gmt_close].to_datetime
+		order.alipay_nt_refund_status = params[:refund_status]
+		order.alipay_nt_refund_time = params[:gmt_refund].to_datetime
+		order.alipay_nt_buyer_email = params[:buyer_email]
+		order.alipay_nt_buyer_id = params[:buyer_id]
+		order.alipay_nt_total_fee = params[:total_fee].to_f
+		order.alipay_nt_discount = params[:discount].to_f
+
+		if params[:trade_status] == "TRADE_FINISHED" or params[:trade_status] == "TRADE_SUCCESS"
+			if params[:total_fee].to_f >= order.expected_total_fee
+				order.order_status = 1
+				order.pay_status = 1
+				order.pay_date = Date.today()
+
+				render :text => "success" and return
+			end
+		end
+
+		order.save
+
 	end
 
 
-	private
-
-	# Alipay.alipay_pid
-	# Alipay.alipay_key
 end

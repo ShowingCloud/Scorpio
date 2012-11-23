@@ -102,6 +102,7 @@ config/initializers/alipay.rb
 db/data.yml
 
 # test data
+db/datadump/orders
 db/datadump/refinery_inquiries_inquiries.yml
 db/datadump/refinery_resources.yml
 db/datadump/refinery_roles.yml

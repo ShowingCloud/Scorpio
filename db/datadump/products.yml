@@ -1,0 +1,105 @@
+
+---
+products:
+  columns:
+  - id
+  - product_name
+  - product_id
+  - product_pic
+  - name_desc
+  - gallery
+  - price
+  - retail
+  - price_desc
+  - spec
+  - cert
+  - desc
+  - adv
+  - comp
+  - usage
+  - orig
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - NovaSOL Q10软胶囊
+    - '1'
+    - ../assets/introduce2_03.jpg
+    - NovaSOL&nbsp;Q10软胶囊
+    - ! " <table width=\"280\" height=\"90\" border=\"0\" >\r\n                          <tr>\r\n
+      \                               <td height=\"31\"><img onmouseover=\"changePic(0)\"
+      src=\"../assets/Q101_03.jpg\" width=\"90\" height=\"90\" /><input type=\"hidden\"
+      id=\"pic1s\" value=\"../assets/Q101_03.jpg\" /><input type=\"hidden\" id=\"pic1l\"
+      value=\"../assets/Q101_03_large.jpg\" /></td>\r\n                                <td><img
+      onmouseover=\"changePic(1)\" src=\"../assets/Q101_05.jpg\" width=\"90\" height=\"90\"
+      \ /><input type=\"hidden\" id=\"pic2s\" value=\"../assets/Q101_05.jpg\" /><input
+      type=\"hidden\" id=\"pic2l\" value=\"../assets/Q101_05_large.jpg\" /></td>\r\n
+      \                               <td><img onmouseover=\"changePic(2)\" src=\"../assets/Q101_07.jpg\"
+      width=\"90\" height=\"90\"  /><input type=\"hidden\" id=\"pic3s\" value=\"../assets/Q101_07.jpg\"
+      /><input type=\"hidden\" id=\"pic3l\" value=\"../assets/Q101_07_large.jpg\"
+      /></td>\r\n                          </tr>\r\n                    </table>"
+    - 368.0
+    - 368.0
+    - '368'
+    - 50mg&nbsp;CoQ10*60粒
+    - 
+    - ! "<div class=\"novasolQ10_pic\"><img src=\"../assets/Q101_12.jpg\" width=\"672\"
+      height=\"319\"/></div>\r\n        \r\n             <div class=\"blue_title\"><img
+      src=\"../assets/Q101_15.jpg\" width=\"672\" height=\"59\"/></div>\r\n             <div
+      class=\"detail_text\"><img src=\"../assets/Q101_16.jpg\" width=\"672\" height=\"241\"/></div>\r\n
+      \       \r\n             <div class=\"blue_title\"><img src=\"../assets/Q101_17.jpg\"
+      width=\"672\" height=\"68\"/></div>\r\n             <div class=\"detail_text\"><img
+      src=\"../assets/Q101_18.jpg\" width=\"672\" height=\"180\"/></div>\r\n        \r\n
+      \            <div class=\"blue_title\"><img src=\"../assets/Q101_19.jpg\" width=\"672\"
+      height=\"69\"/></div>\r\n             <div class=\"detail_text\"><img src=\"../assets/Q101_20.jpg\"
+      width=\"672\" height=\"225\"/></div>"
+    - ! "<div class=\"novasolQ10_pic\"><img src=\"../assets/Q102_03.jpg\" width=\"672\"
+      height=\"321\"/></div>\r\n        \r\n             <div class=\"blue_title\"><img
+      src=\"../assets/Q102_05.jpg\" width=\"672\" height=\"87\"/></div>\r\n             <div
+      class=\"sale_text1\"><img src=\"../assets/Q102_06.jpg\" width=\"672\" height=\"211\"/></div>
+      \           \r\n             <div class=\"sale_video\"><embed src=\"http://player.opengg.me/player.php/sid/XNDcxMTY5MjIw/v.swf\"
+      allowFullScreen=\"true\" quality=\"high\" width=\"250\" height=\"250\" align=\"middle\"
+      allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed></div>\r\n
+      \       \r\n             <div class=\"blue_title\"><img src=\"../assets/Q102_08.jpg\"
+      width=\"672\" height=\"63\"/></div>\r\n             <div class=\"sale_text2\"><img
+      src=\"../assets/Q102_09.jpg\" width=\"672\" height=\"37\"/></div>\r\n             <div
+      class=\"sale_pic2\"><img src=\"../assets/Q102_10.jpg\" width=\"672\" height=\"233\"/></div>\r\n
+      \            <div class=\"sale_video\" style=\"float:left\"><embed src=\"http://player.opengg.me/player.php/sid/XNDcxMTcwNTQ0/v.swf\"
+      allowFullScreen=\"true\" quality=\"high\" width=\"250\" height=\"250\" align=\"middle\"
+      allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed></div>\r\n
+      \            <div class=\"sale_video\" style=\"margin-left:350px\"><embed src=\"http://player.opengg.me/player.php/sid/XNDcxMTg1Njc2/v.swf\"
+      allowFullScreen=\"true\" quality=\"high\" width=\"250\" height=\"250\" align=\"middle\"
+      allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed></div>\r\n<div
+      class=\"blue_title\"><img src=\"../assets/Q102_12.jpg\" width=\"672\" height=\"73\"/></div>\r\n
+      \            <div class=\"sale_text3\"><img src=\"../assets/Q102_13.jpg\" width=\"672\"
+      height=\"100\"/></div>\r\n             <div class=\"sale_pic3\"><img src=\"../assets/Q102_14.jpg\"
+      width=\"672\" height=\"291\"/></div>\r\n         \r\n             <div class=\"blue_title\"><img
+      src=\"../assets/Q102_15.jpg\" width=\"672\" height=\"75\"/></div>\r\n             <div
+      class=\"sale_pic4\"><img src=\"../assets/Q102_16.jpg\" width=\"672\" height=\"446\"/></div>"
+    - 辅酶Q10，聚山梨酸脂80，中链脂肪酸甘油三脂
+    - 每日一次，每次一粒，温水送服
+    - 德国
+    - 2012-11-20 00:00:00.000000000 Z
+    - 2012-11-20 00:00:00.000000000 Z
+  - - 2
+    - NovaSOL Q10软胶囊 赠 JUST BB弹力滋养面膜
+    - '2'
+    - ../assets/introduce2_03.jpg
+    - NovaSOL Q10软胶囊<img src="../assets/combinationpresent.jpg" width="44" height="38"
+      />JUST BB弹力滋养面膜
+    - 
+    - 368.0
+    - 368.0
+    - 368<img src="../assets/combinationsave.jpg" width="87" height="37" />
+    - NovasolQ10*1盒+JUST BB*3片
+    - 
+    - ! "<div class=\"combine1\"><img src=\"../assets/combine1.jpg\" width=\"715\"
+      height=\"198\"/></div>\r\n\t<div class=\"combineintro\">\r\n\t     <div class=\"magicmaskpic\"><img
+      src=\"../assets/magicmaskpic.jpg\" width=\"715\" height=\"88\" /></div>\t\t
+      \t"
+    - 
+    - 
+    - 
+    - 
+    - 2012-11-20 00:00:00.000000000 Z
+    - 2012-11-20 00:00:00.000000000 Z

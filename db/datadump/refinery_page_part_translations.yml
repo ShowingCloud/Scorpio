@@ -73,12 +73,14 @@ refinery_page_part_translations:
   - - 17
     - 17
     - en
-    - ! "<li><img src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8xMl80NV84NDJfa3YxLmpwZwY6BkVU/kv1.jpg\"
-      alt=\"Kv1\" height=\"417\" width=\"660\" /></li>\r\n<li><img src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8yMF80N180NTBfS1YyLmpwZwY6BkVU/KV2.jpg\"
-      alt=\"Kv2\" height=\"417\" width=\"660\" /></li>\r\n<li><img src=\"/system/images/BAhbBlsHOgZmSSIiMjAxMi8xMS8wMS8xNV8xOF80Ml83NDZfXy5qcGcGOgZFVA/%E6%9C%AA%E5%91%BD%E5%90%8D.jpg\"
-      alt=\"未命名\" width=\"660\" height=\"417\" /></li>"
+    - ! "<li><a href=\"../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol\"><img src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8xMl80NV84NDJfa3YxLmpwZwY6BkVU/kv1.jpg\"
+      alt=\"Kv1\" height=\"417\" width=\"660\" /></a>\r\n</li>\r\n<li><a href=\"../%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E4%BC%9A%E5%91%98%E5%88%B6%E5%BA%A6\"><img
+      src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8yMF80N180NTBfS1YyLmpwZwY6BkVU/KV2.jpg\"
+      alt=\"Kv2\" height=\"417\" width=\"660\" /></a>\r\n</li><li><a href=\"../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol\"><img
+      src=\"/system/images/BAhbBlsHOgZmSSIiMjAxMi8xMS8wMS8xNV8xOF80Ml83NDZfXy5qcGcGOgZFVA/%E6%9C%AA%E5%91%BD%E5%90%8D.jpg\"
+      alt=\"未命名\" width=\"660\" height=\"417\" /></a>\r\n</li>"
     - 2012-10-18 05:26:15.000000000 Z
-    - 2012-11-03 13:56:54.000000000 Z
+    - 2012-11-16 16:41:16.000000000 Z
   - - 28
     - 28
     - en
@@ -233,9 +235,9 @@ refinery_page_part_translations:
   - - 72
     - 72
     - en
-    - ! '<div>10 Q10:   Q10是否任何人都食用？</div>'
+    - ! '<div>Q10:   Q10是否任何人都食用？</div>'
     - 2012-10-24 03:02:17.000000000 Z
-    - 2012-10-28 20:03:35.000000000 Z
+    - 2012-11-16 16:35:33.000000000 Z
   - - 73
     - 73
     - en
@@ -1018,3 +1020,45 @@ refinery_page_part_translations:
       alt="Introduce2 03" rel="225x255" width="460" height="444" /></div>
     - 2012-11-13 07:23:58.000000000 Z
     - 2012-11-13 07:23:58.000000000 Z
+  - - 206
+    - 206
+    - en
+    - ''
+    - 2012-11-19 09:27:44.000000000 Z
+    - 2012-11-19 09:27:44.000000000 Z
+  - - 207
+    - 207
+    - en
+    - ''
+    - 2012-11-19 09:27:44.000000000 Z
+    - 2012-11-19 09:27:44.000000000 Z
+  - - 208
+    - 208
+    - en
+    - ''
+    - 2012-11-19 12:07:00.000000000 Z
+    - 2012-11-19 12:07:00.000000000 Z
+  - - 209
+    - 209
+    - en
+    - ''
+    - 2012-11-19 12:07:00.000000000 Z
+    - 2012-11-19 12:07:00.000000000 Z
+  - - 210
+    - 210
+    - en
+    - <div>* 送货时间均以发出送货通知之日起计算</div>
+    - 2012-11-22 07:15:15.000000000 Z
+    - 2012-11-22 07:15:15.000000000 Z
+  - - 211
+    - 211
+    - en
+    - <div>* 周六、周日或法定节假日订单，顺延至下周一或节后第一个工作日再进行处理并发货，请您谅解！</div>
+    - 2012-11-22 07:15:15.000000000 Z
+    - 2012-11-22 07:15:15.000000000 Z
+  - - 212
+    - 212
+    - en
+    - <div>* 如遇问题，请与NOVASOL网站客服联系：4009-201-398（周一至周五： 9:00~18：00）</div>
+    - 2012-11-22 07:15:15.000000000 Z
+    - 2012-11-22 07:15:15.000000000 Z
