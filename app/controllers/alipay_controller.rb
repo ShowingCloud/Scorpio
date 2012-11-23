@@ -56,6 +56,7 @@ class AlipayController < ApplicationController
 
 		params.delete "action"
 		params.delete "controller"
+		params.delete "format"
 		params.delete "sign_type"
 		sign = params.delete "sign"
 
@@ -95,7 +96,10 @@ class AlipayController < ApplicationController
 
 		session[:cart] = nil
 
-		redirect_to "/pages/50"
+		respond_to do |format|
+			format.html { redirect_to "/pages/50" }
+			format.json { render :json => { :status => 1 } }
+		end
 
 	end
 
@@ -104,10 +108,9 @@ class AlipayController < ApplicationController
 	# POST alipay/notify.json
 	def notify
 
-		logger.info params.to_json
-
 		params.delete "action"
 		params.delete "controller"
+		params.delete "format"
 		params.delete "sign_type"
 		sign = params.delete "sign"
 
@@ -147,12 +150,22 @@ class AlipayController < ApplicationController
 				order.pay_status = 1
 				order.pay_date = Date.today()
 
-				render :text => "success" and return
+				respond_to do |format|
+					format.html { redirect "/pages/50" }
+					format.json { render :text => "success" }
+				end
+
+				order.save
+				return
 			end
 		end
 
 		order.save
 
+		respond_to do |format|
+			format.html { redirect "/" }
+			format.json { render :text => "failed" }
+		end
 	end
 
 
