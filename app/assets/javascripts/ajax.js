@@ -369,12 +369,13 @@ function getpointlist() {
 }
 
 function addcart() {
-	var product = document.getElementById ("productid").value
+//	var product = document.getElementById ("productid").value;
+	var product = "2";
 
 	if (document.getElementById ("amount") == null || document.getElementById ("amount").value.length == 0)
-		var ordernum = "1"
+		var ordernum = "1";
 	else
-		var ordernum = document.getElementById ("amount").value
+		var ordernum = document.getElementById ("amount").value;
 
 	var xmlhttp = new XMLHttpRequest();
 	var resp = {};
@@ -397,7 +398,7 @@ function addcart() {
 	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
-var payment_price = {"1": 10, "2": 20};
+var payment_price = {"1": 0, "2": 0};
 
 function checkout (nextpage) {
 	var detail = {};
