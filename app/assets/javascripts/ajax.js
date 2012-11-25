@@ -423,6 +423,8 @@ function checkout (nextpage) {
 				if (parseInt (resp.status) == 1) {
 					if (nextpage)
 						location.href = "/pages/49";
+					else
+						$('#cartamount').html (Object.keys (detail).length);
 				} else
 					alert ("订单提交失败，请稍候再试");
 			} else
