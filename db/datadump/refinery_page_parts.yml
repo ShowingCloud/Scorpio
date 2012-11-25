@@ -17,56 +17,56 @@ refinery_page_parts:
       height="219" width="252" /></div>
     - 0
     - 2012-10-17 09:56:14.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 7
     - 1
     - leftbottom
     - ''
     - 1
     - 2012-10-17 10:23:37.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 9
     - 1
     - bottomleft_lineone
     - <div>德国诺惠药厂</div>
     - 2
     - 2012-10-17 10:26:01.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 10
     - 1
     - bottomleft_linetwo
     - <div>德国著名权威药厂AQUANOVA于1995年成立，为一直致力研发优质的健康产品</div>
     - 3
     - 2012-10-17 10:26:01.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 11
     - 1
     - bottommiddle_lineone
     - <div>NovaSOL Q10软胶囊</div>
     - 4
     - 2012-10-17 10:26:01.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 12
     - 1
     - bottommiddle_linetwo
     - <div>专利的微颗粒化技术(Micellation Technology)将主要成分承载于30纳米(nm)的微颗粒(micelle)内</div>
     - 5
     - 2012-10-17 10:26:02.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 13
     - 1
     - bottomright_lineone
     - <div>美研沙龙</div>
     - 6
     - 2012-10-17 10:26:02.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 14
     - 1
     - bottomright_linetwo
     - <div>由专业人士亲临沙龙，现场传授健康、美容、美体秘籍。&#160;&#160;&#160;&#160;&#160;&#160;&#160;</div>
     - 7
     - 2012-10-17 10:26:02.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 15
     - 4
     - Body
@@ -87,12 +87,14 @@ refinery_page_parts:
     - ! "<li><a href=\"../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol\"><img src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8xMl80NV84NDJfa3YxLmpwZwY6BkVU/kv1.jpg\"
       alt=\"Kv1\" height=\"417\" width=\"660\" /></a>\r\n</li>\r\n<li><a href=\"../%E4%BC%9A%E5%91%98%E4%B8%93%E5%8C%BA/%E4%BC%9A%E5%91%98%E5%88%B6%E5%BA%A6\"><img
       src=\"/system/images/BAhbBlsHOgZmSSIkMjAxMi8xMC8zMS8wMV8yMF80N180NTBfS1YyLmpwZwY6BkVU/KV2.jpg\"
-      alt=\"Kv2\" height=\"417\" width=\"660\" /></a>\r\n</li><li><a href=\"../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol\"><img
+      alt=\"Kv2\" height=\"417\" width=\"660\" /></a>\r\n</li>\r\n<li><a href=\"../%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF/novasol\"><img
       src=\"/system/images/BAhbBlsHOgZmSSIiMjAxMi8xMS8wMS8xNV8xOF80Ml83NDZfXy5qcGcGOgZFVA/%E6%9C%AA%E5%91%BD%E5%90%8D.jpg\"
-      alt=\"未命名\" width=\"660\" height=\"417\" /></a>\r\n</li>"
+      alt=\"未命名\" width=\"660\" height=\"417\" /></a>\r\n</li>\r\n<li><a href=\"../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0\"><img
+      src=\"/system/images/BAhbBlsHOgZmSSIiMjAxMi8xMS8yNi8wMV8xM18yOF82MjlfXy5KUEcGOgZFVA/%E7%85%A7%E7%89%87.JPG\"
+      alt=\"照片\" width=\"660\" height=\"417\" />\r\n</a>\r\n</li>"
     - 8
     - 2012-10-18 05:26:15.000000000 Z
-    - 2012-11-16 16:41:16.000000000 Z
+    - 2012-11-25 17:54:25.000000000 Z
   - - 28
     - 10
     - Body
@@ -1181,28 +1183,28 @@ refinery_page_parts:
     - ''
     - 0
     - 2012-11-19 09:27:44.000000000 Z
-    - 2012-11-19 09:27:44.000000000 Z
+    - 2012-11-25 17:03:57.000000000 Z
   - - 207
     - 49
     - Side Body
     - ''
     - 1
     - 2012-11-19 09:27:44.000000000 Z
-    - 2012-11-19 09:27:44.000000000 Z
+    - 2012-11-25 17:03:57.000000000 Z
   - - 208
     - 50
     - Body
     - ''
     - 0
     - 2012-11-19 12:07:00.000000000 Z
-    - 2012-11-19 12:07:00.000000000 Z
+    - 2012-11-25 17:04:08.000000000 Z
   - - 209
     - 50
     - Side Body
     - ''
     - 1
     - 2012-11-19 12:07:00.000000000 Z
-    - 2012-11-19 12:07:00.000000000 Z
+    - 2012-11-25 17:04:08.000000000 Z
   - - 210
     - 28
     - wuliuline1
