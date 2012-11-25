@@ -462,12 +462,12 @@ function createorder() {
 	}
 
 	var invoice = "";
-	if (document.getElementById ("needinvoice").checked) {
-		invoice += "&inv_flag=1";
+//	if (document.getElementById ("needinvoice").checked) {
+//		invoice += "&inv_flag=1";
 
-		if (document.getElementById ("title").value.length > 0)
-			invoice += "&inv_title=" + document.getElementById ("title").value;
-	}
+//		if (document.getElementById ("title").value.length > 0)
+//			invoice += "&inv_title=" + document.getElementById ("title").value;
+//	}
 
 	var comment = "";
 	if (document.getElementById ("comment").value.length > 0)
