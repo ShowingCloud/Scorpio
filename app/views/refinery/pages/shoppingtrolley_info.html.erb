@@ -59,7 +59,7 @@
 						</table>
 						<table>
 							<tr>
-								<td> <div class="mem_basic_info_name_text">地址名称 </div>
+								<td> <div class="mem_basic_info_name_text">地址类别名称 </div>
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
@@ -75,7 +75,7 @@
 								<td width="7" >
 									<div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td width="30" >
+								<td width="60" >
 									<div class="maohao1">:</div>
 								</td>
 								<td width="293">
@@ -89,13 +89,15 @@
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="province" class="textblank" type="text" name="address" size="7"></div>
+								<td width="10"> <div class="maohao1">:</div>
+								</td>
+								<td> <div><input id="province" class="textblank" type="text" name="address" size="9"></div>
 								</td>
 								<td> <div class="mem_basic_info_name_text">城市 </div>
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="city" class="textblank" type="text" name="address" size="7"></div>
+								<td> <div>：<input id="city" class="textblank" type="text" name="address" size="9"></div>
 								</td>
 								<td> <div class="mem_basic_info_name_text">区县 </div>
 								</td>
@@ -111,7 +113,9 @@
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="contactaddr" class="textblank" type="text" name="address" size="46"></div>
+								<td width="40"> <div class="maohao1">:</div>
+								</td>
+								<td> <div><input id="contactaddr" class="textblank" type="text" name="address" size="46"></div>
 								</td>
 							</tr> 
 						</table>
@@ -121,7 +125,7 @@
 								</td>
 								<td width="7"> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td width="30" >
+								<td width="62" >
 									<div class="maohao1">:</div>
 								</td>
 								<td> <div><input id="postcode" class="textblank" type="text" name="postcode" size="46"></div>
@@ -134,7 +138,10 @@
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="telephone" class="textblank" type="text" name="phone" size="46"></div>
+								<td width="40" >
+									<div class="maohao1">:</div>
+								</td>
+								<td> <div><input id="telephone" class="textblank" type="text" name="phone" size="46"></div>
 								</td>
 							</tr> 
 						</table>
@@ -144,8 +151,11 @@
 									<div class="mem_basic_info_name_text">送货时间</div>
 								</td>
 								<td >
-									<div class="">
-										：<select  id="expect">
+								<td width="37" >
+									<div class="maohao1">:</div>
+								</td>
+								<td ><div class="">
+										<select  id="expect">
 											<option value="recordchangeb1" size="23">对送货时间无特殊要求</option>
 											<option value="recordchangeb2" size="23">只在工作日送货</option>
 											<option value="recordchangeb3" size="23">只在双休日送货</option>
@@ -154,7 +164,7 @@
 								</td>                            
 							</tr> 
 						</table>
-						<table >
+<!--						<table >
 							<tr>
 								<td> <div class="mem_basic_info_name_text">是否开具发票 </div>
 								</td>
@@ -167,13 +177,13 @@
 								<td> <div style="color:#000;">抬头：<input id="title" class="textblank" type="text" name="yesorno" size="43"></div>
 								</td>
 							</tr> 
-						</table>
+						</table> -->
 						<table>
 							<tr>
 								<td width="32">
 									<div class="mem_basic_info_name_text">备注</div>
 								</td>               
-								<td width="42" >
+								<td width="74" >
 									<div class="maohao1">:</div>
 								</td>
 								<td width="293">
@@ -206,7 +216,7 @@
 						</div>
 						<div class="producttotalprice">产品总价：￥<label id="producttotalprice"></label></div> 	   
 						<input type="hidden" id="payment" value=<%= session[:payment] %> />
-						<div class="producttotalprice">包装运费：￥<label id="fare"></label></div> 	    
+						<div class="producttotalprice">包装运费：￥<label id="fare">0</label></div> 	    
 					<% end %>
 					<div class="trolley_total">  
 						<div class="trolley_telephonepic"><img src="../assets/trolley_telephone.jpg" width="45" height="37" /></div>
