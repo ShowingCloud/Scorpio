@@ -91,7 +91,7 @@
 				<div class="continue">
 					<div class="continueshopping">
 						<button type="button" class="continue_shopping" value="" onclick="location.href='/'"></button>
-						<button type="button" class="continue_pay" value="" onclick="checkout()"></button>
+						<button type="button" class="continue_pay" value="" onclick="checkout(true)"></button>
 
 					</div>                           
 				</div>
@@ -108,7 +108,8 @@
 
 $("#myTableProduct #del").click(function (){
 		getproductcart();
-		$(this).parent().parent().remove(); 
+		$(this).parent().parent().remove();
+		checkout (false);
 });
 
 function getproductcart() {

@@ -399,7 +399,7 @@ function addcart() {
 
 var payment_price = {"1": 10, "2": 20};
 
-function checkout() {
+function checkout (nextpage) {
 	var detail = {};
 	$('#myTableProduct tr').each (function() {
 		productid = $(this).find ('#productid').val();
@@ -407,7 +407,7 @@ function checkout() {
 		detail[productid] = amount;
 	});
 
-	if (detail == {})
+	if (nextpage && detail == {})
 		location.href = "/";
 
 	var payment = $('input[name="paytype"]:checked').val();
@@ -419,9 +419,10 @@ function checkout() {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
-				if (parseInt (resp.status) == 1)
-					location.href = "/pages/49";
-				else
+				if (parseInt (resp.status) == 1) {
+					if (nextpage)
+						location.href = "/pages/49";
+				} else
 					alert ("订单提交失败，请稍候再试");
 			} else
 				alert ("请求发送失败，请稍候再试");
