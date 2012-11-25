@@ -117,6 +117,43 @@ function sendregister() {
 			+ "&verification=" + document.getElementById ("verification").value);
 }
 
+function sendchangepsw() {
+	if (document.getElementById ("password").value != document.getElementById ("password_confirmation").value) {
+		alert ("密码不匹配，请重新输入");
+		return;
+	} else if (document.getElementById ("password").value.length < 6) {
+		alert ("密码太短了，为了安全起见请选择长一些的密码");
+		return;
+	} else if (document.getElementById ("verification").value.length != 4) {
+		alert ("请输入您收到的验证码");
+		return;
+	}
+
+	var xmlhttp = new XMLHttpRequest();
+	var resp = {};
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4) {
+			if (xmlhttp.status == 200) {
+				resp = JSON.parse (xmlhttp.responseText);
+				if (parseInt (resp.status) == 1)
+					location.href = "/pages/26";
+				else {
+					if (resp.description != null)
+						alert (resp.description);
+					else
+						alert ("请求失败，请再检查一遍您的输入并稍候再试");
+				}
+			} else
+				alert ("请求发送失败，请稍候再试");
+		}
+	}
+	xmlhttp.open ("POST", "/memberships/changepsw", true);
+	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
+	xmlhttp.send ("password=" + document.getElementById ("password").value
+			+ "&verification=" + document.getElementById ("verification").value);
+}
+
 function sendfillinfo() {
 	if (document.getElementById ("fullname").value.length < 2) {
 		alert ("请输入您的名字");

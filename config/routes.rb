@@ -5,6 +5,7 @@ Refinerycms::Application.routes.draw do
 		  post :login
 		  post :verifymobile
 		  post :register
+		  post :changepsw
 		  post :fillinfo
 		  post :getinfo
 		  post :getpoint

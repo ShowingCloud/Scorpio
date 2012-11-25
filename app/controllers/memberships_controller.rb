@@ -85,7 +85,7 @@ class MembershipsController < ApplicationController
 			render :json => { :status => "0" } and return
 		end
 
-		resp = query_mokard("GetUserInfo", {
+		resp = query_mokard("UpdateUserPwd", {
 			"MerchantNo" => "1590",
 			"UserName" => session[:username].to_s,
 			"Channel" => "Novasol",
@@ -93,7 +93,7 @@ class MembershipsController < ApplicationController
 			"Code" => params[:verification].to_s
 		})
 
-		resp = resp[:get_user_info_response][:get_user_info_result]
+		resp = resp[:update_user_pwd_response][:update_user_pwd_result]
 		render :json => resp.to_json
 	end
 
