@@ -499,7 +499,7 @@
 		<% if session[:login] %>
 			$(document).ready (preparefillinfo);
 		<% else %>
-			$(document).ready (function() {openpopup(true, false);});
+			$(document).ready (function() {openpopup(0, false);});
 		<% end %>
 	</script>
 <% end %>

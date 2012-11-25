@@ -4,7 +4,7 @@
 		<% if session[:login] %>
 			<div class="left_top" onclick="alert('您已经登录了')">
 		<% else %>
-			<div class="left_top" onclick="openpopup(false, true)">
+			<div class="left_top" onclick="openpopup(1, true)">
 		<% end %>
 			<%=raw @page.content_for(:lefttop) %>
 		</div>

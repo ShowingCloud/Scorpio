@@ -242,7 +242,7 @@
 <% content_for :javascripts do %>
 <script type="text/javascript">
 <% if not session[:login] %>					
-	$(document).ready (function() {openpopup(true, false);});
+	$(document).ready (function() {openpopup(0, false);});
 <% end %>
 
 function getproductcart() {       

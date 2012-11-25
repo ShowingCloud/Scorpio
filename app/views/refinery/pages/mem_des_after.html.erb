@@ -46,7 +46,7 @@
 		 
 		</li>
         <li class="mem_des_after_update_code">
-         <input type="submit" class="update_code_pic" value="" />
+         <button type="button" class="update_code_pic" value="" onclick="openpopup(2, true)" />
 		    
 		</li>
         <div style="clear:both"></div>
@@ -296,7 +296,7 @@
 		<% if session[:login] %>
 			$(document).ready (getfillinfo);
 		<% else %>
-			$(document).ready (function() {openpopup(true, false);});
+			$(document).ready (function() {openpopup(0, false);});
 		<% end %>
 	</script>
 <% end %>

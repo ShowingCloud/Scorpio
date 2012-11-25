@@ -80,7 +80,28 @@ class MembershipsController < ApplicationController
 	end
 
 
+	def changepsw
+		if not session[:login] or not session[:username]
+			render :json => { :status => "0" } and return
+		end
+
+		resp = query_mokard("GetUserInfo", {
+			"MerchantNo" => "1590",
+			"UserName" => session[:username].to_s,
+			"Channel" => "Novasol",
+			"NewPassword" => Digest::SHA256.hexdigest(params[:password].to_s).slice(0, 32),
+			"Code" => params[:verification].to_s
+		})
+
+		resp = resp[:get_user_info_response][:get_user_info_result]
+		render :json => resp.to_json
+	end
+
 	def fillinfo
+		if not session[:login] or not session[:username]
+			render :json => { :status => "0" } and return
+		end
+
 		resp = query_mokard("UpdateUserInfo", {
 			"MerchantNo" => "1590",
 			"UserName" => session[:username].to_s,
@@ -126,6 +147,10 @@ class MembershipsController < ApplicationController
 
 
 	def getinfo
+		if not session[:login] or not session[:username]
+			render :json => { :status => "0" } and return
+		end
+
 		resp = query_mokard("GetUserInfo", {
 			"MerchantNo" => "1590",
 			"UserName" => session[:username].to_s,
@@ -138,6 +163,10 @@ class MembershipsController < ApplicationController
 
 
 	def getpoint
+		if not session[:login] or not session[:username]
+			render :json => { :status => "0" } and return
+		end
+
 		resp = query_mokard("GetPoints", {
 			"merchantNo" => "1590",
 			"username" => session[:username].to_s,
@@ -151,6 +180,10 @@ class MembershipsController < ApplicationController
 
 
 	def getpointlist
+		if not session[:login] or not session[:username]
+			render :json => { :status => "0" } and return
+		end
+
 		resp = query_mokard("GetPointListData", {
 			"MerchantNo" => "1590",
 			"UserName" => session[:username].to_s,
@@ -171,7 +204,6 @@ class MembershipsController < ApplicationController
 
 
 	def neworder
-
 		if session[:username] != nil
 
 			resp = query_mokard("GetUserInfo", {

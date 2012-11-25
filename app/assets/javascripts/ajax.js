@@ -573,7 +573,7 @@ function newquery() {
 			+ "&message=" + document.getElementById ("message").value);
 }
 
-function openpopup (islogin, canhide) {
+function openpopup (login_reg_psw, canhide) {
 	location.href = "#";
 
 	var popup = document.getElementById ("popup_dialog");
@@ -615,19 +615,21 @@ function openpopup (islogin, canhide) {
 				}
 
 			document.getElementById ("popup_login").onclick = function() {
-				openpopup (true, canhide);
+				openpopup (0, canhide);
 			}
 
 			document.getElementById ("popup_register").onclick = function() {
-				openpopup (false, canhide);
+				openpopup (1, canhide);
 			}
 		}
 	}
 
-	if (islogin)
+	if (login_reg_psw == 0)
 		xmlhttp.open ("GET", "/assets/login.inc.html", true);
-	else
+	else if (login_reg_psw == 1)
 		xmlhttp.open ("GET", "/assets/register.inc.html", true);
+	else if (login_reg_psw == 2)
+		xmlhttp.open ("GET", "/assets/changepsw.inc.html", true);
 
 	xmlhttp.send();
 }
