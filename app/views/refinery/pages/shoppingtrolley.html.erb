@@ -49,19 +49,19 @@
 									<td width="135"><img id="pic" width="120" height="111"></img><div id="product_name"></div></td>
 									<td width="135">￥<label id="price"></label></td>
 									<td width="163"><input type="text" id="amount" value=<%= "#{amount}" %> onblur="productCount()" size="1" style="text-align:center"></td>
-									<td width="80">￥<label></label></td>
+									<td width="80">￥<label id="sum"></label></td>
 									<td width="166"><a id="del">删除</a></td>
 								</tr>
 							<% end %>
 						</table>
 					</div>
 					<div class="trolley_fare">
-						<table width="713" height="75" border="0">
+						<table width="713" height="75" border="0" id="t_shipping">
 							<tr>
 								<td width="49">运费</td>
 								<td width="90"><input name="paytype" id="payonline" type="radio" value="1" checked onclick=" productCount()"></input>在线支付</td>
 								<td width="133">￥10.00</td>
-								<td width="165">&nbsp;</td>
+								<td width="165" id="price">&nbsp;</td>
 								<td class="border" width="91">￥10.00</td>
 								<td width="159">&nbsp;</td>
 							</tr>
@@ -111,76 +111,73 @@ $("#myTableProduct #del").click(function (){
 		$(this).parent().parent().remove(); 
 });
 
-function getproductcart() 
-{
-	var myTableTr = document.getElementById("myTableProduct").getElementsByTagName("tr");
+function getproductcart() {
 	var xmlhttps = [];
 	var resp = {};
 
-	for (var i = 0; i < myTableTr.length; i++) {
-		var productid = myTableTr[i].getElementsByTagName("td")[0].getElementsByTagName("input")[0].value;
+	$('#myTableProduct tr').each (function() {
+		var productid = $(this).find ('#productid').val();
 
-		xmlhttps[i] = new XMLHttpRequest();
-		(function (num, xmlhttp) {
-			xmlhttp.onreadystatechange = function() {
-				if (xmlhttp.readyState == 4) {
-					if (xmlhttp.status == 200) {
-						resp = JSON.parse (xmlhttp.responseText);
-						if (resp.length > 0) {
-							var ret = resp[0];
+		$.ajax ({
+			url: "/product/" + productid + ".json",
+			type: "GET",
+			dataType: "json",
+			context: this
+		}).done (function (resp) {
+			if (resp.length > 0) {
+				var ret = resp[0];
 
-							if (ret.product_name)
-								$('#myTableProduct tr').eq(num).find('#product_name').prop('innerHTML', ret.product_name);
+				if (ret.product_name)
+					$(this).find('#product_name').prop('innerHTML', ret.product_name);
 
-							if (ret.product_pic)
-								$('#myTableProduct tr').eq(num).find('#pic').prop('src', ret.product_pic);
+				if (ret.product_pic)
+					$(this).find('#pic').prop('src', ret.product_pic);
 
-							if (ret.price)
-								$('#myTableProduct tr').eq(num).find('#price').prop('innerHTML',ret.price);
+				if (ret.price)
+					$(this).find('#price').prop('innerHTML', parseFloat (ret.price).toFixed (2));
 
-							productCount();
+				productCount();
 
-						} else {
-							if (resp.description != null)
-								alert (resp.description);
-							else
-								alert("请求失败，请再检查一遍您的输入并稍候再试");
-						}
-					} else
-						alert("请求发送失败，请稍候再试");
-				}
+			} else {
+				if (resp.description != null)
+					alert (resp.description);
+				else
+					alert("请求失败，请再检查一遍您的输入并稍候再试");
 			}
-		}) (i, xmlhttps[i]);
-		xmlhttps[i].open ("GET", "/product/" + productid + ".json", true);
-		xmlhttps[i].setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
-		xmlhttps[i].setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-		xmlhttps[i].send();
-	}
+		}).fail (function() {
+			alert("请求发送失败，请稍候再试");
+		})
+	})
 }
 
-function productCount(){
-	var total=0;     		
-
-	var price;     
-	var number;   
+function productCount() {
+	var total = 0;
+	var price;
+	var amount;
 
 	var item = $('input[name="paytype"]:checked').val();
-	var myTableTr=document.getElementById("myTableProduct").getElementsByTagName("tr"); 
-	for(var i=0;i<myTableTr.length;i++){		
-		price=myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;		
-		number=myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;			
-		myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].innerHTML=price*number;
-		total+=price*number;
-	}
-	total += parseInt (payment_price[item]);    
-	document.getElementById("product_total").innerHTML=total;
-
+	$('#myTableProduct tr').each (function() {
+			price = $(this).find ('#price').html();
+			amount = $(this).find ('#amount').val();
+			$(this).find ('#sum').html ((price * amount).toFixed (2));
+			total += price * amount;
+	})
+	total += parseFloat (payment_price[item]);    
+	document.getElementById("product_total").innerHTML = total.toFixed (2);
 
 }
 
+function getshipping() {
 
+	$('#t_shipping tr').each (function () {
+			method = $(this).find ('input[name="paytype"]').val();
+			$(this).find ('#price').each (function() {
+				$(this).html (parseFloat (payment_price[method]).toFixed (2));
+			})
+	})
+}
 
-$(document).ready (getproductcart);
+$(document).ready (function () {getproductcart(); getshipping();});
 
 </script>
 <% end %>

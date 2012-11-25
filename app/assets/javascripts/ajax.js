@@ -397,7 +397,7 @@ function addcart() {
 	xmlhttp.send("product=" + product + "&amount=" + ordernum);
 }
 
-var payment_price = {"1": 0, "2": 0};
+var payment_price = {"1": 10, "2": 20};
 
 function checkout() {
 	var detail = {};

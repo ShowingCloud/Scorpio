@@ -147,12 +147,13 @@ class OrderController < ApplicationController
 		session[:payment] = params[:payment]
 
 		if session[:payment] != '1' and session[:payment] != '2'
-			redirect_to "/"
+			render :json => { :status => "0" } and return
+#			redirect_to "/" and return
 		end
 
 		respond_to do |format|
 			format.html { redirect_to "/pages/49" }
-			format.json { render :json => {:status => "1"} }
+			format.json { render :json => { :status => "1" } }
 		end
 	end
 
