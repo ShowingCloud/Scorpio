@@ -26,7 +26,7 @@ class AlipayController < ApplicationController
 			:subject => params[:name],
 			:payment_type => "1",
 			:seller_id => Refinerycms::Application.config.alipay_pid,
-			:total_fee => "0.01" #total_fee.to_s
+			:total_fee => total_fee.to_s
 		}
 
 		cleartxt = parameters.map { |k, v| "#{k}=#{v}" }.sort().join ('&')
