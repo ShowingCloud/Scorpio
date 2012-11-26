@@ -31,17 +31,78 @@ class MembershipsController < ApplicationController
 		session[:username] = nil
 		session[:login] = nil
 
+		digest = Digest::SHA256.new
+		digest.update params[:password].to_s
+		digest.update Refinerycms::Application.config.membership_secret_token
+
 		resp = query_mokard("Login", {
 			"MerchantNo" => "1590",
 			"UserName" => params[:username].to_s,
 			"Channel" => "Novasol",
-			"PassWord" => Digest::SHA256.hexdigest(params[:password].to_s).slice(0, 32)
+			"PassWord" => digest.hexdigest.slice(0, 32)
 		})
 		resp = resp[:login_response][:login_result]
 
 		if resp[:status] == "1"
+
 			session[:username] = params[:username]
 			session[:login] = true
+			resp[:pswtype] = 2
+
+		else
+
+			resp = query_mokard("Login", {
+				"MerchantNo" => "1590",
+				"UserName" => params[:username].to_s,
+				"Channel" => "Novasol",
+				"PassWord" => Digest::SHA256.hexdigest(params[:plainpass].to_s).slice(0, 32)
+			})
+			resp = resp[:login_response][:login_result]
+
+			if resp[:status] == "1"
+				session[:username] = params[:username]
+				session[:login] = true
+				resp[:pswtype] = 1
+
+				newresp = query_mokard("GetUserInfo", {
+					"MerchantNo" => "1590",
+					"UserName" => session[:username].to_s,
+					"Channel" => "Novasol"
+				})
+				mobile = newresp[:get_user_info_response][:get_user_info_result][:return_value][:mobile]
+
+				if mobile
+					newresp = query_mokard("VerfiedMobileBySMS", {
+						"Mobile" => mobile.to_s
+					})
+					verification = newresp[:verfied_mobile_by_sms_response][:verfied_mobile_by_sms_result][:return_value]
+
+					resp[:pswtype] = 3
+
+					if verification
+
+						digest = Digest::SHA256.new
+						digest.update params[:password].to_s
+						digest.update Refinerycms::Application.config.membership_secret_token
+
+						newresp = query_mokard("UpdateUserPwd", {
+							"MerchantNo" => "1590",
+							"UserName" => session[:username].to_s,
+							"Channel" => "Novasol",
+							"NewPassword" => digest.hexdigest.slice(0, 32),
+							"Code" => verification.to_s
+						})
+
+						status = newresp[:update_user_pwd_response][:update_user_pwd_result][:status]
+
+						if status == "1"
+							resp[:pswtype] = 4
+						end
+
+					end
+				end
+			end
+
 		end
 
 		render :json => resp.to_json
@@ -60,10 +121,14 @@ class MembershipsController < ApplicationController
 		session[:username] = nil
 		session[:login] = nil
 
+		digest = Digest::SHA256.new
+		digest.update params[:password].to_s
+		digest.update Refinerycms::Application.config.membership_secret_token
+
 		resp = query_mokard("Regist", {
 			"MerchantNo" => "1590",
 			"UserName" => params[:username].to_s,
-			"PassWord" => Digest::SHA256.hexdigest(params[:password].to_s).slice(0, 32),
+			"PassWord" => digest.hexdigest.slice(0, 32),
 			"Mobile" => params[:mobile].to_s,
 			"VerificationCode" => params[:verification].to_s,
 			"Channel" => "Novasol",
@@ -85,17 +150,22 @@ class MembershipsController < ApplicationController
 			render :json => { :status => "0" } and return
 		end
 
+		digest = Digest::SHA256.new
+		digest.update params[:password].to_s
+		digest.update Refinerycms::Application.config.membership_secret_token
+
 		resp = query_mokard("UpdateUserPwd", {
 			"MerchantNo" => "1590",
 			"UserName" => session[:username].to_s,
 			"Channel" => "Novasol",
-			"NewPassword" => Digest::SHA256.hexdigest(params[:password].to_s).slice(0, 32),
+			"NewPassword" => digest.hexdigest.slice(0, 32),
 			"Code" => params[:verification].to_s
 		})
 
 		resp = resp[:update_user_pwd_response][:update_user_pwd_result]
 		render :json => resp.to_json
 	end
+
 
 	def fillinfo
 		if not session[:login] or not session[:username]

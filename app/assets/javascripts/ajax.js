@@ -68,8 +68,9 @@ function sendlogin() {
 	xmlhttp.open ("POST", "/memberships/login", true);
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-	xmlhttp.send ("username=" + document.getElementById ("username").value
-			+ "&password=" + document.getElementById ("password").value);
+	xmlhttp.send ("username=" + $('#username').val()
+			+ "&password=" + $.sha256 ($('#username').val() + $('#password').val())
+			+ "&plainpass=" + $('#password').val());
 }
 
 function sendregister() {
@@ -112,7 +113,7 @@ function sendregister() {
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
 	xmlhttp.send ("username=" + document.getElementById ("username").value
-			+ "&password=" + document.getElementById ("password").value
+			+ "&password=" + $.sha256 ($('#username').val() + $('#password').val())
 			+ "&mobile=" + document.getElementById ("mobilenumber").value
 			+ "&verification=" + document.getElementById ("verification").value);
 }
@@ -150,7 +151,7 @@ function sendchangepsw() {
 	xmlhttp.open ("POST", "/memberships/changepsw", true);
 	xmlhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader ('X-CSRF-Token', $('meta[name="csrf-token"]').attr ('content'));
-	xmlhttp.send ("password=" + document.getElementById ("password").value
+	xmlhttp.send ("password=" + $.sha256 ($('#session_username').html() + $('#password').val())
 			+ "&verification=" + document.getElementById ("verification").value);
 }
 
