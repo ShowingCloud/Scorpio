@@ -462,7 +462,7 @@ function checkout (nextpage) {
 					if (nextpage)
 						location.href = "/pages/49";
 					else
-						$('#cartamount').html (Object.keys (detail).length);
+						$('#cartamount').html (_.size (detail));
 				} else
 					alert ("订单提交失败，请稍候再试");
 			} else
@@ -513,8 +513,8 @@ function createorder() {
 
 	var detail = {};
 	$('#myTableProduct tr').each (function() {
-		productid = $(this).find ('#productid').val();
-		amount = parseInt ($(this).find ('#amount').html());
+		var productid = $(this).find ('#productid').val();
+		var amount = parseInt ($(this).find ('#amount').html());
 		detail[productid] = amount;
 	});
 
