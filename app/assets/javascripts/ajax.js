@@ -532,7 +532,7 @@ function createorder() {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
 				if (parseInt (resp.status) == 1)
-					location.href = "/alipay/pay?orderid=" + resp.orderid + "&name=" + resp.detailname;
+					location.href = escape ("/alipay/pay?orderid=" + resp.orderid + "&name=" + resp.detailname);
 				else
 					alert ("订单提交失败，请稍候再试");
 			} else
