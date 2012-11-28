@@ -23,6 +23,10 @@ class MembershipsController < ApplicationController
 		})
 
 		resp = resp[:verfied_mobile_by_sms_response][:verfied_mobile_by_sms_result]
+		if not refinery_user?
+			resp.delete :return_value
+		end
+
 		render :json => resp.to_json
 	end
 

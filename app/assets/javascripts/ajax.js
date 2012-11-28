@@ -10,9 +10,12 @@ function sendmobileno() {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
-				if (parseInt (resp.status) == 1)
-					alert ("验证码已发到您的手机，请注意查收");
-				else {
+				if (parseInt (resp.status) == 1) {
+					if (resp.return_value != null)
+						$('#verification').val (resp.return_value);
+					else
+						alert ("验证码已发到您的手机，请注意查收");
+				} else {
 					if (resp.description != null)
 						alert (resp.description);
 					else
