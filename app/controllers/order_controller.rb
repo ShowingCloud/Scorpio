@@ -186,7 +186,7 @@ class OrderController < ApplicationController
 		mem = response.body[:get_user_info_response][:get_user_info_result][:return_value]
 
 		data.update ({
-			:mem_id => mem[:mobile],
+			:mem_id => mem[:user3_user_name],
 			:mem_name => mem[:nick_name],
 			:mem_email => mem[:email],
 			:mem_mobile => mem[:mobile]
