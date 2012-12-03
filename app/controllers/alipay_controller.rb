@@ -89,7 +89,15 @@ class AlipayController < ApplicationController
 				order.order_status = 1
 				order.pay_status = 1
 				order.pay_date = Date.today()
+			elsif not order.order_status == 1
+				order.order_status = 11
+				order.pay_status = 11
+				order.pay_date = Date.today()
 			end
+
+		elsif not order.order_status == 1
+			order.order_status = 12
+			order.pay_status = 12
 		end
 
 		order.save
@@ -157,7 +165,16 @@ class AlipayController < ApplicationController
 
 				order.save
 				return
+
+			elsif not order.order_status == 1
+				order.order_status = 11
+				order.pay_status = 11
+				order.pay_date = Date.today()
 			end
+
+		elsif not order.order_status == 1
+			order.order_status = 12
+			order.pay_status = 12
 		end
 
 		order.save

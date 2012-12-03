@@ -239,7 +239,7 @@ class OrderController < ApplicationController
 			:payment => payment_code[params[:payment].to_i],
 			:ship => payment_price[params[:payment].to_i],
 			:ship_sched => params[:ship_sched],
-			:expected_total_fee => total_fee + payment_code[params[:payment].to_i]
+			:expected_total_fee => total_fee + payment_price[params[:payment].to_i]
 		})
 
 		@order = Order.new data
