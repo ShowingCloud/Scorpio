@@ -1,5 +1,5 @@
 <style type="text/css">
-.backToTop {
+ .backToTop {
     display: none;
     width: 18px;
     line-height: 1.2;
@@ -44,7 +44,7 @@
     <div class="logo2"><a href="/"><img src="/assets/logo.jpg" width="190" height="30"></a></div>
   </div>
   <div class="header_middle_right" >
-    <div class="trolley" onclick="location.href='../在线购买/购物车'">
+    <div class="trolley" onclick="location.href='../在线购买/购物车'" onmouseover="displayblock()" onmouseout="displaynone()">
 	     <ul>	     
              <li class="item_1"><img src="/assets/index0921_trolley.jpg" width="19" height="19" /></li>
              <li class="item_2">我的购物车</li>
@@ -52,9 +52,54 @@
              <li class="item_4">件</li>
              <li class="item_5">&nbsp;&nbsp;去结算</li>
              <li class="item_6"><img src="/assets/index0921_pic2.jpg" width="16" height="28" /></li>
-         </ul>
+             </ul>
+             <div class="trolley_show_show" id="trolley_show_display">
+	         <div style="height:15px"></div>
+                 <div class="trolley_show_line1">
+                    <div class="trolley_show_line1_left"><img src="/assets/trolley_pic.jpg" width="90" height="83" /></div>
+                    <div class="trolley_show_line1_right">
+                        <div class="trolley_show_line1_top">Q10辅酶素&nbsp;50mg</div>
+                        <div class="trolley_show_line1_bottom">	   
+             	       <ul>
+                               <li class="trolley_show_rmb">￥</li>
+                               <li class="trolley_show_value">385.0</li>
+                            </ul>
+             	   </div>
+                    </div>
+                 </div>
+                 <div class="trolley_show_line2">
+                    <div class="trolley_show_line2_left">目前共有1种产品</div>
+                    <div class="trolley_show_line2_mid">总价</div>
+                    <div class="trolley_show_line2_right">￥385.0</div>
+                 </div>                
+             </div>
+
+
     </div>
   </div>
+</div>
+<div class="trolley_show_show" id="trolley_show_display">
+    <div class="trolley_show_line1">
+       <div class="trolley_show_line1_left"><img src="/assets/trolley_pic.jpg" width="90" height="83" /></div>
+       <div class="trolley_show_line1_right">
+           <div class="trolley_show_line1_top">Q10辅酶素&nbsp;50mg</div>
+           <div class="trolley_show_line1_bottom">	   
+	       <ul>
+                  <li class="trolley_show_rmb">￥</li>
+                  <li class="trolley_show_value">385.0</li>
+               </ul>
+	   </div>
+       </div>
+    </div>
+    <div class="trolley_show_line2">
+       <div class="trolley_show_line2_left">目前共有1种产品</div>
+       <div class="trolley_show_line2_mid">总价</div>
+       <div class="trolley_show_line2_right">￥385.0</div>
+    </div>
+    <div class="trolley_show_line3">
+       <div class="trolley_show_line3_left"><img src="/assets/trolley_check.jpg" width="139" height="48" /></div>
+       <div class="trolley_show_line3_right"><img src="/assets/trolley_continue_show.jpg" width="137" height="48" /></div>
+    </div>
 </div>
 <!--<h1 id='logo'>
   <%= link_to Refinery::Core.site_name, refinery.root_path %>
@@ -80,6 +125,20 @@
     $(window).bind("scroll", $backToTopFun);
     $(function() { $backToTopFun(); });
  })();
+
+</script>
+<script type="text/javascript">
+   function displayblock()
+   {
+        
+	document.getElementById("trolley_show_display").style.display="block";
+   }
+   
+   function displaynone()
+   {
+        
+	document.getElementById("trolley_show_display").style.display="none";
+   }
 
 </script>
 <% end %>
