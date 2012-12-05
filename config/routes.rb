@@ -7,9 +7,9 @@ Refinerycms::Application.routes.draw do
 		  post :register
 		  post :changepsw
 		  post :fillinfo
-		  post :getinfo
-		  post :getpoint
-		  post :getpointlist
+		  get :getinfo
+		  get :getpoint
+		  get :getpointlist
 		  post :neworder
 		  get :logout
 	  end
