@@ -55,51 +55,36 @@
              </ul>
              <div class="trolley_show_show" id="trolley_show_display">
 	         <div style="height:15px"></div>
-                 <div class="trolley_show_line1">
-                    <div class="trolley_show_line1_left"><img src="/assets/trolley_pic.jpg" width="90" height="83" /></div>
+			   <% if session[:cart] %>
+				<% session[:cart].each do |productid, amount| %>
+                 <div class="trolley_show_line1" id="trolley_show_product" >
+				    
+				    <div ><input type="hidden" id="trolley_show_productid" value=<%= "#{productid}" %> /></div>
+					<div><input type="hidden" id="trolley_show_amount" value=<%= "#{amount}" %> /></div>
+                    <div class="trolley_show_line1_left"><img id="trolley_show_pic" width="90" height="83" /></div>
                     <div class="trolley_show_line1_right">
-                        <div class="trolley_show_line1_top">Q10辅酶素&nbsp;50mg</div>
+                        <div class="trolley_show_line1_top" id="trolley_show_product_name"></div>
                         <div class="trolley_show_line1_bottom">	   
-             	       <ul>
+             	            <ul>
                                <li class="trolley_show_rmb">￥</li>
-                               <li class="trolley_show_value">385.0</li>
+                               <li class="trolley_show_value" id="trolley_show_price"></li>
                             </ul>
-             	   </div>
-                    </div>
+             	       </div>
+					</div>
+					
                  </div>
+				  <% end %>
+				<% end %>
                  <div class="trolley_show_line2">
-                    <div class="trolley_show_line2_left">目前共有1种产品</div>
+                    <div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
                     <div class="trolley_show_line2_mid">总价</div>
-                    <div class="trolley_show_line2_right">￥385.0</div>
+                    <div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
                  </div>                
              </div>
 
 
     </div>
   </div>
-</div>
-<div class="trolley_show_show" id="trolley_show_display">
-    <div class="trolley_show_line1">
-       <div class="trolley_show_line1_left"><img src="/assets/trolley_pic.jpg" width="90" height="83" /></div>
-       <div class="trolley_show_line1_right">
-           <div class="trolley_show_line1_top">Q10辅酶素&nbsp;50mg</div>
-           <div class="trolley_show_line1_bottom">	   
-	       <ul>
-                  <li class="trolley_show_rmb">￥</li>
-                  <li class="trolley_show_value">385.0</li>
-               </ul>
-	   </div>
-       </div>
-    </div>
-    <div class="trolley_show_line2">
-       <div class="trolley_show_line2_left">目前共有1种产品</div>
-       <div class="trolley_show_line2_mid">总价</div>
-       <div class="trolley_show_line2_right">￥385.0</div>
-    </div>
-    <div class="trolley_show_line3">
-       <div class="trolley_show_line3_left"><img src="/assets/trolley_check.jpg" width="139" height="48" /></div>
-       <div class="trolley_show_line3_right"><img src="/assets/trolley_continue_show.jpg" width="137" height="48" /></div>
-    </div>
 </div>
 <!--<h1 id='logo'>
   <%= link_to Refinery::Core.site_name, refinery.root_path %>
@@ -108,6 +93,11 @@
              :dom_id => 'menu',
              :css => 'menu'
            }) %>
+
+
+
+
+
 <% content_for :javascripts do %>
 <script type="text/javascript">
  (function() {
@@ -139,6 +129,76 @@
         
 	document.getElementById("trolley_show_display").style.display="none";
    }
+
+</script>
+
+<script type="text/javascript">
+function getproductcart_show() {       
+	var xmlhttps = [];
+	var resp = {};
+
+	$('#trolley_show_product').each (function() {
+		var productid = $(this).find ('#trolley_show_productid').val();
+
+		$.ajax ({
+			url: "/product/" + productid + ".json",
+			type: "GET",
+			dataType: "json",
+			context: this
+		}).done (function (resp) {
+			if (resp.length > 0) {
+				var ret = resp[0];
+
+				if (ret.product_name)
+					$(this).find('#trolley_show_product_name').prop('innerHTML', ret.product_name);
+
+				if (ret.product_pic)
+					$(this).find('#trolley_show_pic').prop('src', ret.product_pic);
+
+				if (ret.price)
+					$(this).find('#trolley_show_price').prop('innerHTML',ret.price);
+
+				productCount_show();
+
+			} else {
+				if (resp.description != null)
+					alert (resp.description);
+				else
+					alert("请求失败，请再检查一遍您的输入并稍候再试");
+			}
+		}).fail (function() {
+			alert("请求发送失败，请稍候再试");
+		})
+	})
+}
+
+function productCount_show(){
+	var total = 0;
+	var price;
+	var amount;
+
+	$('#trolley_show_product').each (function() {
+	        
+			price = $(this).find ('#trolley_show_price').html();
+			amount = $(this).find ('#trolley_show_amount').val();			
+			total += price * amount;
+	})
+
+	document.getElementById ("producttotalprice_show").innerHTML = total ;
+
+}
+
+function headerdel(productid){     
+      
+	  
+      $('#trolley_show_productid:[value=' + productid + ']').parent().parent().remove();
+	  productCount_show();
+	  
+}
+
+$(document).ready (getproductcart_show);
+
+
 
 </script>
 <% end %>

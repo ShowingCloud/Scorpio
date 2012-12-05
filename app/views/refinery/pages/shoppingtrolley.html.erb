@@ -107,8 +107,10 @@
 <% end %>
 
 $("#myTableProduct #del").click(function (){
+                var productid = $(this).parent().parent().find ('#productid').val();		
 		getproductcart();
 		$(this).parent().parent().remove();
+		headerdel(productid);
 		checkout (false);
 });
 
