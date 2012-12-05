@@ -192,6 +192,7 @@ function headerdel(productid){
       
 	  
       $('#trolley_show_productid:[value=' + productid + ']').parent().parent().remove();
+	  checkout(false);
 	  productCount_show();
 	  
 }
