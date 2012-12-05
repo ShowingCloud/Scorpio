@@ -73,15 +73,15 @@
 					</div>
 					
                  </div>
-				  <% end %>
-				<% end %>
+				  
                  <div class="trolley_show_line2">
                     <div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
                     <div class="trolley_show_line2_mid">总价</div>
                     <div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
                  </div>                
              </div>
-
+             <% end %>
+				<% end %>
 
     </div>
   </div>
@@ -192,7 +192,7 @@ function headerdel(productid){
       
 	  
       $('#trolley_show_productid:[value=' + productid + ']').parent().parent().remove();
-	  checkout(false);
+	  
 	  productCount_show();
 	  
 }

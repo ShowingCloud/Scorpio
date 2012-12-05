@@ -81,12 +81,12 @@
 		  <tr>
 		   <td>
          <div class="myrecord_mem_basic_info_name_text">
-          积分获取时间:&nbsp;&nbsp;<input type="text" name="date_start" size="20"/>
+          积分获取时间:&nbsp;&nbsp;<input type="text" name="date_start" size="20" onfocus="c.showMoreDay = false;c.show(this);"/>
          </div>
 		   </td>
 		    <td>
 		 <div>
-           ——<input type="text" name="date_start" size="20" />
+           ——<input type="text" name="date_start" size="20" onfocus="c.showMoreDay = false;c.show(this);"/>
          </div>
 		   </td>
 		  </tr>
@@ -178,6 +178,9 @@
 			$(document).ready (function() {openpopup(0, false);});
 		<% end %>
 	</script>
+
+
+
 <% end %>
 
 <input type="hidden" id="dontredirect" />
