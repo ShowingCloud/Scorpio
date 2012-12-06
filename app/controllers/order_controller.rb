@@ -179,7 +179,12 @@ class OrderController < ApplicationController
 		@order = Order.new data
 
 		if @order.save
-			respond_with ret = { :status => "1", :orderid => data[:order_id], :detailname => detail_name }, :location => @order
+			respond_with ret = {
+				:status => "1",
+				:orderid => data[:order_id],
+				:detailname => detail_name,
+				:payment => params[:payment].to_i
+			}, :location => @order
 		else
 			respond_with @order.errors, :status => :unprocessable_entity
 		end
