@@ -90,7 +90,15 @@
   </div>
 <div style="clear:both"></div>
 </div>
-
+<% content_for :javascripts do %>
+	<script>
+		<% if session[:login] %>
+			$(document).ready (getpoint);
+		<% else %>
+			$(document).ready (function() {openpopup(0, false);});
+		<% end %>
+	</script>
+<% end %>
  
 </body>
 </html>

@@ -72,7 +72,7 @@
              </div>
 		   </td>
 		   <td width="350" align="left">
-		     <div class="record_history_mem_basic_info_select_text"><input type="text" name="date_start" size="20" />--<input type="text" name="date_start" size="20" />
+		     <div class="record_history_mem_basic_info_select_text"><input type="text" id="date_start" size="20" />--<input type="text" id="date_end" size="20" />
              </div>
 		   </td>
 		   </tr>
@@ -135,6 +135,25 @@
 <div style="clear:both"></div>
 </div>
 </form>
+<% content_for :javascripts do %>
+	<script>
+		<% if session[:login] %>
+			$(document).ready (getpoint);
+		<% else %>
+			$(document).ready (function() {openpopup(0, false);});
+		<% end %>
+	</script>
 
+	<script>
+
+              $(function() {
+                    $( '#date_start' ).datepicker();
+		    $( '#date_end' ).datepicker();
+                    });
+        </script>
+
+
+
+<% end %>
 </body>
 </html>
