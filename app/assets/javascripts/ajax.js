@@ -534,9 +534,12 @@ function createorder() {
 		if (xmlhttp.readyState == 4) {
 			if (xmlhttp.status == 200) {
 				resp = JSON.parse (xmlhttp.responseText);
-				if (parseInt (resp.status) == 1)
-					location.href = encodeURI ("/alipay/pay?orderid=" + resp.orderid + "&name=" + resp.detailname);
-				else
+				if (parseInt (resp.status) == 1) {
+					if (resp.payment == 2)
+						location.href = "/pages/50";
+					else
+						location.href = encodeURI ("/alipay/pay?orderid=" + resp.orderid + "&name=" + resp.detailname);
+				} else
 					alert ("订单提交失败，请稍候再试");
 			} else
 				alert ("请求发送失败，请稍候再试");

@@ -247,7 +247,12 @@ class OrderController < ApplicationController
 		respond_to do |format|
 			if @order.save
 				format.html { render :html => @order }
-				format.json { render :json => { :status => "1", :orderid => data[:order_id], :detailname => detail_name } }
+				format.json { render :json => {
+					:status => "1",
+					:orderid => data[:order_id],
+					:detailname => detail_name,
+					:payment => params[:payment].to_i
+				}}
 			else
 				format.html { render :html => @order.errors, :status => :unprocessable_entity }
 				format.json { render :json => @order.errors, :status => :unprocessable_eneity }
