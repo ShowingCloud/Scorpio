@@ -353,7 +353,7 @@ function addcart() {
 		var ordernum = $('#amount').val();
 
 	$.ajax ({
-		url:		"/order/addcart.json",
+		url:		"/orders/addcart.json",
 		type:		"POST",
 		dataType:	"json",
 		data:		{
@@ -386,7 +386,7 @@ function checkout (nextpage) {
 	var payment = $('input[name="paytype"]:checked').val();
 
 	$.ajax ({
-		url:		"/order/checkout.json",
+		url:		"/orders/checkout.json",
 		type:		"POST",
 		dataType:	"json",
 		data:		{
@@ -458,7 +458,7 @@ function createorder() {
 	var expect = $('#expect option:selected').html();
 
 	$.ajax ({
-		url:		"/order/payment.json",
+		url:		"/orders/payment.json",
 		type:		"POST",
 		dataType:	"json",
 		data:		$.extend (appendhash, {
