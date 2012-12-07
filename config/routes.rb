@@ -15,7 +15,7 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
-  resources :product do
+  resources :products do
 	  collection do
 		  post :newproduct
 		  get :getproduct
@@ -24,11 +24,13 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
-  resources :order do
+  resources :orders do
 	  collection do
 		  post :neworder
 		  get :getorder
 		  get :fetchallorder
+		  get :fetchneworder
+		  post :gotorder
 		  post :updateorder
 		  post :returnorder
 		  post :statusorder

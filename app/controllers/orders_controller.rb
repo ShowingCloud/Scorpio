@@ -1,69 +1,125 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
 
 	respond_to :html, :xml, :json
 
 
-	# GET /order
+	# GET /orders
 	def index
 		@order = Order.find :all
 		respond_with @order
 	end
 
 
-	# GET /order/:id
-	def show
-		@order = Order.find :all, :conditions => { :order_id => params[:id] }
-		respond_with @order
-	end
-
-
-	# POST /order/neworder
-	def neworder
-		@order = Order.new params
+	# POST /orders
+	def create
+		@order = Order.new params[:order]
 		@order.save
 		respond_with @order
 	end
 
 
-	# GET /order/getorder
-	def getorder
-		@order = Order.find :all, :conditions => { :order_id => params[:order_id] }
+	# GET /orders/new
+	def new
+		@order = Order.new
 		respond_with @order
 	end
 
 
-	# GET /order/fetchallorder
+	# GET /orders/:id/edit
+	def edit
+		@order = Order.find :first, :conditions => { :order_id => params[:id] }
+	end
+
+
+	# GET /orders/:id
+	def show
+		@order = Order.find :first, :conditions => { :order_id => params[:id] }
+		respond_with @order
+	end
+
+
+	# PUT /orders/:id
+	def update
+		params[:order][:order_id] = params[:id]
+
+		@order = Order.find :first, :conditions => { :order_id => params[:id] }
+		@order.update_attributes params[:order]
+		respond_with @order
+	end
+
+
+	# DELETE /orders/:id
+	def destroy
+		@order = Order.find :first, :conditions => { :order_id => params[:id] }
+		@order.destroy
+		respond_with @order
+	end
+
+
+	# POST /orders/neworder
+	def neworder
+		@order = Order.new params[:order]
+		@order.save
+		respond_with @order
+	end
+
+
+	# GET /orders/getorder
+	def getorder
+		@order = Order.find :first, :conditions => { :order_id => params[:order_id] }
+		respond_with @order
+	end
+
+
+	# GET /orders/fetchallorder
 	def fetchallorder
 		@order = Order.find :all
 		respond_with @order
 	end
 
 
-	# POST /order/updateorder
+	# GET /orders/fetchneworder
+	def fetchneworder
+		@order = Order.find :all, :conditions => { :got_order => 0 }
+		respond_with @order
+	end
+
+
+	# POST /orders/gotorder
+	def gotorder
+		params[:list].each do |item|
+			@order = Order.find :first, :conditions => { :order_id => item }
+			@order.got_order = 1
+			@order.save
+		end
+	end
+
+
+	# POST /orders/updateorder
 	def updateorder
-		@order = Order.find :all, :conditions => { :order_id => params[:order_id] }
-		@order.update_attributes params
+		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
+		@order.update_attributes params[:order]
 		respond_with @order
 	end
 
 
-	# POST /order/returnorder
+	# POST /orders/returnorder
 	def returnorder
-		@order = Order.find :all, :conditions => { :order_id => params[:order_id] }
-		@order.update_attributes params
+		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
+		@order.update_attributes params[:order]
 		respond_with @order
 	end
 
 
-	# POST /order/statusorder
+	# POST /orders/statusorder
 	def statusorder
-		@order = Order.find :all, :conditions => { :order_id => params[:order_id] }
-		@order.update_attributes params
+		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
+		@order.update_attributes params[:order]
 		respond_with @order
 	end
 
 
-	# POST /order/addcart
+	# POST /orders/addcart
 	def addcart
 		product = params[:product]
 		amount = params[:amount].to_i
@@ -82,7 +138,7 @@ class OrderController < ApplicationController
 	end
 
 
-	# POST /order/checkout
+	# POST /orders/checkout
 	def checkout
 		session[:cart] = ActiveSupport::JSON.decode params[:detail]
 		session[:payment] = params[:payment]
@@ -96,7 +152,7 @@ class OrderController < ApplicationController
 	end
 
 
-	# POST /order/payment
+	# POST /orders/payment
 	def payment
 		data = {
 			:order_id => rand(1e11),
@@ -184,14 +240,14 @@ class OrderController < ApplicationController
 				:orderid => data[:order_id],
 				:detailname => detail_name,
 				:payment => params[:payment].to_i
-			}, :location => @order
+			}, :location => @order, :status => :created
 		else
 			respond_with @order.errors, :status => :unprocessable_entity
 		end
 	end
 
 
-	# POST /order/callback
+	# POST /orders/callback
 	def callback
 	end
 
