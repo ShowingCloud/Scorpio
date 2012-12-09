@@ -182,7 +182,7 @@ class OrdersController < ApplicationController
 			:mem_mobile => mem[:mobile]
 		})
 
-		if not data[:mem_email] or data[:mem_email] == "":
+		if not data[:mem_email] or data[:mem_email] == ""
 			data[:mem_email] = params[:del_email]
 		end
 
