@@ -182,6 +182,10 @@ class OrdersController < ApplicationController
 			:mem_mobile => mem[:mobile]
 		})
 
+		if not data[:mem_email] or data[:mem_email] == "":
+			data[:mem_email] = params[:del_email]
+		end
+
 		data.update ({
 			:del_name => params[:del_name],
 			:del_post => params[:del_post].to_i,
@@ -214,10 +218,10 @@ class OrdersController < ApplicationController
 		detail_name = detail_name.slice 0..-3
 
 		if params[:inv_flag]
-			data.update ({ :inv_flag => params[:inv_flag] })
+			data[:inv_flag] = params[:inv_flag]
 
 			if params[:inv_title]
-				data.update ({ :inv_title => params[:inv_title] })
+				data[:inv_title] = params[:inv_title]
 			end
 		end
 

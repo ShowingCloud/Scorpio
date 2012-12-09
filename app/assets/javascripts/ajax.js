@@ -469,6 +469,7 @@ function createorder() {
 			del_dist:	$('#district').val(),
 			del_addr:	$('#contactaddr').val(),
 			del_mobile:	$('#telephone').val(),
+			del_email:	$('#email').val(),
 			detail:		JSON.stringify (detail),
 			payment:	payment,
 			ship_sched:	expect
