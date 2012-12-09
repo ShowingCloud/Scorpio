@@ -134,7 +134,7 @@ class OrdersController < ApplicationController
 			session[:cart][product] = amount
 		end
 
-		respond_with ret = { :return => "1" }, :location => "/pages/42"
+		respond_with ret = { :status => "1" }, :location => "/pages/42", :status => :created
 	end
 
 
@@ -144,11 +144,11 @@ class OrdersController < ApplicationController
 		session[:payment] = params[:payment]
 
 		if session[:payment] != '1' and session[:payment] != '2'
-			respond_with ret = { :status => "0" }, :location => "/"
+			respond_with ret = { :status => "0" }, :location => "/", :status => :unprocessable_entity
 			return
 		end
 
-		respond_with ret = { :status => "1" }, :location => "/pages/49"
+		respond_with ret = { :status => "1" }, :location => "/pages/49", :status => :created
 	end
 
 
