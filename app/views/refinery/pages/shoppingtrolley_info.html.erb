@@ -259,9 +259,6 @@
 <% end %>
 
 function getproductcart() {       
-	var xmlhttps = [];
-	var resp = {};
-
 	$('#myTableProduct tr').each (function() {
 		var productid = $(this).find ('#productid').val();
 
@@ -273,13 +270,13 @@ function getproductcart() {
 		}).done (function (resp) {
 			if (resp != null) {
 				if (resp.product_name)
-					$(this).find('#product_name').prop('innerHTML', resp.product_name);
+					$(this).find ('#product_name').html (resp.product_name);
 
 				if (resp.product_pic)
-					$(this).find('#pic').prop('src', resp.product_pic);
+					$(this).find ('#pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find('#price').prop('innerHTML',resp.price);
+					$(this).find ('#price').html (parseFloat (resp.price).toFixed (2));
 
 				productCount();
 
@@ -291,8 +288,8 @@ function getproductcart() {
 			}
 		}).fail (function() {
 			alert("请求发送失败，请稍候再试");
-		})
-	})
+		});
+	});
 }
 
 function productCount(){
@@ -303,16 +300,16 @@ function productCount(){
 	$('#myTableProduct tr').each (function() {
 			price = $(this).find ('#price').html();
 			amount = $(this).find ('#amount').html();
-			$(this).find ('#sum').html (price * amount);
+			$(this).find ('#sum').html ((price * amount).toFixed (2));
 			total += price * amount;
-	})
+	});
 
-	var payment = document.getElementById ("payment").value;
-	var shipping = payment_price[payment];
+	var payment = $('#payment').val();
+	var shipping = parseFloat (payment_price[payment]);
 
-	document.getElementById ("fare").innerHTML = shipping;
-	document.getElementById ("producttotalprice").innerHTML = total;
-	document.getElementById ("totalprice").innerHTML = total + parseFloat (shipping);
+	$('#fare').html (shipping.toFixed (2));
+	$('#producttotalprice').html (total.toFixed (2));
+	$('#totalprice').html ((total + shipping).toFixed (2));
 
 }
 

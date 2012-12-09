@@ -106,18 +106,15 @@
 	$(document).ready (function() {openpopup(0, false);});
 <% end %>
 
-$("#myTableProduct #del").click(function (){
-                var productid = $(this).parent().parent().find ('#productid').val();		
-		getproductcart();
-		$(this).parent().parent().remove();
-		headerdel(productid);
-		checkout (false);
+$("#myTableProduct #del").click (function () {
+	var productid = $(this).parent().parent().find ('#productid').val();		
+	getproductcart();
+	$(this).parent().parent().remove();
+	headerdel (productid);
+	checkout (false);
 });
 
 function getproductcart() {
-	var xmlhttps = [];
-	var resp = {};
-
 	$('#myTableProduct tr').each (function() {
 		var productid = $(this).find ('#productid').val();
 
@@ -129,13 +126,13 @@ function getproductcart() {
 		}).done (function (resp) {
 			if (resp != null) {
 				if (resp.product_name)
-					$(this).find('#product_name').prop('innerHTML', resp.product_name);
+					$(this).find ('#product_name').prop ('innerHTML', resp.product_name);
 
 				if (resp.product_pic)
-					$(this).find('#pic').prop('src', resp.product_pic);
+					$(this).find ('#pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find('#price').prop('innerHTML', parseFloat (resp.price).toFixed (2));
+					$(this).find ('#price').prop ('innerHTML', parseFloat (resp.price).toFixed (2));
 
 				productCount();
 
@@ -147,8 +144,8 @@ function getproductcart() {
 			}
 		}).fail (function() {
 			alert("请求发送失败，请稍候再试");
-		})
-	})
+		});
+	});
 }
 
 function productCount() {
@@ -163,21 +160,20 @@ function productCount() {
 			amount = $(this).find ('#amount').val();
 			$(this).find ('#sum').html ((price * amount).toFixed (2));
 			total += price * amount;
-	})
-	total += parseFloat (payment_price[item]);    
-	document.getElementById("product_total").innerHTML = total.toFixed (2);
-	
-
+	});
+	total += parseFloat (payment_price[item]);
+	$('#product_total').html (total.toFixed (2));
 }
 
 function getshipping() {
+	var method;
 
 	$('#t_shipping tr').each (function () {
 			method = $(this).find ('input[name="paytype"]').val();
 			$(this).find ('#price').each (function() {
 				$(this).html (parseFloat (payment_price[method]).toFixed (2));
-			})
-	})
+			});
+	});
 }
 
 $(document).ready (function () {getproductcart(); getshipping();});
