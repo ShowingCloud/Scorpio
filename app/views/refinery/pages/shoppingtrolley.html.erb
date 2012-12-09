@@ -155,7 +155,8 @@ function productCount() {
 	var total = 0;
 	var price;
 	var amount;
-
+        
+	productCount_show();
 	var item = $('input[name="paytype"]:checked').val();
 	$('#myTableProduct tr').each (function() {
 			price = $(this).find ('#price').html();
@@ -165,6 +166,7 @@ function productCount() {
 	})
 	total += parseFloat (payment_price[item]);    
 	document.getElementById("product_total").innerHTML = total.toFixed (2);
+	
 
 }
 
