@@ -55,34 +55,35 @@
 			</ul>
 			<div class="trolley_show_show" id="trolley_show_display">
 				<div style="height:15px"></div>
-				<% if session[:cart] %>
-					<% session[:cart].each do |productid, amount| %>
-						<div class="trolley_show_line1" id="trolley_show_product" >
+				<div id="trolley_show_product">
+					<% if session[:cart] %>
+						<% session[:cart].each do |productid, amount| %>
+							<div class="trolley_show_line1">
 
-							<div ><input type="hidden" id="trolley_show_productid" value=<%= "#{productid}" %> /></div>
-							<div><input type="hidden" id="trolley_show_amount" value=<%= "#{amount}" %> /></div>
-							<div class="trolley_show_line1_left"><img id="trolley_show_pic" width="90" height="83" /></div>
-							<div class="trolley_show_line1_right">
-								<div class="trolley_show_line1_top" id="trolley_show_product_name"></div>
-								<div class="trolley_show_line1_bottom">	   
-									<ul>
-										<li class="trolley_show_rmb">￥</li>
-										<li class="trolley_show_value" id="trolley_show_price"></li>
-									</ul>
+								<div><input type="hidden" id="trolley_show_productid" value=<%= "#{productid}" %> /></div>
+								<div><input type="hidden" id="trolley_show_amount" value=<%= "#{amount}" %> /></div>
+								<div class="trolley_show_line1_left"><img id="trolley_show_pic" width="90" height="83" /></div>
+								<div class="trolley_show_line1_right">
+									<div class="trolley_show_line1_top" id="trolley_show_product_name"></div>
+									<div class="trolley_show_line1_bottom">	   
+										<ul>
+											<li class="trolley_show_rmb">￥</li>
+											<li class="trolley_show_value" id="trolley_show_price"></li>
+										</ul>
+									</div>
 								</div>
+
 							</div>
+						<% end %>
+					<% end %>
+				</div>
 
-						</div>
-
-						<div class="trolley_show_line2">
-							<div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
-							<div class="trolley_show_line2_mid">总价</div>
-							<div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
-						</div>                
-					</div>
-				<% end %>
-			<% end %>
-
+				<div class="trolley_show_line2">
+					<div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
+					<div class="trolley_show_line2_mid">总价</div>
+					<div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
+				</div>                
+			</div>
 		</div>
 	</div>
 </div>
@@ -121,7 +122,7 @@ function displaynone() {
 }
 
 function getproductcart_show() {       
-	$('#trolley_show_product').each (function() {
+	$('#trolley_show_product div').each (function() {
 		var productid = $(this).find ('#trolley_show_productid').val();
 
 		$.ajax ({
@@ -132,13 +133,13 @@ function getproductcart_show() {
 		}).done (function (resp) {
 			if (resp != null) {
 				if (resp.product_name)
-					$(this).find('#trolley_show_product_name').prop('innerHTML', resp.product_name);
+					$(this).find ('#trolley_show_product_name').html (resp.product_name);
 
 				if (resp.product_pic)
-					$(this).find('#trolley_show_pic').prop('src', resp.product_pic);
+					$(this).find ('#trolley_show_pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find('#trolley_show_price').prop('innerHTML',resp.price);
+					$(this).find ('#trolley_show_price').html (resp.price);
 
 				productCount_show();
 			} else {
@@ -159,7 +160,7 @@ function productCount_show() {
 	var amount;
 
 
-	$('#trolley_show_product').each (function() {
+	$('#trolley_show_product div').each (function() {
 		price = $(this).find ('#trolley_show_price').html();
 		amount = $(this).find ('#trolley_show_amount').val();			
 		total += price * amount;
