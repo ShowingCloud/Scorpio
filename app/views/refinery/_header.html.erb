@@ -58,8 +58,7 @@
 				<div id="trolley_show_product">
 					<% if session[:cart] %>
 						<% session[:cart].each do |productid, amount| %>
-							<div class="trolley_show_line1">
-
+							<div class="trolley_show_line1" name="trolley_show_product_child">
 								<div><input type="hidden" id="trolley_show_productid" value=<%= "#{productid}" %> /></div>
 								<div><input type="hidden" id="trolley_show_amount" value=<%= "#{amount}" %> /></div>
 								<div class="trolley_show_line1_left"><img id="trolley_show_pic" width="90" height="83" /></div>
@@ -72,7 +71,6 @@
 										</ul>
 									</div>
 								</div>
-
 							</div>
 						<% end %>
 					<% end %>
@@ -122,8 +120,9 @@ function displaynone() {
 }
 
 function getproductcart_show() {       
-	$('#trolley_show_product div').each (function() {
+	$('#trolley_show_product div[name="trolley_show_product_child"]').each (function() {
 		var productid = $(this).find ('#trolley_show_productid').val();
+		alert (productid);
 
 		$.ajax ({
 			url: "/products/" + productid + ".json",
@@ -160,10 +159,10 @@ function productCount_show() {
 	var amount;
 
 
-	$('#trolley_show_product div').each (function() {
+	$('#trolley_show_product div[name="trolley_show_product_child"]').each (function() {
 		price = $(this).find ('#trolley_show_price').html();
 		amount = $(this).find ('#trolley_show_amount').val();			
-		total += price * amount;
+		total += parseFloat (price) * parseInt (amount);
 	});
 
 	$('#producttotalprice_show').html (total);
