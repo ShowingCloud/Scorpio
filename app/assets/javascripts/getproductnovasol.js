@@ -1,7 +1,7 @@
 // JavaScript Document
 function getproductnovasol() {
 	$.ajax ({
-		url:		"/products/1.json",
+		url:		"/products/" + $('#productid').val() + ".json",
 		type:		"GET",
 		dataType:	"json"
 	}).done (function (resp) {

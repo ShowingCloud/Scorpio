@@ -122,7 +122,6 @@ function displaynone() {
 function getproductcart_show() {       
 	$('#trolley_show_product div[name="trolley_show_product_child"]').each (function() {
 		var productid = $(this).find ('#trolley_show_productid').val();
-		alert (productid);
 
 		$.ajax ({
 			url: "/products/" + productid + ".json",
