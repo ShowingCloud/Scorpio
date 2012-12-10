@@ -345,7 +345,7 @@ function getpointlist() {
 
 function addcart() {
 //	var product = $('#productid').val();
-	var product = "2";
+	var product = "600051-mask";
 
 	if ($('#amount').length == 0 || $('#amount').val().length == 0)
 		var ordernum = "1";

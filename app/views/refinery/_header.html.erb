@@ -55,8 +55,8 @@
 			</ul>
 			<div class="trolley_show_show" id="trolley_show_display">
 				<div style="height:15px"></div>
-				<div id="trolley_show_product">
-					<% if session[:cart] %>
+				<% if session[:cart] %>
+					<div id="trolley_show_product">
 						<% session[:cart].each do |productid, amount| %>
 							<div class="trolley_show_line1" name="trolley_show_product_child">
 								<div><input type="hidden" id="trolley_show_productid" value=<%= "#{productid}" %> /></div>
@@ -73,14 +73,14 @@
 								</div>
 							</div>
 						<% end %>
-					<% end %>
-				</div>
+					</div>
 
-				<div class="trolley_show_line2">
-					<div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
-					<div class="trolley_show_line2_mid">总价</div>
-					<div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
-				</div>                
+					<div class="trolley_show_line2">
+						<div class="trolley_show_line2_left">目前共有<label id="cartamount"><% if session[:cart] %><%= session[:cart].length %><% else %>0<% end %></label>种产品</div>
+						<div class="trolley_show_line2_mid">总价</div>
+						<div class="trolley_show_line2_right">￥<label id="producttotalprice_show"></label></div>
+					</div>                
+				<% end %>
 			</div>
 		</div>
 	</div>
