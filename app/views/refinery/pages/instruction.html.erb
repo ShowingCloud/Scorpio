@@ -34,6 +34,52 @@
     <div class="memsystemtextblue">购物流程</div>  
 	<div class="instructionpic"><%=raw @page.content_for(:purchaseprocess) %></div>
     <div class="memsystemtextblue">关于物流</div>
+    <table width="694" height="113" class="table_fare" border="0"   cellpadding="0"   cellspacing="0">
+      <tr>
+        <td width="129" height="52">支付方式</td>
+        <td width="88">送货时间</td>
+        <td width="232">运送地区</td>
+        <td width="115"><div>购买1盒运费</div><div>（含包装材料费）</div></td>
+        <td width="106" style="border-right:solid #000 1px"><div>购买2盒以上运费</div><div>（含包装材料费）</div></td>
+      </tr>
+      <tr>
+        <td height="53" style="text-align:center;">货到付款</td>
+        <td width="88"><div>1—2天</div><div>4—7天</div><div>7—14天</div></td>
+        <td style="text-align: left"><div>上海</div><div>江苏、浙江、安徽</div><div>其他地区</div></td>
+        <td><div>9元</div><div>20元</div><div>20元</div></td>
+        <td style="border-right:solid #000 1px"><div>免运费</div><div>免运费</div><div>免运费</div></td>
+      </tr>
+    </table>
+    <table width="694" class="table_fare" border="0"   cellpadding="0"   cellspacing="0">
+      <tr>
+        <td width="129">&nbsp;</td>
+        <td width="88">1—3天</td>
+        <td style="text-align:left;" width="226">上海、浙江、江苏、安徽</td>
+        <td width="115">6元</td>
+        <td width="106" style="border-right:solid #000 1px">免运费</td>
+      </tr>
+      <tr>
+        <td style="border-top:none;">网银在线/支付宝</td>
+        <td >3—5天</td>
+        <td style="text-align:left;">山东、福建、江西、北京、天津、重庆、广东</td>
+        <td>8元</td>
+        <td style="border-right:solid #000 1px">免运费</td>
+      </tr>
+      <tr>
+        <td style="border-top:none;">（推荐您选择此方式）</td>
+        <td>5—7天</td>
+        <td style="text-align:left;">四川、山西、辽宁、吉林、陕西、黑龙江、云南、湖北、湖南、河北、河南、广西、海南</td>
+        <td>10元</td>
+        <td style="border-right:solid #000 1px">免运费</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:solid #000 1px;border-top:none;">&nbsp;</td>
+        <td style="border-bottom:solid #000 1px;">5—7天</td>
+        <td style="text-align:left;border-bottom:solid #000 1px;">新疆、西藏、内蒙古、宁夏、甘肃、青海、贵州</td>
+        <td style="border-bottom:solid #000 1px;">15元</td>
+        <td style="border-bottom:solid #000 1px;border-right:solid #000 1px">免运费</td>
+       </tr>
+    </table>
     <div class="textorange"><%=raw @page.content_for(:wuliuline1) %></div>
     <div class="textorange"><%=raw @page.content_for(:wuliuline2) %></div>
     <div class="textorange"><%=raw @page.content_for(:wuliuline3) %></div>
