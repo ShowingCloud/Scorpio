@@ -126,13 +126,13 @@ function getproductcart() {
 		}).done (function (resp) {
 			if (resp != null) {
 				if (resp.product_name)
-					$(this).find ('#product_name').prop ('innerHTML', resp.product_name);
+					$(this).find ('#product_name').html (resp.product_name);
 
 				if (resp.product_pic)
 					$(this).find ('#pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find ('#price').prop ('innerHTML', parseFloat (resp.price).toFixed (2));
+					$(this).find ('#price').html (parseFloat (resp.price).toFixed (2));
 
 				productCount();
 
