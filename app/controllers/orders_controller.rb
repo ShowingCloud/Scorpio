@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
 	# POST /orders
 	def create
-		@order = Order.new params[:order]
+		@order = Order.new params[:order], :without_protection => true
 		@order.save
 		respond_with @order
 	end
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
 		params[:order][:order_id] = params[:id]
 
 		@order = Order.find :first, :conditions => { :order_id => params[:id] }
-		@order.update_attributes params[:order]
+		@order.update_attributes params[:order], :without_protection => true
 		respond_with @order
 	end
 
@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
 
 	# POST /orders/neworder
 	def neworder
-		@order = Order.new params[:order]
+		@order = Order.new params[:order], :without_protection => true
 		@order.save
 		respond_with @order
 	end
@@ -87,18 +87,15 @@ class OrdersController < ApplicationController
 
 	# POST /orders/gotorder
 	def gotorder
-		params[:list].each do |item|
-			@order = Order.find :first, :conditions => { :order_id => item }
-			@order.got_order = 1
-			@order.save
-		end
+		@order = Order.update_all({ :got_order => 1 }, { :order_id => params[:list] }, :without_protection => true)
+		respond_with @order, :location => nil
 	end
 
 
 	# POST /orders/updateorder
 	def updateorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		@order.update_attributes params[:order], :without_protection => true
 		respond_with @order
 	end
 
@@ -106,7 +103,7 @@ class OrdersController < ApplicationController
 	# POST /orders/returnorder
 	def returnorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		@order.update_attributes params[:order], :without_protection => true
 		respond_with @order
 	end
 
@@ -114,7 +111,7 @@ class OrdersController < ApplicationController
 	# POST /orders/statusorder
 	def statusorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		@order.update_attributes params[:order], :without_protection => true
 		respond_with @order
 	end
 
@@ -160,7 +157,7 @@ class OrdersController < ApplicationController
 		}
 
 		if params[:comment]
-			data.update ({ :del_msg => params[:comment] })
+			data[:del_msg] = params[:comment]
 		end
 
 		mokard = Savon.client "http://www.mokard.com/WSV26/PointRequest.asmx?WSDL"

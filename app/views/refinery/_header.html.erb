@@ -55,7 +55,7 @@
 			</ul>
 			<div class="trolley_show_show" id="trolley_show_display">
 				<div style="height:15px"></div>
-				<% if session[:cart] %>
+				<% if session[:cart] and session[:cart].length > 0 %>
 					<div id="trolley_show_product">
 						<% session[:cart].each do |productid, amount| %>
 							<div class="trolley_show_line1" name="trolley_show_product_child">
