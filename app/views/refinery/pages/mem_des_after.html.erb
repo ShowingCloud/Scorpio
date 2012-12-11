@@ -181,7 +181,7 @@
 				    </div>
 				</td>
 				<td width="587">
-				    <div class="mem_basic_info_select_text_after">				
+				    <div class="mem_basic_info_select_text_after" id="selectadd">				
 					</div>	</td>			    
 				
          </tr>
@@ -191,7 +191,7 @@
 				    </div>
 				</td>
 				<td>
-				    <div class="mem_basic_info_select_text_after">				
+				    <div class="mem_basic_info_select_text_after" id="addrname">				
 					</div>	</td>			    
 				
          </tr>	
@@ -201,7 +201,7 @@
 				    </div>
 				</td>
 				<td>
-				    <div class="mem_basic_info_select_text_after">				
+				    <div class="mem_basic_info_select_text_after" id="name">				
 					</div>	</td>			    
 			
          </tr>	
@@ -255,7 +255,7 @@
 				    </div>
 				</td>
 				<td width="597">
-				    <div class="mem_basic_info_select_text_after">				
+				    <div class="mem_basic_info_select_text_after" id="mobtelephone">				
 					</div>	</td>	
 	   </tr>
 	</table>
@@ -299,6 +299,51 @@
 			$(document).ready (function() {openpopup(0, false);});
 		<% end %>
 	</script>
+	<script>
+                 $(document).ready(function() {
+                               $('#contactaddr').editable('http://www.example.com/save.php', { 
+                                         indicator : '<img src="/assets/indicator.gif">',
+                                         tooltip   : '点击编辑，按回车确认'
+                                     });
+			       $('#addrname').editable('http://www.example.com/save.php', { 
+                                         indicator : '<img src="/assets/indicator.gif">',
+                                         tooltip   : '点击编辑，按回车确认'
+                                     });
+			       $('#name').editable('http://www.example.com/save.php', { 
+                                         indicator : '<img src="/assets/indicator.gif">',
+                                         tooltip   : '点击编辑，按回车确认'
+                                     });
+			       $('#mobtelephone').editable('http://www.example.com/save.php', { 
+                                         indicator : '<img src="/assets/indicator.gif">',
+                                         tooltip   : '点击编辑，按回车确认'
+                                     });
+			       $('#selectadd').editable('http://www.example.com/save.php', { 
+                                         data   : " {'公司地址':'公司地址','家庭地址':'家庭地址'}",
+                                         type   : 'select',
+                                         submit : 'OK'
+				     });
+			       $('#province').editable('http://www.example.com/save.php', { 
+                                         loadurl : 'http://www.example.com/json.php',
+                                         type   : 'select',
+                                         submit : 'OK'
+                                     });
+			       $('#city').editable('http://www.example.com/save.php', { 
+                                         loadurl : 'http://www.example.com/json.php',
+                                         type   : 'select',
+                                         submit : 'OK'
+                                     });
+			       $('#district').editable('http://www.example.com/save.php', { 
+                                         loadurl : 'http://www.example.com/json.php',
+                                         type   : 'select',
+                                         submit : 'OK'
+                                     });
+                   });    
+                 
+	
+	
+	
+	</script>
+
 <% end %>
 
 <input type="hidden" id="dontredirect" />
