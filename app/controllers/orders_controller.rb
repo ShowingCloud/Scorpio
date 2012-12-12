@@ -231,8 +231,8 @@ class OrdersController < ApplicationController
 		payment_code = { 1 => 11, 2 => 2 };
 		payment_price = { 1 => 0, 2 => 0 };
 
-		price = payment_price[params[:payment].to_i]]
-		code = payment_code[params[:payment].to_i]]
+		price = payment_price[params[:payment].to_i]
+		code = payment_code[params[:payment].to_i]
 
 		data.update ({
 			:detail => detail.to_json,
