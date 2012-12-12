@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 	# POST /orders
 	def create
 		@order = Order.new params[:order], :without_protection => true
+		@order.got_order = 1
 		@order.save
 		respond_with @order
 	end
@@ -44,6 +45,7 @@ class OrdersController < ApplicationController
 
 		@order = Order.find :first, :conditions => { :order_id => params[:id] }
 		@order.update_attributes params[:order], :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -59,6 +61,7 @@ class OrdersController < ApplicationController
 	# POST /orders/neworder
 	def neworder
 		@order = Order.new params[:order], :without_protection => true
+		@order.got_order = 1
 		@order.save
 		respond_with @order
 	end
@@ -96,6 +99,7 @@ class OrdersController < ApplicationController
 	def updateorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
 		@order.update_attributes params[:order], :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -104,6 +108,7 @@ class OrdersController < ApplicationController
 	def returnorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
 		@order.update_attributes params[:order], :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -112,6 +117,7 @@ class OrdersController < ApplicationController
 	def statusorder
 		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
 		@order.update_attributes params[:order], :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -225,12 +231,16 @@ class OrdersController < ApplicationController
 		payment_code = { 1 => 11, 2 => 2 };
 		payment_price = { 1 => 0, 2 => 0 };
 
+		price = payment_price[params[:payment].to_i]]
+		code = payment_code[params[:payment].to_i]]
+
 		data.update ({
 			:detail => detail.to_json,
-			:payment => payment_code[params[:payment].to_i],
-			:ship => payment_price[params[:payment].to_i],
+			:payment => code,
+			:ship => price,
 			:ship_sched => params[:ship_sched],
-			:expected_total_fee => total_fee + payment_price[params[:payment].to_i]
+			:expected_total_fee => total_fee + price,
+			:got_order => code == 2 ? 0 : 1
 		})
 
 		@order = Order.new data

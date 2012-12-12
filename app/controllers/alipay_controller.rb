@@ -7,10 +7,10 @@ class AlipayController < ApplicationController
 	# GET alipay/pay.json
 	def pay
 
-		order = Order.find :first, :conditions => { :order_id => params[:orderid] }
-		total_fee = order.ship
+		@order = Order.find :first, :conditions => { :order_id => params[:orderid] }
+		total_fee = @order.ship
 
-		ActiveSupport::JSON.decode(order.detail).each do |item|
+		ActiveSupport::JSON.decode(@order.detail).each do |item|
 			total_fee += item["retail"].to_f * item["amount"].to_f
 		end
 
@@ -76,31 +76,32 @@ class AlipayController < ApplicationController
 			redirect_to "/" and return
 		end
 
-		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
-		order.alipay_cb_buyer_email = params[:buyer_email]
-		order.alipay_cb_buyer_id = params[:buyer_id]
-		order.alipay_cb_notify_time = params[:notify_time] && params[:notify_time].to_datetime
-		order.alipay_cb_total_fee = params[:total_fee].to_f
-		order.alipay_cb_trade_no = params[:trade_no]
-		order.alipay_cb_trade_status = params[:trade_status]
+		@order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
+		@order.alipay_cb_buyer_email = params[:buyer_email]
+		@order.alipay_cb_buyer_id = params[:buyer_id]
+		@order.alipay_cb_notify_time = params[:notify_time] && params[:notify_time].to_datetime
+		@order.alipay_cb_total_fee = params[:total_fee].to_f
+		@order.alipay_cb_trade_no = params[:trade_no]
+		@order.alipay_cb_trade_status = params[:trade_status]
 
 		if params[:trade_status] == "TRADE_FINISHED" or params[:trade_status] == "TRADE_SUCCESS"
-			if params[:total_fee].to_f >= order.expected_total_fee
-				order.order_status = 1
-				order.pay_status = 1
-				order.pay_date = Date.today()
-			elsif not order.order_status == 1
-				order.order_status = 11
-				order.pay_status = 11
-				order.pay_date = Date.today()
+			if params[:total_fee].to_f >= @order.expected_total_fee
+				@order.order_status = 1
+				@order.pay_status = 1
+				@order.pay_date = Date.today()
+			elsif not @order.order_status == 1
+				@order.order_status = 11
+				@order.pay_status = 11
+				@order.pay_date = Date.today()
 			end
 
-		elsif not order.order_status == 1
-			order.order_status = 12
-			order.pay_status = 12
+		elsif not @order.order_status == 1
+			@order.order_status = 12
+			@order.pay_status = 12
 		end
 
-		order.save
+		@order.got_order = 0
+		@order.save
 
 		session[:cart] = nil
 
@@ -138,50 +139,50 @@ class AlipayController < ApplicationController
 			redirect_to "/" and return
 		end
 
-		order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
-		order.alipay_nt_notify_time = params[:notify_time] && params[:notify_time].to_datetime
-		order.alipay_nt_trade_no = params[:trade_no]
-		order.alipay_nt_trade_status = params[:trade_status]
-		order.alipay_nt_create_time = params[:gmt_create] && params[:gmt_create].to_datetime
-		order.alipay_nt_pay_time = params[:gmt_payment] && params[:gmt_payment].to_datetime
-		order.alipay_nt_close_time = params[:gmt_close] && params[:gmt_close].to_datetime
-		order.alipay_nt_refund_status = params[:refund_status]
-		order.alipay_nt_refund_time = params[:gmt_refund] && params[:gmt_refund].to_datetime
-		order.alipay_nt_buyer_email = params[:buyer_email]
-		order.alipay_nt_buyer_id = params[:buyer_id]
-		order.alipay_nt_total_fee = params[:total_fee].to_f
-		order.alipay_nt_discount = params[:discount].to_f
+		@order = Order.find :first, :conditions => { :order_id => params[:out_trade_no] }
+		@order.alipay_nt_notify_time = params[:notify_time] && params[:notify_time].to_datetime
+		@order.alipay_nt_trade_no = params[:trade_no]
+		@order.alipay_nt_trade_status = params[:trade_status]
+		@order.alipay_nt_create_time = params[:gmt_create] && params[:gmt_create].to_datetime
+		@order.alipay_nt_pay_time = params[:gmt_payment] && params[:gmt_payment].to_datetime
+		@order.alipay_nt_close_time = params[:gmt_close] && params[:gmt_close].to_datetime
+		@order.alipay_nt_refund_status = params[:refund_status]
+		@order.alipay_nt_refund_time = params[:gmt_refund] && params[:gmt_refund].to_datetime
+		@order.alipay_nt_buyer_email = params[:buyer_email]
+		@order.alipay_nt_buyer_id = params[:buyer_id]
+		@order.alipay_nt_total_fee = params[:total_fee].to_f
+		@order.alipay_nt_discount = params[:discount].to_f
 
 		if params[:trade_status] == "TRADE_FINISHED" or params[:trade_status] == "TRADE_SUCCESS"
-			if params[:total_fee].to_f >= order.expected_total_fee
-				order.order_status = 1
-				order.pay_status = 1
-				order.pay_date = Date.today()
+			if params[:total_fee].to_f >= @order.expected_total_fee
+				@order.order_status = 1
+				@order.pay_status = 1
+				@order.pay_date = Date.today()
 
-				respond_to do |format|
-					format.html { redirect "/pages/50" }
-					format.json { render :text => "success" }
-				end
-
-				order.save
-				return
-
-			elsif not order.order_status == 1
-				order.order_status = 11
-				order.pay_status = 11
-				order.pay_date = Date.today()
+			elsif not @order.order_status == 1
+				@order.order_status = 11
+				@order.pay_status = 11
+				@order.pay_date = Date.today()
 			end
 
-		elsif not order.order_status == 1
-			order.order_status = 12
-			order.pay_status = 12
+		elsif not @order.order_status == 1
+			@order.order_status = 12
+			@order.pay_status = 12
 		end
 
-		order.save
+		@order.got_order = 0
+		@order.save
 
-		respond_to do |format|
-			format.html { redirect "/" }
-			format.json { render :text => "failed" }
+		if @order.pay_status == 1
+			respond_to do |format|
+				format.html { redirect "/pages/50" }
+				format.json { render :text => "success" }
+			end
+		else
+			respond_to do |format|
+				format.html { redirect "/" }
+				format.json { render :text => "failed" }
+			end
 		end
 	end
 
