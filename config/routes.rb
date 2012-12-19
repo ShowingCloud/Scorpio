@@ -49,10 +49,7 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
-  resources :localities do
-	  collection do
-	  end
-  end
+  resources :localities
 
   get '/robots.txt' => 'application#robots'
 
