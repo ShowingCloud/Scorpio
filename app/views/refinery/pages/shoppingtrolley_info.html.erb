@@ -339,6 +339,7 @@ $(document).ready(function() {
 
 function changeProvince(value){
 	document.getElementById("DropCity").options.length = 0;
+	$("#DropCity").append("<option>--请选择--</option>");
 	$.ajax ({
 		url:		"/localities/"+value+".json",
 		type:		"GET",
@@ -359,6 +360,7 @@ function changeProvince(value){
 
 function changeCity(value){
 	document.getElementById("DropArea").options.length = 0;
+	$("#DropArea").append("<option>--请选择--</option>");
 	$.ajax ({
 		url:		"/localities/"+value+".json",
 		type:		"GET",
