@@ -49,6 +49,11 @@ Refinerycms::Application.routes.draw do
 	  end
   end
 
+  resources :localities do
+	  collection do
+	  end
+  end
+
   get '/robots.txt' => 'application#robots'
 
   get 'admin', :to => redirect('/refinery')
