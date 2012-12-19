@@ -80,8 +80,9 @@ class ProductsController < ApplicationController
 
 	# POST /products/updateproduct
 	def updateproduct
-		@product = Product.find :first, :conditions => { :product_id => params[:product][:product_id] }
-		@product.update_attributes params[:product], :without_protection => true
+		productparam = ActiveSupport::JSON.decode(params[:product]).delete_if { |k, v| v == nil }.symbolize_keys
+		@product = Product.find :first, :conditions => { :product_id => productparam[:product_id] }
+		@product.update_attributes productparam, :without_protection => true
 		respond_with @product
 	end
 

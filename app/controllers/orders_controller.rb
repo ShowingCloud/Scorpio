@@ -97,8 +97,9 @@ class OrdersController < ApplicationController
 
 	# POST /orders/updateorder
 	def updateorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order], :without_protection => true
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
 		@order.got_order = 1
 		respond_with @order
 	end
@@ -106,8 +107,9 @@ class OrdersController < ApplicationController
 
 	# POST /orders/returnorder
 	def returnorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order], :without_protection => true
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
 		@order.got_order = 1
 		respond_with @order
 	end
@@ -115,8 +117,9 @@ class OrdersController < ApplicationController
 
 	# POST /orders/statusorder
 	def statusorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order], :without_protection => true
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
 		@order.got_order = 1
 		respond_with @order
 	end
