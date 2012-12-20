@@ -92,19 +92,19 @@
 								</td>
 								<td width="10"> <div class="maohao1">:</div>
 								</td>
-								<td> <select id="DropProvince" style="width: 150px;" onchange="changeProvince(this.options[this.selectedIndex].value)"></select>
+								<td> <select id="DropProvince" style="width: 150px;" onchange="changeProvince(this.options[this.selectedIndex].id)"></select>
 								</td>
 								<td> <div class="mem_basic_info_name_text">城市 </div>
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<select id="DropCity" style="width: 150px;" onchange="changeCity(this.options[this.selectedIndex].value)"></div>
+								<td> <div>：<select id="DropCity" style="width: 150px;" onchange="changeCity(this.options[this.selectedIndex].id)"></div>
 								</td>
 								<td> <div class="mem_basic_info_name_text">区县 </div>
 								</td>
 								<td width="8"> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<select id="DropArea" style="width: 150px;" ></div>
+								<td> <div>：<select id="DropArea" style="width: 150px;" onchange="productCount(this.options[this.selectedIndex].value)"></div>
 								</td>
 							</tr> 
 						</table>  
@@ -279,7 +279,7 @@ function getproductcart() {
 				if (resp.price)
 					$(this).find ('#price').html (parseFloat (resp.price).toFixed (2));
 
-				productCount();
+				productCount(0);
 
 			} else {
 				if (resp.description != null)
@@ -293,7 +293,7 @@ function getproductcart() {
 	});
 }
 
-function productCount(){
+function productCount(value){
 	var total = 0;
 	var price;
 	var amount;
@@ -306,7 +306,10 @@ function productCount(){
 	});
 
 	var payment = $('#payment').val();
-	var shipping = parseFloat (payment_price[payment]);
+
+	var shipping = parseFloat (value)
+
+//	var shipping = parseFloat (payment_price[payment]);
 
 	$('#fare').html (shipping.toFixed (2));
 	$('#producttotalprice').html (total.toFixed (2));
@@ -330,7 +333,7 @@ $(document).ready(function() {
 			if(resp.children[i].sort==-1){
 				continue;
 			}
-			$("#DropProvince").append("<option value="+j+">" + t + "</option>");			
+			$("#DropProvince").append("<option id="+j+">" + t + "</option>");			
 		   }		
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
@@ -353,7 +356,7 @@ function changeProvince(value){
 		for (var i=0; i<resp.children.length ; i++){
 			var t= resp.children[i].name;
 			var j= resp.children[i].id;			
-			$("#DropCity").append("<option value="+j+">" + t + "</option>");			
+			$("#DropCity").append("<option id="+j+">" + t + "</option>");			
 		   }		
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
@@ -376,13 +379,21 @@ function changeCity(value){
 	}).done (function (resp) {
 		for (var i=0; i<resp.children.length ; i++){
 			var t= resp.children[i].name;
-			$("#DropArea").append("<option>" + t + "</option>");			
+			var j= resp.children[i].id;
+			var v;
+			var payment = $('#payment').val();
+			var amount=$('#amount').html();
+			if ( payment==1 && amount==1)
+				v=resp.children[i].freight_paid;
+			if ( payment==2 && amount==1)
+				v=resp.children[i].freight_cod;
+			if ( amount!=1)
+				v=0;			 
+			$("#DropArea").append("<option id=\"" + j + "\" value=\"" + v + "\">" + t + "</option>");			
 		   }		
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
 	                    });
-
-
 }
 
 $(document).ready (getproductcart);
