@@ -315,9 +315,9 @@ function productCount(){
 }
 
 $(document).ready(function() {
-	$("#DropProvince").append("<option>--请选择--</option>");
-	$("#DropCity").append("<option>--请选择--</option>");
-	$("#DropArea").append("<option>--请选择--</option>");
+	$("#DropProvince").html("<option value=0>--请选择--</option>");
+	$("#DropCity").html("<option value=0>--请选择--</option>");
+	$("#DropArea").html("<option value=0>--请选择--</option>");
 	$.ajax ({
 		url:		"/localities/1.json",
 		type:		"GET",
@@ -338,8 +338,12 @@ $(document).ready(function() {
 });
 
 function changeProvince(value){
-	document.getElementById("DropCity").options.length = 0;
-	$("#DropCity").append("<option>--请选择--</option>");
+//	document.getElementById("DropCity").options.length = 0;
+	$("#DropCity").html("<option value=0>--请选择--</option>");
+	if (value == 0){
+		changeCity(value);
+		return;
+	}
 	$.ajax ({
 		url:		"/localities/"+value+".json",
 		type:		"GET",
@@ -353,14 +357,17 @@ function changeProvince(value){
 		   }		
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
-	                    });
+		});
+
 
 
 }
 
 function changeCity(value){
-	document.getElementById("DropArea").options.length = 0;
-	$("#DropArea").append("<option>--请选择--</option>");
+//	document.getElementById("DropArea").options.length = 0;
+	$("#DropArea").html("<option value=0>--请选择--</option>");
+	if (value == 0)
+		return;
 	$.ajax ({
 		url:		"/localities/"+value+".json",
 		type:		"GET",
