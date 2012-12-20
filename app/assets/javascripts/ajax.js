@@ -370,8 +370,6 @@ function addcart() {
 	});
 }
 
-var payment_price = {"1": 0, "2": 0};
-
 function checkout (nextpage) {
 	var detail = {};
 	$('#myTableProduct tr').each (function() {
@@ -383,15 +381,13 @@ function checkout (nextpage) {
 	if (nextpage && detail == {})
 		location.href = "/";
 
-	var payment = $('input[name="paytype"]:checked').val();
-
 	$.ajax ({
 		url:		"/orders/checkout.json",
 		type:		"POST",
 		dataType:	"json",
 		data:		{
 			detail:		JSON.stringify (detail),
-			payment:	payment
+			payment:	$('input[name="paytype"]:checked').val()
 		}
 	}).done (function (resp) {
 		if (parseInt (resp.status) == 1) {
@@ -410,14 +406,8 @@ function createorder() {
 	if ($('#fullname').val().length < 2) {
 		alert ("Please input the name of the receiver");
 		return;
-	} else if ($('#province').val().length < 2) {
-		alert ("Please input your living province");
-		return;
-	} else if ($('#city').val().length < 2) {
-		alert ("Please input your living city");
-		return;
-	} else if ($('#district').val().length < 2) {
-		alert ("Please input your living district");
+	} else if ($('#DropArea option:selected').attr ('id') == 0) {
+		alert ("Please input your living area");
 		return;
 	} else if ($('#contactaddr').val().length < 10) {
 		alert ("Please input your living address");
@@ -454,9 +444,6 @@ function createorder() {
 
 	$.extend (appendhash, detail);
 
-	var payment = $('#payment').val();
-	var expect = $('#expect option:selected').html();
-
 	$.ajax ({
 		url:		"/orders/payment.json",
 		type:		"POST",
@@ -464,15 +451,13 @@ function createorder() {
 		data:		$.extend (appendhash, {
 			del_name:	$('#fullname').val(),
 			del_post:	$('#postcode').val(),
-			del_prov:	$('#province').val(),
-			del_city:	$('#city').val(),
-			del_dist:	$('#district').val(),
+			area_id:	$('#DropArea option:selected').attr ('id'),
 			del_addr:	$('#contactaddr').val(),
 			del_mobile:	$('#telephone').val(),
 			del_email:	$('#email').val(),
 			detail:		JSON.stringify (detail),
-			payment:	payment,
-			ship_sched:	expect
+			payment:	$('#payment').val(),
+			ship_sched:	$('#expect option:selected').html()
 		})
 	}).done (function (resp) {
 		if (parseInt (resp.status) == 1) {

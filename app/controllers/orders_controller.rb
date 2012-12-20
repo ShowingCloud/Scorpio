@@ -192,12 +192,16 @@ class OrdersController < ApplicationController
 			data[:mem_email] = params[:del_email]
 		end
 
+		dist = Locality.find params[:area_id]
+		city = Locality.find dist.parent
+		prov = Locality.find city.parent
+
 		data.update ({
 			:del_name => params[:del_name],
 			:del_post => params[:del_post].to_i,
-			:del_prov => params[:del_prov],
-			:del_city => params[:del_city],
-			:del_dist => params[:del_dist],
+			:del_prov => prov.name,
+			:del_city => city.name,
+			:del_dist => dist.name,
 			:del_addr => params[:del_addr],
 			:del_mobile => params[:del_mobile]
 		})
@@ -205,6 +209,7 @@ class OrdersController < ApplicationController
 		detail = []
 		detail_name = ""
 		total_fee = 0
+		total_amount = 0
 		ActiveSupport::JSON.decode(params[:detail]).each_with_index do |(productid, amount), index|
 			item = {}
 
@@ -220,6 +225,7 @@ class OrdersController < ApplicationController
 			detail.push item
 			detail_name += product.product_name + " * " + amount.to_s + ", "
 			total_fee += product.retail.to_f * amount.to_f
+			total_amount += amount
 		end
 		detail_name = detail_name.slice 0..-3
 
@@ -232,10 +238,15 @@ class OrdersController < ApplicationController
 		end
 
 		payment_code = { 1 => 11, 2 => 2 };
-		payment_price = { 1 => 0, 2 => 0 };
-
-		price = payment_price[params[:payment].to_i]
 		code = payment_code[params[:payment].to_i]
+
+		if total_amount > 1
+			price = 0
+		elsif params[:payment].to_i == 2
+			price = dist.freight_cod
+		else
+			price = dist.freight_paid
+		end
 
 		data.update ({
 			:detail => detail.to_json,
