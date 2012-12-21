@@ -92,19 +92,19 @@
 								</td>
 								<td width="10"> <div class="maohao1">:</div>
 								</td>
-								<td> <select id="DropProvince" style="width: 160px;" onchange="changeProvince(this.options[this.selectedIndex].id)"></select>
+								<td> <select id="DropProvince" style="width: 160px;" onchange="changeProvince ($('option:selected', this).attr ('id').slice (5))"></select>
 								</td>
 								<td> <div class="mem_basic_info_name_text">城市 </div>
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<select id="DropCity" style="width: 154px;" onchange="changeCity(this.options[this.selectedIndex].id)"></div>
+								<td> <div> <select id="DropCity" style="width: 154px;" onchange="changeCity ($('option:selected', this).attr ('id').slice (5))"></div>
 								</td>
 								<td> <div class="mem_basic_info_name_text">区县 </div>
 								</td>
 								<td width="8"> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<select id="DropArea" style="width: 150px;" onchange="productCount(this.options[this.selectedIndex].value)"></div>
+								<td> <div> <select id="DropArea" style="width: 150px;" onchange="productCount ($('option:selected', this).val())"></div>
 								</td>
 							</tr> 
 						</table>  
@@ -253,6 +253,7 @@
 		</div>
 	</div>
 </form>
+
 <% content_for :javascripts do %>
 <script type="text/javascript">
 <% if not session[:login] %>					
@@ -293,11 +294,10 @@ function getproductcart() {
 	});
 }
 
-function productCount(value){
+function productCount (freight){
 	var total = 0;
 	var price;
 	var amount;
-
 	$('#myTableProduct tr').each (function() {
 			price = $(this).find ('#price').html();
 			amount = $(this).find ('#amount').html();
@@ -305,95 +305,84 @@ function productCount(value){
 			total += price * amount;
 	});
 
-	var payment = $('#payment').val();
-
-	var shipping = parseFloat (value)
-
-//	var shipping = parseFloat (payment_price[payment]);
-
+	var shipping = parseFloat (freight)
 	$('#fare').html (shipping.toFixed (2));
 	$('#producttotalprice').html (total.toFixed (2));
 	$('#totalprice').html ((total + shipping).toFixed (2));
-
 }
 
-$(document).ready(function() {
-	$("#DropProvince").html("<option value=0>--请选择--</option>");
-	$("#DropCity").html("<option value=0>--请选择--</option>");
-	$("#DropArea").html("<option value=0>--请选择--</option>");
+$(document).ready (function() {
+	$("#DropProvince").html ("<option id=\"prov_0\" value=\"0\">--请选择--</option>");
+	$("#DropCity").html ("<option id=\"city_0\" value=\"0\">--请选择--</option>");
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
+
 	$.ajax ({
 		url:		"/localities/1.json",
 		type:		"GET",
 		dataType:	"json"
-
 	}).done (function (resp) {
-		for (var i=0; i<resp.children.length ; i++){
-			var t= resp.children[i].name;
-			var j= resp.children[i].id;
-			if(resp.children[i].sort==-1){
+		for (var i = 0; i < resp.children.length; i++) {
+			if (resp.children[i].sort == -1)
 				continue;
-			}
-			$("#DropProvince").append("<option id="+j+">" + t + "</option>");			
-		   }		
+			$("#DropProvince").append ("<option id=\"prov_" + resp.children[i].id + "\">"
+				+ resp.children[i].name + "</option>");
+	   }
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
-	                    });
+	});
 });
 
-function changeProvince(value){
-//	document.getElementById("DropCity").options.length = 0;
-	$("#DropCity").html("<option value=0>--请选择--</option>");
-	if (value == 0){
-		changeCity(value);
+function changeProvince (id) {
+	$("#DropCity").html ("<option id=\"city_0\" value=\"0\">--请选择--</option>");
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
+	productCount (0);
+	
+	if (id == 0)
 		return;
-	}
 	$.ajax ({
-		url:		"/localities/"+value+".json",
+		url:		"/localities/" + id + ".json",
 		type:		"GET",
 		dataType:	"json"
-
 	}).done (function (resp) {
-		for (var i=0; i<resp.children.length ; i++){
-			var t= resp.children[i].name;
-			var j= resp.children[i].id;			
-			$("#DropCity").append("<option id="+j+">" + t + "</option>");			
-		   }		
+		for (var i = 0; i < resp.children.length; i++) {
+			if (resp.children[i].sort == -1)
+				continue;
+			$("#DropCity").append ("<option id=\"city_" + resp.children[i].id + "\">"
+			   	+ resp.children[i].name + "</option>");
+	   }
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
-		});
-
-
-
+	});
 }
 
-function changeCity(value){
-//	document.getElementById("DropArea").options.length = 0;
-	$("#DropArea").html("<option value=0>--请选择--</option>");
-	if (value == 0)
+function changeCity (id) {
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
+	productCount (0);
+
+	if (id == 0)
 		return;
 	$.ajax ({
-		url:		"/localities/"+value+".json",
+		url:		"/localities/" + id + ".json",
 		type:		"GET",
 		dataType:	"json"
-
 	}).done (function (resp) {
-		for (var i=0; i<resp.children.length ; i++){
-			var t= resp.children[i].name;
-			var j= resp.children[i].id;
-			var v;
-			var payment = $('#payment').val();
-			var amount=$('#amount').html();
-			if ( payment==1 && amount==1)
-				v=resp.children[i].freight_paid;
-			if ( payment==2 && amount==1)
-				v=resp.children[i].freight_cod;
-			if ( amount!=1)
-				v=0;			 
-			$("#DropArea").append("<option id=\"" + j + "\" value=\"" + v + "\">" + t + "</option>");			
-		   }		
+		for (var i = 0; i < resp.children.length ; i++) {
+			if (resp.children[i].sort == -1)
+				continue;
+
+			if (parseInt ($('#amount').html()) > 1)
+				var freight = 0;
+			else if (parseInt ($('#payment').val()) == 2)
+				var freight = resp.children[i].freight_cod;
+			else
+				var freight = resp.children[i].freight_paid;
+
+			$("#DropArea").append ("<option id=\"area_" + resp.children[i].id + "\" value=\""
+				+ freight + "\">" + resp.children[i].name + "</option>");
+		}		
 	}).fail (function() {
 		alert ("请求发送失败，请稍候再试");
-	                    });
+	});
 }
 
 $(document).ready (getproductcart);

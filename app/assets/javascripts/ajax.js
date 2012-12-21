@@ -406,7 +406,7 @@ function createorder() {
 	if ($('#fullname').val().length < 2) {
 		alert ("Please input the name of the receiver");
 		return;
-	} else if ($('#DropArea option:selected').attr ('id') == 0) {
+	} else if ($('#DropArea option:selected').attr ('id') == "area_0") {
 		alert ("Please input your living area");
 		return;
 	} else if ($('#contactaddr').val().length < 10) {
@@ -451,7 +451,7 @@ function createorder() {
 		data:		$.extend (appendhash, {
 			del_name:	$('#fullname').val(),
 			del_post:	$('#postcode').val(),
-			area_id:	$('#DropArea option:selected').attr ('id'),
+			area_id:	$('#DropArea option:selected').attr ('id').slice (5),
 			del_addr:	$('#contactaddr').val(),
 			del_mobile:	$('#telephone').val(),
 			del_email:	$('#email').val(),

@@ -137,7 +137,7 @@ function getproductcart_show() {
 					$(this).find ('#trolley_show_pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find ('#trolley_show_price').html (resp.price);
+					$(this).find ('#trolley_show_price').html (parseFloat (resp.price).toFixed (2));
 
 				productCount_show();
 			} else {
@@ -164,7 +164,7 @@ function productCount_show() {
 		total += parseFloat (price) * parseInt (amount);
 	});
 
-	$('#producttotalprice_show').html (total);
+	$('#producttotalprice_show').html (total.toFixed (2));
 }
 
 function headerdel (productid) {

@@ -59,7 +59,7 @@
 						<table width="713" height="75" border="0" id="t_shipping">
 							<tr>
 								<td width="49">运费</td>
-								<td width="90"><input name="paytype" id="payonline" type="radio" value="1" checked onclick=" productCount()"></input>在线支付</td>
+								<td width="90"><input name="paytype" id="payonline" type="radio" value="1" checked></input>在线支付</td>
 								<td width="133">&nbsp;</td>
 								<td width="165">&nbsp;</td>
 								<td class="border" width="91">&nbsp;</td>
@@ -67,7 +67,7 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td><input name="paytype" id="COD" type="radio" value="2" onclick="productCount()"></input>货到付款</td>
+								<td><input name="paytype" id="COD" type="radio" value="2"></input>货到付款</td>
 								<td>&nbsp;</td>
 								<td width="165">&nbsp;</td>
 								<td class="border">&nbsp;</td>
@@ -154,29 +154,16 @@ function productCount() {
 	var amount;
         
 	productCount_show();
-	var item = $('input[name="paytype"]:checked').val();
 	$('#myTableProduct tr').each (function() {
 			price = $(this).find ('#price').html();
 			amount = $(this).find ('#amount').val();
 			$(this).find ('#sum').html ((price * amount).toFixed (2));
 			total += price * amount;
 	});
-	total += parseFloat (payment_price[item]);
 	$('#product_total').html (total.toFixed (2));
 }
 
-function getshipping() {
-	var method;
-
-	$('#t_shipping tr').each (function () {
-			method = $(this).find ('input[name="paytype"]').val();
-			$(this).find ('#price').each (function() {
-				$(this).html (parseFloat (payment_price[method]).toFixed (2));
-			});
-	});
-}
-
-$(document).ready (function () {getproductcart(); getshipping();});
+$(document).ready (getproductcart);
 
 </script>
 <% end %>
