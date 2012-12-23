@@ -1,7 +1,7 @@
 Refinerycms::Application.routes.draw do
 
   resources :memberships do
-	  collection do
+	  member do
 		  post :login
 		  post :verifymobile
 		  post :register
@@ -16,7 +16,7 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :products do
-	  collection do
+	  member do
 		  post :newproduct
 		  get :getproduct
 		  get :fetchallproduct
@@ -25,7 +25,7 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :orders do
-	  collection do
+	  member do
 		  post :neworder
 		  get :getorder
 		  get :fetchallorder
@@ -42,12 +42,14 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :alipay do
-	  collection do
+	  member do
 		  get :pay
 		  get :callback
 		  post :notify
 	  end
   end
+
+  resources :localities
 
   get '/robots.txt' => 'application#robots'
 

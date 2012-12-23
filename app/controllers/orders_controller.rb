@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
 
 	# POST /orders
 	def create
-		@order = Order.new params[:order]
+		@order = Order.new params[:order], :without_protection => true
+		@order.got_order = 1
 		@order.save
 		respond_with @order
 	end
@@ -43,7 +44,8 @@ class OrdersController < ApplicationController
 		params[:order][:order_id] = params[:id]
 
 		@order = Order.find :first, :conditions => { :order_id => params[:id] }
-		@order.update_attributes params[:order]
+		@order.update_attributes params[:order], :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -58,7 +60,8 @@ class OrdersController < ApplicationController
 
 	# POST /orders/neworder
 	def neworder
-		@order = Order.new params[:order]
+		@order = Order.new params[:order], :without_protection => true
+		@order.got_order = 1
 		@order.save
 		respond_with @order
 	end
@@ -87,34 +90,37 @@ class OrdersController < ApplicationController
 
 	# POST /orders/gotorder
 	def gotorder
-		params[:list].each do |item|
-			@order = Order.find :first, :conditions => { :order_id => item }
-			@order.got_order = 1
-			@order.save
-		end
+		@order = Order.update_all({ :got_order => 1 }, { :order_id => params[:list] }, :without_protection => true)
+		respond_with @order, :location => nil
 	end
 
 
 	# POST /orders/updateorder
 	def updateorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
 
 	# POST /orders/returnorder
 	def returnorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
 
 	# POST /orders/statusorder
 	def statusorder
-		@order = Order.find :first, :conditions => { :order_id => params[:order][:order_id] }
-		@order.update_attributes params[:order]
+		orderparam = ActiveSupport::JSON.decode(params[:order]).delete_if { |k, v| v == nil }.symbolize_keys
+		@order = Order.find :first, :conditions => { :order_id => orderparam[:order_id] }
+		@order.update_attributes orderparam, :without_protection => true
+		@order.got_order = 1
 		respond_with @order
 	end
 
@@ -134,7 +140,7 @@ class OrdersController < ApplicationController
 			session[:cart][product] = amount
 		end
 
-		respond_with ret = { :return => "1" }, :location => "/pages/42"
+		respond_with ret = { :status => "1" }, :location => "/pages/42", :status => :created
 	end
 
 
@@ -144,11 +150,11 @@ class OrdersController < ApplicationController
 		session[:payment] = params[:payment]
 
 		if session[:payment] != '1' and session[:payment] != '2'
-			respond_with ret = { :status => "0" }, :location => "/"
+			respond_with ret = { :status => "0" }, :location => "/", :status => :unprocessable_entity
 			return
 		end
 
-		respond_with ret = { :status => "1" }, :location => "/pages/49"
+		respond_with ret = { :status => "1" }, :location => "/pages/49", :status => :created
 	end
 
 
@@ -160,7 +166,7 @@ class OrdersController < ApplicationController
 		}
 
 		if params[:comment]
-			data.update ({ :del_msg => params[:comment] })
+			data[:del_msg] = params[:comment]
 		end
 
 		mokard = Savon.client "http://www.mokard.com/WSV26/PointRequest.asmx?WSDL"
@@ -182,12 +188,20 @@ class OrdersController < ApplicationController
 			:mem_mobile => mem[:mobile]
 		})
 
+		if not data[:mem_email] or data[:mem_email] == ""
+			data[:mem_email] = params[:del_email]
+		end
+
+		dist = Locality.find params[:area_id]
+		city = Locality.find dist.parent
+		prov = Locality.find city.parent
+
 		data.update ({
 			:del_name => params[:del_name],
 			:del_post => params[:del_post].to_i,
-			:del_prov => params[:del_prov],
-			:del_city => params[:del_city],
-			:del_dist => params[:del_dist],
+			:del_prov => prov.name,
+			:del_city => city.name,
+			:del_dist => dist.name,
 			:del_addr => params[:del_addr],
 			:del_mobile => params[:del_mobile]
 		})
@@ -195,6 +209,7 @@ class OrdersController < ApplicationController
 		detail = []
 		detail_name = ""
 		total_fee = 0
+		total_amount = 0
 		ActiveSupport::JSON.decode(params[:detail]).each_with_index do |(productid, amount), index|
 			item = {}
 
@@ -210,26 +225,36 @@ class OrdersController < ApplicationController
 			detail.push item
 			detail_name += product.product_name + " * " + amount.to_s + ", "
 			total_fee += product.retail.to_f * amount.to_f
+			total_amount += amount
 		end
 		detail_name = detail_name.slice 0..-3
 
 		if params[:inv_flag]
-			data.update ({ :inv_flag => params[:inv_flag] })
+			data[:inv_flag] = params[:inv_flag]
 
 			if params[:inv_title]
-				data.update ({ :inv_title => params[:inv_title] })
+				data[:inv_title] = params[:inv_title]
 			end
 		end
 
 		payment_code = { 1 => 11, 2 => 2 };
-		payment_price = { 1 => 0, 2 => 0 };
+		code = payment_code[params[:payment].to_i]
+
+		if total_amount > 1
+			price = 0
+		elsif params[:payment].to_i == 2
+			price = dist.freight_cod
+		else
+			price = dist.freight_paid
+		end
 
 		data.update ({
 			:detail => detail.to_json,
-			:payment => payment_code[params[:payment].to_i],
-			:ship => payment_price[params[:payment].to_i],
+			:payment => code,
+			:ship => price,
 			:ship_sched => params[:ship_sched],
-			:expected_total_fee => total_fee + payment_price[params[:payment].to_i]
+			:expected_total_fee => total_fee + price,
+			:got_order => code == 2 ? 0 : 1
 		})
 
 		@order = Order.new data

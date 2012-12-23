@@ -4,7 +4,7 @@
 	<div id="main">
 		<div class="current_place">
 			<ul>
-				<li><a href="#" target="_self">首页</a>&gt;&gt;</li>
+				<li><a href="/" target="_self">首页</a>&gt;&gt;</li>
 				<li><a href="#" target="_self">我的购物车</a></li>
 				<div style="clear:both"></div>
 			</ul>
@@ -15,20 +15,20 @@
 				<div class="mem_des_before_left_head_img"> &nbsp; </div>
 				<div class="mem_des_before_left_head_title">会员中心</div>
 				<ul>
-					<li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self">个人信息</a></li>
-					<li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E7%A7%AF%E5%88%86" target="_self">我的积分</a></li>
-					<li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E5%85%91%E6%8D%A2%E7%A7%AF%E5%88%86" target="_self">兑换积分</a></li>
-					<li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E5%85%91%E6%8D%A2%E5%8E%86%E5%8F%B2" target="_self">查看兑换历史</a></li>
-					<li class="mem_des_before_left_item"><a href="../%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95" target="_self">我的订单</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%952" target="_self">个人信息</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E7%A7%AF%E5%88%86" target="_self">我的积分</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E5%85%91%E6%8D%A2%E7%A7%AF%E5%88%86" target="_self">兑换积分</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E5%85%91%E6%8D%A2%E5%8E%86%E5%8F%B2" target="_self">查看兑换历史</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E5%9C%A8%E7%BA%BF%E8%B4%AD%E4%B9%B0/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95" target="_self">我的订单</a></li>
 					<li class="mem_des_before_left_item_blue"><a href="#" target="_self">购物车</a></li>
-					<li class="mem_des_before_left_item"><a href="../%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC/%E5%AE%A2-%E6%9C%8D" target="_self">退货</a></li>
+					<li class="mem_des_before_left_item"><a href="/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC/%E5%AE%A2-%E6%9C%8D" target="_self">退货</a></li>
 				</ul>        
 			</div>
 		</div>
 		<!--右侧内容开始-->
 		<div id="mem_des_before_right_total">
 			<div class="trolley_product_right_top">
-				<div class="trolleypic"><img src="../assets/trolley_menu2.jpg" width="713" height="40" /></div>   
+				<div class="trolleypic"><img src="/assets/trolley_menu2.jpg" width="713" height="40" /></div>   
 				<div style="margin-left:21px">
 					<div id="mem_des_before_right_item_title">
 						<ul>
@@ -83,7 +83,8 @@
 								</td>
 							</tr> 
 						</table>
-						<table>
+				
+						<table id="city_select_province_city_area">
 							<tr>
 								<td> <div class="mem_basic_info_name_text">省份 </div>
 								</td>
@@ -91,22 +92,22 @@
 								</td>
 								<td width="10"> <div class="maohao1">:</div>
 								</td>
-								<td> <div><input id="province" class="textblank" type="text" name="address" size="9"></div>
+								<td> <select id="DropProvince" style="width: 160px;" onchange="changeProvince ($('option:selected', this).attr ('id').slice (5))"></select>
 								</td>
 								<td> <div class="mem_basic_info_name_text">城市 </div>
 								</td>
 								<td> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="city" class="textblank" type="text" name="address" size="9"></div>
+								<td> <div> <select id="DropCity" style="width: 154px;" onchange="changeCity ($('option:selected', this).attr ('id').slice (5))"></div>
 								</td>
 								<td> <div class="mem_basic_info_name_text">区县 </div>
 								</td>
-								<td> <div class="mem_basic_info_mark2">*</div>
+								<td width="8"> <div class="mem_basic_info_mark2">*</div>
 								</td>
-								<td> <div>：<input id="district" class="textblank" type="text" name="address" size="7"></div>
+								<td> <div> <select id="DropArea" style="width: 150px;" onchange="productCount ($('option:selected', this).val())"></div>
 								</td>
 							</tr> 
-						</table>
+						</table>  
 						<table>
 							<tr>
 								<td> <div class="mem_basic_info_name_text">送货地址 </div>
@@ -142,6 +143,19 @@
 									<div class="maohao1">:</div>
 								</td>
 								<td> <div><input id="telephone" class="textblank" type="text" name="phone" size="46"></div>
+								</td>
+							</tr> 
+						</table>
+						<table>
+							<tr>
+								<td> <div class="mem_basic_info_name_text">电邮地址</div>
+								</td>
+								<td> <div class="mem_basic_info_mark2">*</div>
+								</td>
+								<td width="40" >
+									<div class="maohao1">:</div>
+								</td>
+								<td> <div><input id="email" class="textblank" type="text" name="mail" size="46"></div>
 								</td>
 							</tr> 
 						</table>
@@ -239,6 +253,7 @@
 		</div>
 	</div>
 </form>
+
 <% content_for :javascripts do %>
 <script type="text/javascript">
 <% if not session[:login] %>					
@@ -246,9 +261,6 @@
 <% end %>
 
 function getproductcart() {       
-	var xmlhttps = [];
-	var resp = {};
-
 	$('#myTableProduct tr').each (function() {
 		var productid = $(this).find ('#productid').val();
 
@@ -260,15 +272,15 @@ function getproductcart() {
 		}).done (function (resp) {
 			if (resp != null) {
 				if (resp.product_name)
-					$(this).find('#product_name').prop('innerHTML', resp.product_name);
+					$(this).find ('#product_name').html (resp.product_name);
 
 				if (resp.product_pic)
-					$(this).find('#pic').prop('src', resp.product_pic);
+					$(this).find ('#pic').prop ('src', resp.product_pic);
 
 				if (resp.price)
-					$(this).find('#price').prop('innerHTML',resp.price);
+					$(this).find ('#price').html (parseFloat (resp.price).toFixed (2));
 
-				productCount();
+				productCount(0);
 
 			} else {
 				if (resp.description != null)
@@ -278,29 +290,99 @@ function getproductcart() {
 			}
 		}).fail (function() {
 			alert("请求发送失败，请稍候再试");
-		})
-	})
+		});
+	});
 }
 
-function productCount(){
+function productCount (freight){
 	var total = 0;
 	var price;
 	var amount;
-
 	$('#myTableProduct tr').each (function() {
 			price = $(this).find ('#price').html();
 			amount = $(this).find ('#amount').html();
-			$(this).find ('#sum').html (price * amount);
+			$(this).find ('#sum').html ((price * amount).toFixed (2));
 			total += price * amount;
-	})
+	});
 
-	var payment = document.getElementById ("payment").value;
-	var shipping = payment_price[payment];
+	var shipping = parseFloat (freight)
+	$('#fare').html (shipping.toFixed (2));
+	$('#producttotalprice').html (total.toFixed (2));
+	$('#totalprice').html ((total + shipping).toFixed (2));
+}
 
-	document.getElementById ("fare").innerHTML = shipping;
-	document.getElementById ("producttotalprice").innerHTML = total;
-	document.getElementById ("totalprice").innerHTML = total + parseFloat (shipping);
+$(document).ready (function() {
+	$("#DropProvince").html ("<option id=\"prov_0\" value=\"0\">--请选择--</option>");
+	$("#DropCity").html ("<option id=\"city_0\" value=\"0\">--请选择--</option>");
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
 
+	$.ajax ({
+		url:		"/localities/1.json",
+		type:		"GET",
+		dataType:	"json"
+	}).done (function (resp) {
+		for (var i = 0; i < resp.children.length; i++) {
+			if (resp.children[i].sort == -1)
+				continue;
+			$("#DropProvince").append ("<option id=\"prov_" + resp.children[i].id + "\">"
+				+ resp.children[i].name + "</option>");
+	   }
+	}).fail (function() {
+		alert ("请求发送失败，请稍候再试");
+	});
+});
+
+function changeProvince (id) {
+	$("#DropCity").html ("<option id=\"city_0\" value=\"0\">--请选择--</option>");
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
+	productCount (0);
+	
+	if (id == 0)
+		return;
+	$.ajax ({
+		url:		"/localities/" + id + ".json",
+		type:		"GET",
+		dataType:	"json"
+	}).done (function (resp) {
+		for (var i = 0; i < resp.children.length; i++) {
+			if (resp.children[i].sort == -1)
+				continue;
+			$("#DropCity").append ("<option id=\"city_" + resp.children[i].id + "\">"
+			   	+ resp.children[i].name + "</option>");
+	   }
+	}).fail (function() {
+		alert ("请求发送失败，请稍候再试");
+	});
+}
+
+function changeCity (id) {
+	$("#DropArea").html ("<option id=\"area_0\" value=\"0\">--请选择--</option>");
+	productCount (0);
+
+	if (id == 0)
+		return;
+	$.ajax ({
+		url:		"/localities/" + id + ".json",
+		type:		"GET",
+		dataType:	"json"
+	}).done (function (resp) {
+		for (var i = 0; i < resp.children.length ; i++) {
+			if (resp.children[i].sort == -1)
+				continue;
+
+			if (parseInt ($('#amount').html()) > 1)
+				var freight = 0;
+			else if (parseInt ($('#payment').val()) == 2)
+				var freight = resp.children[i].freight_cod;
+			else
+				var freight = resp.children[i].freight_paid;
+
+			$("#DropArea").append ("<option id=\"area_" + resp.children[i].id + "\" value=\""
+				+ freight + "\">" + resp.children[i].name + "</option>");
+		}		
+	}).fail (function() {
+		alert ("请求发送失败，请稍候再试");
+	});
 }
 
 $(document).ready (getproductcart);

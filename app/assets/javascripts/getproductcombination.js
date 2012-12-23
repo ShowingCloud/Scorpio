@@ -1,7 +1,7 @@
 // JavaScript Document
 function getproductcombination() {
 	$.ajax ({
-		url:		"/products/2.json",
+		url:		"/products/" + $('#productid').val() + ".json",
 		type:		"GET",
 		dataType:	"json"
 	}).done (function (resp) {

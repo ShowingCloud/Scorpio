@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
 	# POST /products
 	def create
-		@product = Product.new params[:product]
+		@product = Product.new params[:product], :without_protection => true
 		@product.save
 		respond_with @product
 	end
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
 		params[:product][:product_id] = params[:id]
 
 		@product = Product.find :first, :conditions => { :product_id => params[:id] }
-		@product.update_attributes params[:product]
+		@product.update_attributes params[:product], :without_protection => true
 		respond_with @product
 	end
 
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
 
 	# POST /products/newproduct
 	def newproduct
-		@product = Product.new params[:product]
+		@product = Product.new params[:product], :without_protection => true
 		@product.save
 		respond_with @product
 	end
@@ -80,8 +80,9 @@ class ProductsController < ApplicationController
 
 	# POST /products/updateproduct
 	def updateproduct
-		@product = Product.find :first, :conditions => { :product_id => params[:product][:product_id] }
-		@product.update_attributes params[:product]
+		productparam = ActiveSupport::JSON.decode(params[:product]).delete_if { |k, v| v == nil }.symbolize_keys
+		@product = Product.find :first, :conditions => { :product_id => productparam[:product_id] }
+		@product.update_attributes productparam, :without_protection => true
 		respond_with @product
 	end
 
