@@ -1,5 +1,23 @@
 Refinerycms::Application.routes.draw do
 
+  resources :users do
+    resources :usersecrets
+  end
+
+  resources :users do
+    resources :useraddrs
+  end
+
+  resources :users do
+    resources :userinfos
+  end
+
+  resources :users
+
+
+  resources :aliases
+
+
   resources :memberships do
 	  member do
 		  post :login

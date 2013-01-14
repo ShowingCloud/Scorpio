@@ -116,3 +116,7 @@ db/datadump/refinery_users.yml
 db/datadump/refinery_user_plugins.yml
 db/datadump/seo_meta.yml
 db/datadump/sessions.yml
+db/datadump/useraddrs.yml
+db/datadump/userinfos.yml
+db/datadump/users.yml
+db/datadump/usersecrets.yml

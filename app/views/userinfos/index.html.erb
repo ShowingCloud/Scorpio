@@ -1,0 +1,21 @@
+<h1>Listing userinfos</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @userinfos.each do |userinfo| %>
+  <tr>
+    <td><%= link_to 'Show', [userinfo.user, userinfo] %></td>
+    <td><%= link_to 'Edit', edit_user_userinfo_path(userinfo.user, userinfo) %></td>
+    <td><%= link_to 'Destroy', [userinfo.user, userinfo], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Userinfo', new_user_userinfo_path(params[:user_id]) %>

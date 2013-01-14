@@ -1,0 +1,21 @@
+<h1>Listing usersecrets</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usersecrets.each do |usersecret| %>
+  <tr>
+    <td><%= link_to 'Show', [usersecret.user, usersecret] %></td>
+    <td><%= link_to 'Edit', edit_user_usersecret_path(usersecret.user, usersecret) %></td>
+    <td><%= link_to 'Destroy', [usersecret.user, usersecret], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Usersecret', new_user_usersecret_path(params[:user_id]) %>

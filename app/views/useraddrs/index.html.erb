@@ -1,0 +1,21 @@
+<h1>Listing useraddrs</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @useraddrs.each do |useraddr| %>
+  <tr>
+    <td><%= link_to 'Show', [useraddr.user, useraddr] %></td>
+    <td><%= link_to 'Edit', edit_user_useraddr_path(useraddr.user, useraddr) %></td>
+    <td><%= link_to 'Destroy', [useraddr.user, useraddr], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Useraddr', new_user_useraddr_path(params[:user_id]) %>
