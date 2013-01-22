@@ -169,7 +169,7 @@ class OrdersController < ApplicationController
 			data[:del_msg] = params[:comment]
 		end
 
-		mokard = Savon.client "http://www.mokard.com/WSV26/PointRequest.asmx?WSDL"
+		mokard = Savon.client "http://www.mokard.com/WSV26Test/PointRequest.asmx?WSDL"
 		response = mokard.request "GetUserInfo" do
 			http.headers["SOAPAction"] = "http://tempuri.org/GetUserInfo"
 			soap.body = {

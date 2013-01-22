@@ -4,7 +4,7 @@ require 'json'
 
 class MembershipsController < ApplicationController
 
-	WSDL = "http://www.mokard.com/WSV26/PointRequest.asmx?WSDL"
+	WSDL = "http://www.mokard.com/WSV26Test/PointRequest.asmx?WSDL"
 
 
 	def index
