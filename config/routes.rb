@@ -19,7 +19,7 @@ Refinerycms::Application.routes.draw do
 
 
   resources :memberships do
-	  member do
+	  collection do
 		  post :login
 		  post :verifymobile
 		  post :register
@@ -34,7 +34,7 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :products do
-	  member do
+	  collection do
 		  post :newproduct
 		  get :getproduct
 		  get :fetchallproduct
@@ -43,7 +43,7 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :orders do
-	  member do
+	  collection do
 		  post :neworder
 		  get :getorder
 		  get :fetchallorder
@@ -60,7 +60,7 @@ Refinerycms::Application.routes.draw do
   end
 
   resources :alipay do
-	  member do
+	  collection do
 		  get :pay
 		  get :callback
 		  post :notify
