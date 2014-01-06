@@ -19,10 +19,10 @@ Refinery::Core.configure do |config|
   # This activates Google Analytics tracking within your website. If this
   # config is left blank or set to UA-xxxxxx-x then no remote calls to
   # Google Analytics are made.
-  # config.google_analytics_page_code = "UA-xxxxxx-x"
+  config.google_analytics_page_code = "UA-43691779-4"
 
   # Enable/disable authenticity token on frontend
-  # config.authenticity_token_on_frontend = true
+  config.authenticity_token_on_frontend = true
 
   # Hide/show child pages in menu
   # config.menu_hide_children = false
@@ -35,7 +35,7 @@ Refinery::Core.configure do |config|
   # config.dragonfly_secret = "48bfd880201e8d8d14003c72ab6a2198d221b4b5ea1af327"
 
   # Show/hide IE6 upgrade message in the backend
-  # config.ie6_upgrade_message_enabled = true
+  config.ie6_upgrade_message_enabled = true
 
   # Show/hide browser update message in the backend
   # config.show_internet_explorer_upgrade_message = false
