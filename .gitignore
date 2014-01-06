@@ -92,8 +92,6 @@ capybara-*html
 #rvm
 .rvmrc
 .rvmrc.*
-.ruby-version
-.ruby-gemset
 
 # vendor/extensions dummy applications.
 vendor/extensions/**/spec/dummy
@@ -118,3 +116,13 @@ db/datadump/refinery_users.yml
 db/datadump/refinery_user_plugins.yml
 db/datadump/seo_meta.yml
 db/datadump/sessions.yml
+
+# rvm files
+.ruby-version
+.ruby-gemset
+
+# bundle cache
+Gemfile.lock
+
+# Don't upload third-party images
+vendor/assets/images
