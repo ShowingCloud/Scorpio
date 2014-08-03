@@ -52,3 +52,5 @@ gem 'refinerycms-inquiries'#, '~> 2.0.0'
 gem 'yaml_db'
 
 gem 'redis'
+
+gem 'thin'
