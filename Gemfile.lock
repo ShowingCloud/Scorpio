@@ -51,7 +51,8 @@ GEM
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
       warden (~> 1.1.1)
-    dragonfly (0.9.12)
+    dragonfly (0.9.15)
+      multi_json (~> 1.0)
       rack
     erubis (2.7.0)
     eventmachine (1.2.7)
