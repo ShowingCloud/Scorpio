@@ -121,8 +121,5 @@ db/datadump/sessions.yml
 .ruby-version
 .ruby-gemset
 
-# bundle cache
-Gemfile.lock
-
 # Don't upload third-party images
 vendor/assets/images
