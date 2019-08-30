@@ -52,6 +52,8 @@ gem 'refinerycms-inquiries'#, '~> 2.0.0'
 gem 'yaml_db'
 
 gem 'redis'
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 gem 'puma'
 
