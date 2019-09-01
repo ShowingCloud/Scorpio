@@ -256,9 +256,9 @@ DEPENDENCIES
   refinerycms-i18n (~> 2.0.0)
   refinerycms-inquiries
   sass-rails
-  savon (~> 1.0)
+  savon
   uglifier
   yaml_db
 
 BUNDLED WITH
-   1.16.1
+   1.17.3
