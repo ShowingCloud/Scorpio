@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails'#, '~> 3.2.8'
+gem 'rails'#, '~> 3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.14'
+gem 'mysql2', '~> 0.4.10'#, '~> 0.3.14'
 
 gem 'savon'#, '~> 1.0'
 
