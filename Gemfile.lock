@@ -96,7 +96,7 @@ GEM
       activerecord (~> 3.0)
       railties (~> 3.0)
     polyglot (0.3.5)
-    puma (4.3.11)
+    puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (1.4.7)
