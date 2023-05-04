@@ -39,10 +39,10 @@ gem 'jquery-rails'#, '~> 2.0.0', '~> 2.0.0'
 # gem 'debugger'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.9'
+gem 'refinerycms', '~> 4.0.3'
 
 # Specify additional Refinery CMS Extensions here (all optional):
-gem 'refinerycms-i18n', '~> 2.0.0'
+gem 'refinerycms-i18n', '~> 4.0.2'
 #  gem 'refinerycms-blog', '~> 2.0.0'
 gem 'refinerycms-inquiries'#, '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
